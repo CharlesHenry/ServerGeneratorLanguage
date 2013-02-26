@@ -10,7 +10,7 @@ A domain-specific programming language used to easily automatically generate a s
 -------------------------------------------------------------------
 The main files that this project consists of are as follows:
 
-1) Grammar model (Xtext):
+1) Grammar definition (Xtext):
 org.xtext.example.sgl/src/org/xtext/example/mydsl/ServerGeneratorLanguage.xtext
 
 2) Sourcecode generator model (coded in Xtend):
