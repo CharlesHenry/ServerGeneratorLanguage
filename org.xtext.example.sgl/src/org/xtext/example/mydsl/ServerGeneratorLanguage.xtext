@@ -1,0 +1,107 @@
+grammar org.xtext.example.mydsl.ServerGeneratorLanguage with org.eclipse.xtext.common.Terminals
+
+generate serverGeneratorLanguage "http://www.xtext.org/example/mydsl/ServerGeneratorLanguage"
+
+Model:
+  (types+=Type)*;
+
+Type:
+  Server | DomainModel | Gui;
+
+Server:
+	"SERVER" name=ID "{"
+    	"CONFIG" "{"
+    	(Configs+=Config)*
+   			"}"
+  "}";
+
+Config:
+	rootConfig | hostNameConfig | portConfig | logConfig | sqldbConfig | resourceConfig;
+
+rootConfig:
+	"ROOTDIR" "=" name=ID;
+	
+hostNameConfig:
+	"HOSTNAME" "=" name=ID;
+	
+portConfig:
+	"PORT" "=" name=ID;
+	
+logConfig:
+	"LOG" "=" name=ID;
+	
+sqldbConfig:
+	"SQLDB" "=" name=ID;
+	
+resourceConfig:
+	"RESOURCE" "=" name=ID;
+
+
+
+
+DomainModel:
+	"DOMAINMODEL" name=ID "{"
+    	"ENTITYS" "{"
+	    	(Entitys+=Entity)*
+   		"}"
+   		"ENTITY_RELATIONSHIP" "{"
+   			(Relationships+=Relationship)*
+   		"}"	
+	"}";
+
+Entity:
+	name=ID "{"
+		(Attributes+=Attribute)*
+	"}";
+
+Attribute:
+	StringAttribute | NumberAttribute | ImageAttribute;
+
+StringAttribute:
+	"STRING" name=ID;
+
+NumberAttribute:
+	"NUMBER" name=ID;
+
+ImageAttribute:
+	"IMAGE" name=ID;
+
+QualifiedName:
+    ID ('.' ID)*;
+    
+Relationship:
+	name=[Attribute|QualifiedName] "->" refName=[Attribute|QualifiedName];
+
+
+
+Gui:
+	"GUI" name=ID "SERVER" server=[Server|ID] "LAYOUT" layout=INT "{"
+    (GuiFeatures+=GuiFeature)*
+  "}";
+
+GuiFeature:
+	GuiLabel | GuiButton | GuiInput;
+
+GuiLabel:
+	"LABEL" name=ID "TEXT" text=STRING "DATA" element=[Attribute|QualifiedName];
+
+GuiButton:
+	"BUTTON" name=ID "TEXT" text=STRING "FUNCTION" func=STRING;
+
+GuiInput:
+	"INPUT" name=ID "TYPE" "(" inputType=InputType ")";
+
+InputType:
+	StringInput | IntegerInput | IdInput;
+
+StringInput:
+	"string";
+
+IntegerInput:
+	"int";
+
+IdInput:
+	"id";
+
+
+	

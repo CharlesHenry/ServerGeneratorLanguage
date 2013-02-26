@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.xtext.example.sgl/src-gen" editDirectory="/org.xtext.example.sgl.edit/src"
+    editorDirectory="/org.xtext.example.sgl.editor/src" modelPluginID="org.xtext.example.sgl"
+    forceOverwrite="true" modelName="ServerGeneratorLanguage" updateClasspath="false"
+    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" complianceLevel="5.0"
+    copyrightFields="false" editPluginID="org.xtext.example.sgl.edit" editorPluginID="org.xtext.example.sgl.editor"
+    runtimeVersion="2.9">
+  <genPackages prefix="ServerGeneratorLanguage" basePackage="org.xtext.example.mydsl"
+      disposableProviderFactory="true" fileExtensions="sgl" ecorePackage="ServerGeneratorLanguage.ecore#/">
+    <genClasses ecoreClass="ServerGeneratorLanguage.ecore#//Model">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ServerGeneratorLanguage.ecore#//Model/types"/>
+    </genClasses>
+    <genClasses ecoreClass="ServerGeneratorLanguage.ecore#//Type">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ServerGeneratorLanguage.ecore#//Type/name"/>
+    </genClasses>
+    <genClasses ecoreClass="ServerGeneratorLanguage.ecore#//Server">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ServerGeneratorLanguage.ecore#//Server/Configs"/>
+    </genClasses>
+    <genClasses ecoreClass="ServerGeneratorLanguage.ecore#//Config">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ServerGeneratorLanguage.ecore#//Config/name"/>
+    </genClasses>
+    <genClasses ecoreClass="ServerGeneratorLanguage.ecore#//rootConfig"/>
+    <genClasses ecoreClass="ServerGeneratorLanguage.ecore#//hostNameConfig"/>
+    <genClasses ecoreClass="ServerGeneratorLanguage.ecore#//portConfig"/>
+    <genClasses ecoreClass="ServerGeneratorLanguage.ecore#//logConfig"/>
+    <genClasses ecoreClass="ServerGeneratorLanguage.ecore#//sqldbConfig"/>
+    <genClasses ecoreClass="ServerGeneratorLanguage.ecore#//resourceConfig"/>
+    <genClasses ecoreClass="ServerGeneratorLanguage.ecore#//DomainModel">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ServerGeneratorLanguage.ecore#//DomainModel/Entitys"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ServerGeneratorLanguage.ecore#//DomainModel/Relationships"/>
+    </genClasses>
+    <genClasses ecoreClass="ServerGeneratorLanguage.ecore#//Entity">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ServerGeneratorLanguage.ecore#//Entity/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ServerGeneratorLanguage.ecore#//Entity/Attributes"/>
+    </genClasses>
+    <genClasses ecoreClass="ServerGeneratorLanguage.ecore#//Attribute">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ServerGeneratorLanguage.ecore#//Attribute/name"/>
+    </genClasses>
+    <genClasses ecoreClass="ServerGeneratorLanguage.ecore#//StringAttribute"/>
+    <genClasses ecoreClass="ServerGeneratorLanguage.ecore#//NumberAttribute"/>
+    <genClasses ecoreClass="ServerGeneratorLanguage.ecore#//ImageAttribute"/>
+    <genClasses ecoreClass="ServerGeneratorLanguage.ecore#//Relationship">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ServerGeneratorLanguage.ecore#//Relationship/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ServerGeneratorLanguage.ecore#//Relationship/refName"/>
+    </genClasses>
+    <genClasses ecoreClass="ServerGeneratorLanguage.ecore#//Gui">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ServerGeneratorLanguage.ecore#//Gui/server"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ServerGeneratorLanguage.ecore#//Gui/layout"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ServerGeneratorLanguage.ecore#//Gui/GuiFeatures"/>
+    </genClasses>
+    <genClasses ecoreClass="ServerGeneratorLanguage.ecore#//GuiFeature">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ServerGeneratorLanguage.ecore#//GuiFeature/name"/>
+    </genClasses>
+    <genClasses ecoreClass="ServerGeneratorLanguage.ecore#//GuiLabel">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ServerGeneratorLanguage.ecore#//GuiLabel/text"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ServerGeneratorLanguage.ecore#//GuiLabel/element"/>
+    </genClasses>
+    <genClasses ecoreClass="ServerGeneratorLanguage.ecore#//GuiButton">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ServerGeneratorLanguage.ecore#//GuiButton/text"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ServerGeneratorLanguage.ecore#//GuiButton/func"/>
+    </genClasses>
+    <genClasses ecoreClass="ServerGeneratorLanguage.ecore#//GuiInput">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ServerGeneratorLanguage.ecore#//GuiInput/inputType"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
