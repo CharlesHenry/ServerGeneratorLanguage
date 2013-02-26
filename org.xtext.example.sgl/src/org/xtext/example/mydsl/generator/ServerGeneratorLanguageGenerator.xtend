@@ -76,6 +76,7 @@ class ServerGeneratorLanguageGenerator implements IGenerator {
 		    	"Result.java", //class name
 		    	compileResult)
 		
+		
 	}
 	
 	def compileServer(Server s) ''' 
