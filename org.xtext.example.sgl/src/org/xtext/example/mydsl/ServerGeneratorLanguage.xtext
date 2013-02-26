@@ -36,9 +36,6 @@ sqldbConfig:
 resourceConfig:
 	"RESOURCE" "=" name=ID;
 
-
-
-
 DomainModel:
 	"DOMAINMODEL" name=ID "{"
     	"ENTITYS" "{"
@@ -72,8 +69,6 @@ QualifiedName:
 Relationship:
 	name=[Attribute|QualifiedName] "->" refName=[Attribute|QualifiedName];
 
-
-
 Gui:
 	"GUI" name=ID "SERVER" server=[Server|ID] "LAYOUT" layout=INT "{"
     (GuiFeatures+=GuiFeature)*
@@ -102,6 +97,3 @@ IntegerInput:
 
 IdInput:
 	"id";
-
-
-	
