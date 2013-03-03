@@ -53,8 +53,18 @@ class ServerGeneratorLanguageGenerator implements IGenerator {
 		    	"SGLServerApplication.java", //class name
 		    	d.compileSGLServerApplication)
 			}
-
-		
+		for(e: resource.allContents.toIterable.filter(typeof(DomainModel))) {
+		    	fsa.generateFile(
+		    	"src"+"/"+"com"+"/"+"pallyup"+"/"+"sgl"+"/"+"core"+"/"+"entity"+"/"+"dao"+"/"+ //package "com.pallyup.sgl.core.entity.dao"
+		    	"SGLResourceMapper"+".java", //class name
+		    	e.compileSGLResourceMapper)
+			}
+		for(e: resource.allContents.toIterable.filter(typeof(DomainModel))) {
+		    	fsa.generateFile(
+		    	"src"+"/"+"com"+"/"+"pallyup"+"/"+"sgl"+"/"+"server"+"/"+ //package "com.pallyup.sgl.server"
+		    	"SGLServerMain"+".java", //class name
+		    	e.compileSGLServerMain)
+			}
 		
 		
 		fsa.generateFile("src"+"/"+"com"+"/"+"pallyup"+"/"+"sgl"+"/"+"core"+"/"+"data"+"/"+ //package "com.pallyup.sgl.core.data"
@@ -66,9 +76,6 @@ class ServerGeneratorLanguageGenerator implements IGenerator {
 		fsa.generateFile("src"+"/"+"com"+"/"+"pallyup"+"/"+"sgl"+"/"+"core"+"/"+"entity"+"/"+"dao"+"/"+ //package "com.pallyup.sgl.core.entity.dao"
 		    	"SGLDaoException.java", //class name
 		    	compileSGLDaoException)
-		fsa.generateFile("src"+"/"+"com"+"/"+"pallyup"+"/"+"sgl"+"/"+"core"+"/"+"entity"+"/"+"dao"+"/"+ //package "com.pallyup.sgl.core.entity.dao"
-		    	"SGLResourceMapper.java", //class name
-		    	compileSGLResourceMapper)
 		fsa.generateFile("src"+"/"+"com"+"/"+"pallyup"+"/"+"sgl"+"/"+"core"+"/"+"util"+"/"+ //package "com.pallyup.sgl.core.util"
 		    	"CommonUtils.java", //class name
 		    	compileCommonUtils)
@@ -305,9 +312,309 @@ class ServerGeneratorLanguageGenerator implements IGenerator {
 	}
 	'''
 
+	def compileSGLResourceMapper(DomainModel d) '''
+	package com.pallyup.sgl.core.entity.dao;
+	
+	import com.pallyup.sgl.core.util.CommonUtils;
+	import com.pallyup.sgl.server.SGLServerMain;
+	
+		public class SGLResourceMapper {
+		//public static String get<<e.name>>s<<a.name.toFirstUpper>>(int <<e.name>>Id){
+		//	return "http://" + SGLServerMain.getExternalHostAddress() + ":" + SGLServerMain.getExternalHostPort() + "/images/sales/<<e.name>><<a.name.toFirstUpper>>" + <<e.name>>Id + ".gif";
+		//}
+	«FOR e:d.entitys»
+		«FOR a:e.attributes»
+			«IF a.eClass.name.contentEquals('ImageAttribute')»
+					public static String get«e.name»«a.name.toFirstUpper»(String «e.name»«a.name.toFirstUpper»){
+						String url = "http://" + SGLServerMain.getExternalHostAddress() + ":" + SGLServerMain.getExternalHostPort() + "/images/«e.name»/";
+						if(CommonUtils.fileExists(SGLServerMain.get«e.name»«a.name.toFirstUpper»sDirectory() + "thumbs/" + «e.name»«a.name» + ".JPG"))
+							return url + "thumbs/" + «e.name»«a.name.toFirstUpper» + ".JPG";
+						else if(CommonUtils.fileExists(SGLServerMain.get«e.name»«a.name.toFirstUpper»sDirectory() + "thumbs/" + «e.name»«a.name.toFirstUpper» + ".jpg"))
+							return url + "thumbs/" + «e.name»«a.name.toFirstUpper» + ".jpg";
+						return  url + "default/«e.name»«a.name.toFirstUpper»».jpg";
+					}
+					public static String get«e.name»«a.name.toFirstUpper»Large(String «e.name»«a.name.toFirstUpper»Large){
+						String url = "http://" + SGLServerMain.getExternalHostAddress() + ":" + SGLServerMain.getExternalHostPort() + "/images/«e.name»s/";
+						
+						if(CommonUtils.fileExists(SGLServerMain.getLotImagesDirectory() + "large/" + «e.name»«a.name.toFirstUpper» + ".JPG"))
+							return url + "large/" + «e.name»«a.name.toFirstUpper» + ".JPG";
+						else if(CommonUtils.fileExists(SGLServerMain.getLotImagesDirectory() + "large/" + «e.name»«a.name.toFirstUpper» + ".jpg"))
+							return url + "large/" + «e.name»«a.name.toFirstUpper» + ".jpg";
+						
+						return  url + "default/«e.name».jpg";
+					}	
+				«ENDIF»
+		«ENDFOR»
+	«ENDFOR»
+		}
+		
+	'''
 
-
-
+	def compileSGLServerMain(DomainModel d) '''
+	package com.pallyup.sgl.server;
+	
+	import java.io.IOException;
+	import java.net.URL;
+	import java.util.NoSuchElementException;
+	import java.util.logging.FileHandler;
+	import java.util.logging.Level;
+	import java.util.logging.Logger;
+	
+	import org.apache.commons.configuration.Configuration;
+	import org.apache.commons.configuration.ConfigurationException;
+	import org.apache.commons.configuration.PropertiesConfiguration;
+	import org.restlet.Component;
+	import org.restlet.Server;
+	import org.restlet.data.Protocol;
+	import org.restlet.ext.jetty.AjpServerHelper;
+	import org.restlet.ext.jetty.HttpServerHelper;
+	import org.restlet.ext.jetty.JettyServerHelper;
+	import org.restlet.service.LogService;
+	
+	public class SGLServerMain implements SGLServerConstants {
+	
+		private static final Logger LOGGER = Logger
+				.getLogger(SGLServerMain.class.getSimpleName());
+	
+		private static String _CONFIG_WWW_ROOT_DIR_URI;
+		private static String _CONFIG_WWW_LOG;
+		private static int _CONFIG_WWW_PORT;
+		private static String _CONFIG_WWW_SQLITE_DB;
+		private static String _CONFIG_WWW_HOSTNAME;
+		private static String _CONFIG_WWW_SERVER;
+		«FOR e:d.entitys»
+			«FOR a:e.attributes»
+				«IF a.eClass.name.contentEquals('ImageAttribute')»
+					private static String _CONFIG_WWW_«e.name.toUpperCase»_IMAGES;
+				«ENDIF»
+			«ENDFOR»
+		«ENDFOR»
+		«FOR e:d.entitys»
+			«FOR a:e.attributes»
+				«IF a.eClass.name.contentEquals('ImageAttribute')»
+					LOOP OR NOT? 1
+				«ENDIF»
+			«ENDFOR»
+		«ENDFOR»
+		public static void loadServerProperties(String[] args)
+				throws ConfigurationException, NoSuchElementException {
+			// Load properties file
+			Configuration config;
+			if (args.length == 1) {
+				LOGGER.info("Attempting to load properties from specified file passed through args...");
+				config = new PropertiesConfiguration(args[0]);
+			} else {
+				LOGGER.info("Attempting to load default properties file (sgl.properties).");
+				config = new PropertiesConfiguration(
+						SGLServerConstants.CONFIG_DEFAULT_FILE);
+			}
+	
+			_CONFIG_WWW_ROOT_DIR_URI = config
+					.getString(SGLServerConstants.CONFIG_WWW_ROOT_DIR_URI);
+			_CONFIG_WWW_LOG = config
+					.getString(SGLServerConstants.CONFIG_WWW_LOG);
+			_CONFIG_WWW_PORT = config
+					.getInt(SGLServerConstants.CONFIG_WWW_PORT);
+			_CONFIG_WWW_SQLITE_DB = config
+					.getString(SGLServerConstants.CONFIG_WWW_SQLITE_DB);
+			_CONFIG_WWW_HOSTNAME = config
+					.getString(SGLServerConstants.CONFIG_WWW_HOSTNAME);
+			_CONFIG_WWW_SERVER = config
+					.getString(SGLServerConstants.CONFIG_WWW_SERVER);
+			«FOR e:d.entitys»
+				«FOR a:e.attributes»
+					«IF a.eClass.name.contentEquals('ImageAttribute').booleanValue»
+						_CONFIG_WWW_«e.name.toUpperCase»_IMAGES = config
+						.getString(SGLServerConstants.CONFIG_WWW_«e.name.toUpperCase»_IMAGES);
+					«ENDIF»
+				«ENDFOR»
+			«ENDFOR»
+	
+			if (_CONFIG_WWW_ROOT_DIR_URI == null || _CONFIG_WWW_LOG == null
+					|| _CONFIG_WWW_SQLITE_DB == null
+					|| _CONFIG_WWW_LOT_IMAGES == null
+					|| _CONFIG_WWW_HOSTNAME == null
+			«FOR e:d.entitys»
+				«FOR a:e.attributes»
+					«IF a.eClass.name.contentEquals('ImageAttribute').booleanValue»
+						|| _CONFIG_WWW_«e.name»_IMAGES == null
+					«ENDIF»
+				«ENDFOR»
+			«ENDFOR»
+					|| _CONFIG_WWW_SERVER == null) {
+				throw new NoSuchElementException(
+						"Required parameters not defined in the specified properties file.");
+			}
+		}
+	
+		private static void initiliaseComponent(Component serverComponent)
+				throws SecurityException, IOException {
+			// Add support for serving files
+			serverComponent.getClients().add(Protocol.FILE);
+	
+			SGLServerApplication sglServer = new SGLServerApplication(
+					"file://" + _CONFIG_WWW_ROOT_DIR_URI);
+	
+			serverComponent.getDefaultHost().attach(sglServer);
+	
+			LOGGER.info("Finished initialising component");
+		}
+	
+		private static void initialiseLogging(Component serverComponent)
+				throws SecurityException, IOException {
+			// setup logging
+			LogService logService = serverComponent.getLogService();
+			logService.setEnabled(true);
+			logService.setLoggerName("com.naviquan");
+			logService
+					.setLogFormat("{cia} {m} {S} {rp}     AGENT:{cig}    REF:{fp}");
+	
+			FileHandler fh = new FileHandler(_CONFIG_WWW_LOG, true);
+			LOGGER.addHandler(fh);
+			LOGGER.setUseParentHandlers(true);
+	
+		}
+	
+		private static void loadJseServer(Component serverComponent)
+				throws Exception {
+			// Start the component.
+			LOGGER.info("Starting " + SGLServerMain.class.getSimpleName()
+					+ " component using JSE SERVER");
+	
+			serverComponent.getServers().add(Protocol.HTTP, _CONFIG_WWW_PORT);
+	
+			// serverComponent.getContext().getParameters().add("maxThreads",
+			// "512"); //TODO: Temporary solution to threads problem.
+			// serverComponent.getContext().getParameters().add("maxTotalConnections",
+			// "512");
+			serverComponent.start();
+		}
+	
+		private static void loadJettyServer(Component serverComponent)
+				throws Exception {
+			// Start the component
+			LOGGER.info("Starting " + SGLServerMain.class.getSimpleName()
+					+ " component using JETTY SERVER");
+	
+			// create embedding jetty server
+			Server embedingJettyServer = new Server(serverComponent.getContext()
+					.createChildContext(), Protocol.HTTP, _CONFIG_WWW_PORT,
+					serverComponent);
+	
+			// construct and start JettyServerHelper
+			JettyServerHelper jettyServerHelper = new HttpServerHelper(
+					embedingJettyServer);
+			LOGGER.info("**Starting Jetty Server with "
+					+ jettyServerHelper.getMaxThreads() + " threads.**");
+			jettyServerHelper.start();
+	
+			//fakes a call to the to allow initial server error (BindException).
+			try {
+				new URL("http://localhost:" + _CONFIG_WWW_PORT).openConnection().getInputStream().close();
+			} catch (Exception e) {}
+		}
+	
+		@SuppressWarnings("unused")
+		private static void loadJettyAjpServer(Component serverComponent)
+				throws Exception {
+			// Start the component
+			LOGGER.info("Starting " + SGLServerMain.class.getSimpleName()
+					+ " component using JETTY AJP SERVER");
+	
+			// create embedding AJP Server
+			Server embedingJettyAJPServer = new Server(serverComponent.getContext()
+					.createChildContext(), Protocol.HTTP, 8183, serverComponent);
+	
+			// construct and start AjpServerHelper
+			AjpServerHelper ajpServerHelper = new AjpServerHelper(
+					embedingJettyAJPServer);
+			LOGGER.info("**Starting Jetty Ajp Server with "
+					+ ajpServerHelper.getMaxThreads() + " threads.**");
+			ajpServerHelper.start();
+	
+		}
+	
+		public static String getSGLSqliteDbPath() {
+			return _CONFIG_WWW_SQLITE_DB;
+		}
+	
+		public static String getExternalHostAddress() {
+			return _CONFIG_WWW_HOSTNAME;
+		}
+	
+		public static int getExternalHostPort() {
+			return _CONFIG_WWW_PORT;
+		}
+		«FOR e:d.entitys»
+			«FOR a:e.attributes»
+				«IF a.eClass.name.contentEquals('ImageAttribute').booleanValue»
+					public static String get«e.name.toFirstUpper»ImagesDirectory() {
+						return _CONFIG_WWW_«e.name.toUpperCase»_IMAGES;
+					}
+				«ENDIF»
+			«ENDFOR»
+		«ENDFOR»
+		public static void main(String[] args) {
+	
+			// Load properties file ---
+			boolean propertiesLoaded = false;
+			StringBuffer sb = new StringBuffer();
+			try {
+				loadServerProperties(args);
+				LOGGER.info("Successfully loaded properties file.");
+				
+				sb.append("\nRunning SGL Server with the following configuration:\n");
+				sb.append("\tWWW SERVER : " + _CONFIG_WWW_SERVER + "\n");
+				sb.append("\tWWW ROOT DIR: " + _CONFIG_WWW_ROOT_DIR_URI + "\n");
+				sb.append("\tWWW LOG: " + _CONFIG_WWW_LOG + "\n");
+				sb.append("\tWWW PORT: " + _CONFIG_WWW_PORT + "\n");
+				sb.append("\tWWW SQLITE DB: " + _CONFIG_WWW_SQLITE_DB + "\n");
+				sb.append("\tWWW HOSTNAME: " + _CONFIG_WWW_HOSTNAME + "\n");
+				«FOR e:d.entitys»
+					«FOR a:e.attributes»
+						«IF a.eClass.name.contentEquals('ImageAttribute').booleanValue»
+							sb.append("\tWWW «e.name.toUpperCase» IMAGES: " + _CONFIG_WWW_«e.name.toUpperCase»_IMAGES + "\n");
+						«ENDIF»
+					«ENDFOR»
+				«ENDFOR»
+				LOGGER.info(sb.toString());
+				propertiesLoaded = true;
+			} catch (ConfigurationException e) {
+				LOGGER.log(
+						Level.SEVERE,
+						"A Fatal Problem Occured. Could not start server (properties file was not loaded).",
+						e);
+			} catch (NoSuchElementException e) {
+				LOGGER.log(
+						Level.SEVERE,
+						"A Fatal Problem Occured. Could not start server  (could not load required fields from properties file).",
+						e);
+			} finally {
+				if (!propertiesLoaded)
+					System.exit(0);
+			}
+	
+			// Load server ---
+			try {
+				Component serverComponent = new Component();
+				initiliaseComponent(serverComponent);
+				initialiseLogging(serverComponent);
+	
+				if (_CONFIG_WWW_SERVER.equals("jetty"))
+					loadJettyServer(serverComponent);
+				else
+					loadJseServer(serverComponent);
+	
+				LOGGER.info(sb.toString());
+			} catch (IOException e) {
+				LOGGER.log(Level.SEVERE, "A Fatal Problem Occured.", e);
+			} catch (Exception e) {
+				LOGGER.log(Level.SEVERE, "A Fatal Problem Occured.", e);
+			}
+		}
+	}
+		
+	'''
 
 
 
@@ -416,10 +723,6 @@ class ServerGeneratorLanguageGenerator implements IGenerator {
 		}
 	}
 	
-	'''
-
-	def compileSGLResourceMapper() '''
-	Output/Images
 	'''
 
 	def compileCommonUtils() '''

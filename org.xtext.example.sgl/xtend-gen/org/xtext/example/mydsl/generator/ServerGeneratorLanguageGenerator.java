@@ -122,38 +122,48 @@ public class ServerGeneratorLanguageGenerator implements IGenerator {
       CharSequence _compileSGLServerApplication = this.compileSGLServerApplication(d);
       fsa.generateFile(_plus_50, _compileSGLServerApplication);
     }
-    String _plus_51 = ("src" + "/");
-    String _plus_52 = (_plus_51 + "com");
-    String _plus_53 = (_plus_52 + "/");
-    String _plus_54 = (_plus_53 + "pallyup");
-    String _plus_55 = (_plus_54 + "/");
-    String _plus_56 = (_plus_55 + "sgl");
-    String _plus_57 = (_plus_56 + "/");
-    String _plus_58 = (_plus_57 + "core");
-    String _plus_59 = (_plus_58 + "/");
-    String _plus_60 = (_plus_59 + "data");
-    String _plus_61 = (_plus_60 + "/");
-    String _plus_62 = (_plus_61 + 
-      "SGLSqlProvider.java");
-    CharSequence _compileSGLSqlProvider = this.compileSGLSqlProvider();
-    fsa.generateFile(_plus_62, _compileSGLSqlProvider);
-    String _plus_63 = ("src" + "/");
-    String _plus_64 = (_plus_63 + "com");
-    String _plus_65 = (_plus_64 + "/");
-    String _plus_66 = (_plus_65 + "pallyup");
-    String _plus_67 = (_plus_66 + "/");
-    String _plus_68 = (_plus_67 + "sgl");
-    String _plus_69 = (_plus_68 + "/");
-    String _plus_70 = (_plus_69 + "core");
-    String _plus_71 = (_plus_70 + "/");
-    String _plus_72 = (_plus_71 + "entity");
-    String _plus_73 = (_plus_72 + "/");
-    String _plus_74 = (_plus_73 + "dao");
-    String _plus_75 = (_plus_74 + "/");
-    String _plus_76 = (_plus_75 + 
-      "DaoOptions.java");
-    CharSequence _compileDaoOptions = this.compileDaoOptions();
-    fsa.generateFile(_plus_76, _compileDaoOptions);
+    TreeIterator<EObject> _allContents_5 = resource.getAllContents();
+    Iterable<EObject> _iterable_5 = IteratorExtensions.<EObject>toIterable(_allContents_5);
+    Iterable<DomainModel> _filter_5 = Iterables.<DomainModel>filter(_iterable_5, DomainModel.class);
+    for (final DomainModel e_3 : _filter_5) {
+      String _plus_51 = ("src" + "/");
+      String _plus_52 = (_plus_51 + "com");
+      String _plus_53 = (_plus_52 + "/");
+      String _plus_54 = (_plus_53 + "pallyup");
+      String _plus_55 = (_plus_54 + "/");
+      String _plus_56 = (_plus_55 + "sgl");
+      String _plus_57 = (_plus_56 + "/");
+      String _plus_58 = (_plus_57 + "core");
+      String _plus_59 = (_plus_58 + "/");
+      String _plus_60 = (_plus_59 + "entity");
+      String _plus_61 = (_plus_60 + "/");
+      String _plus_62 = (_plus_61 + "dao");
+      String _plus_63 = (_plus_62 + "/");
+      String _plus_64 = (_plus_63 + 
+        "SGLResourceMapper");
+      String _plus_65 = (_plus_64 + ".java");
+      CharSequence _compileSGLResourceMapper = this.compileSGLResourceMapper(e_3);
+      fsa.generateFile(_plus_65, _compileSGLResourceMapper);
+    }
+    TreeIterator<EObject> _allContents_6 = resource.getAllContents();
+    Iterable<EObject> _iterable_6 = IteratorExtensions.<EObject>toIterable(_allContents_6);
+    Iterable<DomainModel> _filter_6 = Iterables.<DomainModel>filter(_iterable_6, DomainModel.class);
+    for (final DomainModel e_4 : _filter_6) {
+      String _plus_66 = ("src" + "/");
+      String _plus_67 = (_plus_66 + "com");
+      String _plus_68 = (_plus_67 + "/");
+      String _plus_69 = (_plus_68 + "pallyup");
+      String _plus_70 = (_plus_69 + "/");
+      String _plus_71 = (_plus_70 + "sgl");
+      String _plus_72 = (_plus_71 + "/");
+      String _plus_73 = (_plus_72 + "server");
+      String _plus_74 = (_plus_73 + "/");
+      String _plus_75 = (_plus_74 + 
+        "SGLServerMain");
+      String _plus_76 = (_plus_75 + ".java");
+      CharSequence _compileSGLServerMain = this.compileSGLServerMain(e_4);
+      fsa.generateFile(_plus_76, _compileSGLServerMain);
+    }
     String _plus_77 = ("src" + "/");
     String _plus_78 = (_plus_77 + "com");
     String _plus_79 = (_plus_78 + "/");
@@ -163,46 +173,46 @@ public class ServerGeneratorLanguageGenerator implements IGenerator {
     String _plus_83 = (_plus_82 + "/");
     String _plus_84 = (_plus_83 + "core");
     String _plus_85 = (_plus_84 + "/");
-    String _plus_86 = (_plus_85 + "entity");
+    String _plus_86 = (_plus_85 + "data");
     String _plus_87 = (_plus_86 + "/");
-    String _plus_88 = (_plus_87 + "dao");
-    String _plus_89 = (_plus_88 + "/");
-    String _plus_90 = (_plus_89 + 
-      "SGLDaoException.java");
-    CharSequence _compileSGLDaoException = this.compileSGLDaoException();
-    fsa.generateFile(_plus_90, _compileSGLDaoException);
-    String _plus_91 = ("src" + "/");
-    String _plus_92 = (_plus_91 + "com");
+    String _plus_88 = (_plus_87 + 
+      "SGLSqlProvider.java");
+    CharSequence _compileSGLSqlProvider = this.compileSGLSqlProvider();
+    fsa.generateFile(_plus_88, _compileSGLSqlProvider);
+    String _plus_89 = ("src" + "/");
+    String _plus_90 = (_plus_89 + "com");
+    String _plus_91 = (_plus_90 + "/");
+    String _plus_92 = (_plus_91 + "pallyup");
     String _plus_93 = (_plus_92 + "/");
-    String _plus_94 = (_plus_93 + "pallyup");
+    String _plus_94 = (_plus_93 + "sgl");
     String _plus_95 = (_plus_94 + "/");
-    String _plus_96 = (_plus_95 + "sgl");
+    String _plus_96 = (_plus_95 + "core");
     String _plus_97 = (_plus_96 + "/");
-    String _plus_98 = (_plus_97 + "core");
+    String _plus_98 = (_plus_97 + "entity");
     String _plus_99 = (_plus_98 + "/");
-    String _plus_100 = (_plus_99 + "entity");
+    String _plus_100 = (_plus_99 + "dao");
     String _plus_101 = (_plus_100 + "/");
-    String _plus_102 = (_plus_101 + "dao");
-    String _plus_103 = (_plus_102 + "/");
-    String _plus_104 = (_plus_103 + 
-      "SGLResourceMapper.java");
-    CharSequence _compileSGLResourceMapper = this.compileSGLResourceMapper();
-    fsa.generateFile(_plus_104, _compileSGLResourceMapper);
-    String _plus_105 = ("src" + "/");
-    String _plus_106 = (_plus_105 + "com");
+    String _plus_102 = (_plus_101 + 
+      "DaoOptions.java");
+    CharSequence _compileDaoOptions = this.compileDaoOptions();
+    fsa.generateFile(_plus_102, _compileDaoOptions);
+    String _plus_103 = ("src" + "/");
+    String _plus_104 = (_plus_103 + "com");
+    String _plus_105 = (_plus_104 + "/");
+    String _plus_106 = (_plus_105 + "pallyup");
     String _plus_107 = (_plus_106 + "/");
-    String _plus_108 = (_plus_107 + "pallyup");
+    String _plus_108 = (_plus_107 + "sgl");
     String _plus_109 = (_plus_108 + "/");
-    String _plus_110 = (_plus_109 + "sgl");
+    String _plus_110 = (_plus_109 + "core");
     String _plus_111 = (_plus_110 + "/");
-    String _plus_112 = (_plus_111 + "core");
+    String _plus_112 = (_plus_111 + "entity");
     String _plus_113 = (_plus_112 + "/");
-    String _plus_114 = (_plus_113 + "util");
+    String _plus_114 = (_plus_113 + "dao");
     String _plus_115 = (_plus_114 + "/");
     String _plus_116 = (_plus_115 + 
-      "CommonUtils.java");
-    CharSequence _compileCommonUtils = this.compileCommonUtils();
-    fsa.generateFile(_plus_116, _compileCommonUtils);
+      "SGLDaoException.java");
+    CharSequence _compileSGLDaoException = this.compileSGLDaoException();
+    fsa.generateFile(_plus_116, _compileSGLDaoException);
     String _plus_117 = ("src" + "/");
     String _plus_118 = (_plus_117 + "com");
     String _plus_119 = (_plus_118 + "/");
@@ -210,14 +220,29 @@ public class ServerGeneratorLanguageGenerator implements IGenerator {
     String _plus_121 = (_plus_120 + "/");
     String _plus_122 = (_plus_121 + "sgl");
     String _plus_123 = (_plus_122 + "/");
-    String _plus_124 = (_plus_123 + "server");
+    String _plus_124 = (_plus_123 + "core");
     String _plus_125 = (_plus_124 + "/");
-    String _plus_126 = (_plus_125 + "core");
+    String _plus_126 = (_plus_125 + "util");
     String _plus_127 = (_plus_126 + "/");
     String _plus_128 = (_plus_127 + 
+      "CommonUtils.java");
+    CharSequence _compileCommonUtils = this.compileCommonUtils();
+    fsa.generateFile(_plus_128, _compileCommonUtils);
+    String _plus_129 = ("src" + "/");
+    String _plus_130 = (_plus_129 + "com");
+    String _plus_131 = (_plus_130 + "/");
+    String _plus_132 = (_plus_131 + "pallyup");
+    String _plus_133 = (_plus_132 + "/");
+    String _plus_134 = (_plus_133 + "sgl");
+    String _plus_135 = (_plus_134 + "/");
+    String _plus_136 = (_plus_135 + "server");
+    String _plus_137 = (_plus_136 + "/");
+    String _plus_138 = (_plus_137 + "core");
+    String _plus_139 = (_plus_138 + "/");
+    String _plus_140 = (_plus_139 + 
       "Result.java");
     CharSequence _compileResult = this.compileResult();
-    fsa.generateFile(_plus_128, _compileResult);
+    fsa.generateFile(_plus_140, _compileResult);
   }
   
   public CharSequence compileServer(final Server s) {
@@ -1053,6 +1078,938 @@ public class ServerGeneratorLanguageGenerator implements IGenerator {
     return _builder;
   }
   
+  public CharSequence compileSGLResourceMapper(final DomainModel d) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("package com.pallyup.sgl.core.entity.dao;");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("import com.pallyup.sgl.core.util.CommonUtils;");
+    _builder.newLine();
+    _builder.append("import com.pallyup.sgl.server.SGLServerMain;");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("public class SGLResourceMapper {");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("//public static String get<<e.name>>s<<a.name.toFirstUpper>>(int <<e.name>>Id){");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("//\treturn \"http://\" + SGLServerMain.getExternalHostAddress() + \":\" + SGLServerMain.getExternalHostPort() + \"/images/sales/<<e.name>><<a.name.toFirstUpper>>\" + <<e.name>>Id + \".gif\";");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("//}");
+    _builder.newLine();
+    {
+      EList<Entity> _entitys = d.getEntitys();
+      for(final Entity e : _entitys) {
+        {
+          EList<Attribute> _attributes = e.getAttributes();
+          for(final Attribute a : _attributes) {
+            {
+              EClass _eClass = a.eClass();
+              String _name = _eClass.getName();
+              boolean _contentEquals = _name.contentEquals("ImageAttribute");
+              if (_contentEquals) {
+                _builder.append("public static String get");
+                String _name_1 = e.getName();
+                _builder.append(_name_1, "");
+                String _name_2 = a.getName();
+                String _firstUpper = StringExtensions.toFirstUpper(_name_2);
+                _builder.append(_firstUpper, "");
+                _builder.append("(String ");
+                String _name_3 = e.getName();
+                _builder.append(_name_3, "");
+                String _name_4 = a.getName();
+                String _firstUpper_1 = StringExtensions.toFirstUpper(_name_4);
+                _builder.append(_firstUpper_1, "");
+                _builder.append("){");
+                _builder.newLineIfNotEmpty();
+                _builder.append("\t");
+                _builder.append("String url = \"http://\" + SGLServerMain.getExternalHostAddress() + \":\" + SGLServerMain.getExternalHostPort() + \"/images/");
+                String _name_5 = e.getName();
+                _builder.append(_name_5, "	");
+                _builder.append("/\";");
+                _builder.newLineIfNotEmpty();
+                _builder.append("\t");
+                _builder.append("if(CommonUtils.fileExists(SGLServerMain.get");
+                String _name_6 = e.getName();
+                _builder.append(_name_6, "	");
+                String _name_7 = a.getName();
+                String _firstUpper_2 = StringExtensions.toFirstUpper(_name_7);
+                _builder.append(_firstUpper_2, "	");
+                _builder.append("sDirectory() + \"thumbs/\" + ");
+                String _name_8 = e.getName();
+                _builder.append(_name_8, "	");
+                String _name_9 = a.getName();
+                _builder.append(_name_9, "	");
+                _builder.append(" + \".JPG\"))");
+                _builder.newLineIfNotEmpty();
+                _builder.append("\t\t");
+                _builder.append("return url + \"thumbs/\" + ");
+                String _name_10 = e.getName();
+                _builder.append(_name_10, "		");
+                String _name_11 = a.getName();
+                String _firstUpper_3 = StringExtensions.toFirstUpper(_name_11);
+                _builder.append(_firstUpper_3, "		");
+                _builder.append(" + \".JPG\";");
+                _builder.newLineIfNotEmpty();
+                _builder.append("\t");
+                _builder.append("else if(CommonUtils.fileExists(SGLServerMain.get");
+                String _name_12 = e.getName();
+                _builder.append(_name_12, "	");
+                String _name_13 = a.getName();
+                String _firstUpper_4 = StringExtensions.toFirstUpper(_name_13);
+                _builder.append(_firstUpper_4, "	");
+                _builder.append("sDirectory() + \"thumbs/\" + ");
+                String _name_14 = e.getName();
+                _builder.append(_name_14, "	");
+                String _name_15 = a.getName();
+                String _firstUpper_5 = StringExtensions.toFirstUpper(_name_15);
+                _builder.append(_firstUpper_5, "	");
+                _builder.append(" + \".jpg\"))");
+                _builder.newLineIfNotEmpty();
+                _builder.append("\t\t");
+                _builder.append("return url + \"thumbs/\" + ");
+                String _name_16 = e.getName();
+                _builder.append(_name_16, "		");
+                String _name_17 = a.getName();
+                String _firstUpper_6 = StringExtensions.toFirstUpper(_name_17);
+                _builder.append(_firstUpper_6, "		");
+                _builder.append(" + \".jpg\";");
+                _builder.newLineIfNotEmpty();
+                _builder.append("\t");
+                _builder.append("return  url + \"default/");
+                String _name_18 = e.getName();
+                _builder.append(_name_18, "	");
+                String _name_19 = a.getName();
+                String _firstUpper_7 = StringExtensions.toFirstUpper(_name_19);
+                _builder.append(_firstUpper_7, "	");
+                _builder.append("\u00BB.jpg\";");
+                _builder.newLineIfNotEmpty();
+                _builder.append("}");
+                _builder.newLine();
+                _builder.append("public static String get");
+                String _name_20 = e.getName();
+                _builder.append(_name_20, "");
+                String _name_21 = a.getName();
+                String _firstUpper_8 = StringExtensions.toFirstUpper(_name_21);
+                _builder.append(_firstUpper_8, "");
+                _builder.append("Large(String ");
+                String _name_22 = e.getName();
+                _builder.append(_name_22, "");
+                String _name_23 = a.getName();
+                String _firstUpper_9 = StringExtensions.toFirstUpper(_name_23);
+                _builder.append(_firstUpper_9, "");
+                _builder.append("Large){");
+                _builder.newLineIfNotEmpty();
+                _builder.append("\t");
+                _builder.append("String url = \"http://\" + SGLServerMain.getExternalHostAddress() + \":\" + SGLServerMain.getExternalHostPort() + \"/images/");
+                String _name_24 = e.getName();
+                _builder.append(_name_24, "	");
+                _builder.append("s/\";");
+                _builder.newLineIfNotEmpty();
+                _builder.append("\t");
+                _builder.newLine();
+                _builder.append("\t");
+                _builder.append("if(CommonUtils.fileExists(SGLServerMain.getLotImagesDirectory() + \"large/\" + ");
+                String _name_25 = e.getName();
+                _builder.append(_name_25, "	");
+                String _name_26 = a.getName();
+                String _firstUpper_10 = StringExtensions.toFirstUpper(_name_26);
+                _builder.append(_firstUpper_10, "	");
+                _builder.append(" + \".JPG\"))");
+                _builder.newLineIfNotEmpty();
+                _builder.append("\t\t");
+                _builder.append("return url + \"large/\" + ");
+                String _name_27 = e.getName();
+                _builder.append(_name_27, "		");
+                String _name_28 = a.getName();
+                String _firstUpper_11 = StringExtensions.toFirstUpper(_name_28);
+                _builder.append(_firstUpper_11, "		");
+                _builder.append(" + \".JPG\";");
+                _builder.newLineIfNotEmpty();
+                _builder.append("\t");
+                _builder.append("else if(CommonUtils.fileExists(SGLServerMain.getLotImagesDirectory() + \"large/\" + ");
+                String _name_29 = e.getName();
+                _builder.append(_name_29, "	");
+                String _name_30 = a.getName();
+                String _firstUpper_12 = StringExtensions.toFirstUpper(_name_30);
+                _builder.append(_firstUpper_12, "	");
+                _builder.append(" + \".jpg\"))");
+                _builder.newLineIfNotEmpty();
+                _builder.append("\t\t");
+                _builder.append("return url + \"large/\" + ");
+                String _name_31 = e.getName();
+                _builder.append(_name_31, "		");
+                String _name_32 = a.getName();
+                String _firstUpper_13 = StringExtensions.toFirstUpper(_name_32);
+                _builder.append(_firstUpper_13, "		");
+                _builder.append(" + \".jpg\";");
+                _builder.newLineIfNotEmpty();
+                _builder.append("\t");
+                _builder.newLine();
+                _builder.append("\t");
+                _builder.append("return  url + \"default/");
+                String _name_33 = e.getName();
+                _builder.append(_name_33, "	");
+                _builder.append(".jpg\";");
+                _builder.newLineIfNotEmpty();
+                _builder.append("}\t");
+                _builder.newLine();
+              }
+            }
+          }
+        }
+      }
+    }
+    _builder.append("\t");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.newLine();
+    return _builder;
+  }
+  
+  public CharSequence compileSGLServerMain(final DomainModel d) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("package com.pallyup.sgl.server;");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("import java.io.IOException;");
+    _builder.newLine();
+    _builder.append("import java.net.URL;");
+    _builder.newLine();
+    _builder.append("import java.util.NoSuchElementException;");
+    _builder.newLine();
+    _builder.append("import java.util.logging.FileHandler;");
+    _builder.newLine();
+    _builder.append("import java.util.logging.Level;");
+    _builder.newLine();
+    _builder.append("import java.util.logging.Logger;");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("import org.apache.commons.configuration.Configuration;");
+    _builder.newLine();
+    _builder.append("import org.apache.commons.configuration.ConfigurationException;");
+    _builder.newLine();
+    _builder.append("import org.apache.commons.configuration.PropertiesConfiguration;");
+    _builder.newLine();
+    _builder.append("import org.restlet.Component;");
+    _builder.newLine();
+    _builder.append("import org.restlet.Server;");
+    _builder.newLine();
+    _builder.append("import org.restlet.data.Protocol;");
+    _builder.newLine();
+    _builder.append("import org.restlet.ext.jetty.AjpServerHelper;");
+    _builder.newLine();
+    _builder.append("import org.restlet.ext.jetty.HttpServerHelper;");
+    _builder.newLine();
+    _builder.append("import org.restlet.ext.jetty.JettyServerHelper;");
+    _builder.newLine();
+    _builder.append("import org.restlet.service.LogService;");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("public class SGLServerMain implements SGLServerConstants {");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("private static final Logger LOGGER = Logger");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append(".getLogger(SGLServerMain.class.getSimpleName());");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("private static String _CONFIG_WWW_ROOT_DIR_URI;");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("private static String _CONFIG_WWW_LOG;");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("private static int _CONFIG_WWW_PORT;");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("private static String _CONFIG_WWW_SQLITE_DB;");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("private static String _CONFIG_WWW_HOSTNAME;");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("private static String _CONFIG_WWW_SERVER;");
+    _builder.newLine();
+    {
+      EList<Entity> _entitys = d.getEntitys();
+      for(final Entity e : _entitys) {
+        {
+          EList<Attribute> _attributes = e.getAttributes();
+          for(final Attribute a : _attributes) {
+            {
+              EClass _eClass = a.eClass();
+              String _name = _eClass.getName();
+              boolean _contentEquals = _name.contentEquals("ImageAttribute");
+              if (_contentEquals) {
+                _builder.append("\t");
+                _builder.append("private static String _CONFIG_WWW_");
+                String _name_1 = e.getName();
+                String _upperCase = _name_1.toUpperCase();
+                _builder.append(_upperCase, "	");
+                _builder.append("_IMAGES;");
+                _builder.newLineIfNotEmpty();
+              }
+            }
+          }
+        }
+      }
+    }
+    {
+      EList<Entity> _entitys_1 = d.getEntitys();
+      for(final Entity e_1 : _entitys_1) {
+        {
+          EList<Attribute> _attributes_1 = e_1.getAttributes();
+          for(final Attribute a_1 : _attributes_1) {
+            {
+              EClass _eClass_1 = a_1.eClass();
+              String _name_2 = _eClass_1.getName();
+              boolean _contentEquals_1 = _name_2.contentEquals("ImageAttribute");
+              if (_contentEquals_1) {
+                _builder.append("\t");
+                _builder.append("LOOP OR NOT? 1");
+                _builder.newLine();
+              }
+            }
+          }
+        }
+      }
+    }
+    _builder.append("\t");
+    _builder.append("public static void loadServerProperties(String[] args)");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("throws ConfigurationException, NoSuchElementException {");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("// Load properties file");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("Configuration config;");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("if (args.length == 1) {");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("LOGGER.info(\"Attempting to load properties from specified file passed through args...\");");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("config = new PropertiesConfiguration(args[0]);");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("} else {");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("LOGGER.info(\"Attempting to load default properties file (sgl.properties).\");");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("config = new PropertiesConfiguration(");
+    _builder.newLine();
+    _builder.append("\t\t\t\t\t");
+    _builder.append("SGLServerConstants.CONFIG_DEFAULT_FILE);");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("_CONFIG_WWW_ROOT_DIR_URI = config");
+    _builder.newLine();
+    _builder.append("\t\t\t\t");
+    _builder.append(".getString(SGLServerConstants.CONFIG_WWW_ROOT_DIR_URI);");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("_CONFIG_WWW_LOG = config");
+    _builder.newLine();
+    _builder.append("\t\t\t\t");
+    _builder.append(".getString(SGLServerConstants.CONFIG_WWW_LOG);");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("_CONFIG_WWW_PORT = config");
+    _builder.newLine();
+    _builder.append("\t\t\t\t");
+    _builder.append(".getInt(SGLServerConstants.CONFIG_WWW_PORT);");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("_CONFIG_WWW_SQLITE_DB = config");
+    _builder.newLine();
+    _builder.append("\t\t\t\t");
+    _builder.append(".getString(SGLServerConstants.CONFIG_WWW_SQLITE_DB);");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("_CONFIG_WWW_HOSTNAME = config");
+    _builder.newLine();
+    _builder.append("\t\t\t\t");
+    _builder.append(".getString(SGLServerConstants.CONFIG_WWW_HOSTNAME);");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("_CONFIG_WWW_SERVER = config");
+    _builder.newLine();
+    _builder.append("\t\t\t\t");
+    _builder.append(".getString(SGLServerConstants.CONFIG_WWW_SERVER);");
+    _builder.newLine();
+    {
+      EList<Entity> _entitys_2 = d.getEntitys();
+      for(final Entity e_2 : _entitys_2) {
+        {
+          EList<Attribute> _attributes_2 = e_2.getAttributes();
+          for(final Attribute a_2 : _attributes_2) {
+            {
+              EClass _eClass_2 = a_2.eClass();
+              String _name_3 = _eClass_2.getName();
+              boolean _contentEquals_2 = _name_3.contentEquals("ImageAttribute");
+              boolean _booleanValue = Boolean.valueOf(_contentEquals_2).booleanValue();
+              if (_booleanValue) {
+                _builder.append("\t\t");
+                _builder.append("_CONFIG_WWW_");
+                String _name_4 = e_2.getName();
+                String _upperCase_1 = _name_4.toUpperCase();
+                _builder.append(_upperCase_1, "		");
+                _builder.append("_IMAGES = config");
+                _builder.newLineIfNotEmpty();
+                _builder.append("\t\t");
+                _builder.append(".getString(SGLServerConstants.CONFIG_WWW_");
+                String _name_5 = e_2.getName();
+                String _upperCase_2 = _name_5.toUpperCase();
+                _builder.append(_upperCase_2, "		");
+                _builder.append("_IMAGES);");
+                _builder.newLineIfNotEmpty();
+              }
+            }
+          }
+        }
+      }
+    }
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("if (_CONFIG_WWW_ROOT_DIR_URI == null || _CONFIG_WWW_LOG == null");
+    _builder.newLine();
+    _builder.append("\t\t\t\t");
+    _builder.append("|| _CONFIG_WWW_SQLITE_DB == null");
+    _builder.newLine();
+    _builder.append("\t\t\t\t");
+    _builder.append("|| _CONFIG_WWW_LOT_IMAGES == null");
+    _builder.newLine();
+    _builder.append("\t\t\t\t");
+    _builder.append("|| _CONFIG_WWW_HOSTNAME == null");
+    _builder.newLine();
+    {
+      EList<Entity> _entitys_3 = d.getEntitys();
+      for(final Entity e_3 : _entitys_3) {
+        {
+          EList<Attribute> _attributes_3 = e_3.getAttributes();
+          for(final Attribute a_3 : _attributes_3) {
+            {
+              EClass _eClass_3 = a_3.eClass();
+              String _name_6 = _eClass_3.getName();
+              boolean _contentEquals_3 = _name_6.contentEquals("ImageAttribute");
+              boolean _booleanValue_1 = Boolean.valueOf(_contentEquals_3).booleanValue();
+              if (_booleanValue_1) {
+                _builder.append("\t\t");
+                _builder.append("|| _CONFIG_WWW_");
+                String _name_7 = e_3.getName();
+                _builder.append(_name_7, "		");
+                _builder.append("_IMAGES == null");
+                _builder.newLineIfNotEmpty();
+              }
+            }
+          }
+        }
+      }
+    }
+    _builder.append("\t\t\t\t");
+    _builder.append("|| _CONFIG_WWW_SERVER == null) {");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("throw new NoSuchElementException(");
+    _builder.newLine();
+    _builder.append("\t\t\t\t\t");
+    _builder.append("\"Required parameters not defined in the specified properties file.\");");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("private static void initiliaseComponent(Component serverComponent)");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("throws SecurityException, IOException {");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("// Add support for serving files");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("serverComponent.getClients().add(Protocol.FILE);");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("SGLServerApplication sglServer = new SGLServerApplication(");
+    _builder.newLine();
+    _builder.append("\t\t\t\t");
+    _builder.append("\"file://\" + _CONFIG_WWW_ROOT_DIR_URI);");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("serverComponent.getDefaultHost().attach(sglServer);");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("LOGGER.info(\"Finished initialising component\");");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("private static void initialiseLogging(Component serverComponent)");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("throws SecurityException, IOException {");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("// setup logging");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("LogService logService = serverComponent.getLogService();");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("logService.setEnabled(true);");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("logService.setLoggerName(\"com.naviquan\");");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("logService");
+    _builder.newLine();
+    _builder.append("\t\t\t\t");
+    _builder.append(".setLogFormat(\"{cia} {m} {S} {rp}     AGENT:{cig}    REF:{fp}\");");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("FileHandler fh = new FileHandler(_CONFIG_WWW_LOG, true);");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("LOGGER.addHandler(fh);");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("LOGGER.setUseParentHandlers(true);");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("private static void loadJseServer(Component serverComponent)");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("throws Exception {");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("// Start the component.");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("LOGGER.info(\"Starting \" + SGLServerMain.class.getSimpleName()");
+    _builder.newLine();
+    _builder.append("\t\t\t\t");
+    _builder.append("+ \" component using JSE SERVER\");");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("serverComponent.getServers().add(Protocol.HTTP, _CONFIG_WWW_PORT);");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("// serverComponent.getContext().getParameters().add(\"maxThreads\",");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("// \"512\"); //TODO: Temporary solution to threads problem.");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("// serverComponent.getContext().getParameters().add(\"maxTotalConnections\",");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("// \"512\");");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("serverComponent.start();");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("private static void loadJettyServer(Component serverComponent)");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("throws Exception {");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("// Start the component");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("LOGGER.info(\"Starting \" + SGLServerMain.class.getSimpleName()");
+    _builder.newLine();
+    _builder.append("\t\t\t\t");
+    _builder.append("+ \" component using JETTY SERVER\");");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("// create embedding jetty server");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("Server embedingJettyServer = new Server(serverComponent.getContext()");
+    _builder.newLine();
+    _builder.append("\t\t\t\t");
+    _builder.append(".createChildContext(), Protocol.HTTP, _CONFIG_WWW_PORT,");
+    _builder.newLine();
+    _builder.append("\t\t\t\t");
+    _builder.append("serverComponent);");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("// construct and start JettyServerHelper");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("JettyServerHelper jettyServerHelper = new HttpServerHelper(");
+    _builder.newLine();
+    _builder.append("\t\t\t\t");
+    _builder.append("embedingJettyServer);");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("LOGGER.info(\"**Starting Jetty Server with \"");
+    _builder.newLine();
+    _builder.append("\t\t\t\t");
+    _builder.append("+ jettyServerHelper.getMaxThreads() + \" threads.**\");");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("jettyServerHelper.start();");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("//fakes a call to the to allow initial server error (BindException).");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("try {");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("new URL(\"http://localhost:\" + _CONFIG_WWW_PORT).openConnection().getInputStream().close();");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("} catch (Exception e) {}");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("@SuppressWarnings(\"unused\")");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("private static void loadJettyAjpServer(Component serverComponent)");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("throws Exception {");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("// Start the component");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("LOGGER.info(\"Starting \" + SGLServerMain.class.getSimpleName()");
+    _builder.newLine();
+    _builder.append("\t\t\t\t");
+    _builder.append("+ \" component using JETTY AJP SERVER\");");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("// create embedding AJP Server");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("Server embedingJettyAJPServer = new Server(serverComponent.getContext()");
+    _builder.newLine();
+    _builder.append("\t\t\t\t");
+    _builder.append(".createChildContext(), Protocol.HTTP, 8183, serverComponent);");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("// construct and start AjpServerHelper");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("AjpServerHelper ajpServerHelper = new AjpServerHelper(");
+    _builder.newLine();
+    _builder.append("\t\t\t\t");
+    _builder.append("embedingJettyAJPServer);");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("LOGGER.info(\"**Starting Jetty Ajp Server with \"");
+    _builder.newLine();
+    _builder.append("\t\t\t\t");
+    _builder.append("+ ajpServerHelper.getMaxThreads() + \" threads.**\");");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("ajpServerHelper.start();");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("public static String getSGLSqliteDbPath() {");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("return _CONFIG_WWW_SQLITE_DB;");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("public static String getExternalHostAddress() {");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("return _CONFIG_WWW_HOSTNAME;");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("public static int getExternalHostPort() {");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("return _CONFIG_WWW_PORT;");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("}");
+    _builder.newLine();
+    {
+      EList<Entity> _entitys_4 = d.getEntitys();
+      for(final Entity e_4 : _entitys_4) {
+        {
+          EList<Attribute> _attributes_4 = e_4.getAttributes();
+          for(final Attribute a_4 : _attributes_4) {
+            {
+              EClass _eClass_4 = a_4.eClass();
+              String _name_8 = _eClass_4.getName();
+              boolean _contentEquals_4 = _name_8.contentEquals("ImageAttribute");
+              boolean _booleanValue_2 = Boolean.valueOf(_contentEquals_4).booleanValue();
+              if (_booleanValue_2) {
+                _builder.append("\t");
+                _builder.append("public static String get");
+                String _name_9 = e_4.getName();
+                String _firstUpper = StringExtensions.toFirstUpper(_name_9);
+                _builder.append(_firstUpper, "	");
+                _builder.append("ImagesDirectory() {");
+                _builder.newLineIfNotEmpty();
+                _builder.append("\t");
+                _builder.append("\t");
+                _builder.append("return _CONFIG_WWW_");
+                String _name_10 = e_4.getName();
+                String _upperCase_3 = _name_10.toUpperCase();
+                _builder.append(_upperCase_3, "		");
+                _builder.append("_IMAGES;");
+                _builder.newLineIfNotEmpty();
+                _builder.append("\t");
+                _builder.append("}");
+                _builder.newLine();
+              }
+            }
+          }
+        }
+      }
+    }
+    _builder.append("\t");
+    _builder.append("public static void main(String[] args) {");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("// Load properties file ---");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("boolean propertiesLoaded = false;");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("StringBuffer sb = new StringBuffer();");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("try {");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("loadServerProperties(args);");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("LOGGER.info(\"Successfully loaded properties file.\");");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("sb.append(\"\\nRunning SGL Server with the following configuration:\\n\");");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("sb.append(\"\\tWWW SERVER : \" + _CONFIG_WWW_SERVER + \"\\n\");");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("sb.append(\"\\tWWW ROOT DIR: \" + _CONFIG_WWW_ROOT_DIR_URI + \"\\n\");");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("sb.append(\"\\tWWW LOG: \" + _CONFIG_WWW_LOG + \"\\n\");");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("sb.append(\"\\tWWW PORT: \" + _CONFIG_WWW_PORT + \"\\n\");");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("sb.append(\"\\tWWW SQLITE DB: \" + _CONFIG_WWW_SQLITE_DB + \"\\n\");");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("sb.append(\"\\tWWW HOSTNAME: \" + _CONFIG_WWW_HOSTNAME + \"\\n\");");
+    _builder.newLine();
+    {
+      EList<Entity> _entitys_5 = d.getEntitys();
+      for(final Entity e_5 : _entitys_5) {
+        {
+          EList<Attribute> _attributes_5 = e_5.getAttributes();
+          for(final Attribute a_5 : _attributes_5) {
+            {
+              EClass _eClass_5 = a_5.eClass();
+              String _name_11 = _eClass_5.getName();
+              boolean _contentEquals_5 = _name_11.contentEquals("ImageAttribute");
+              boolean _booleanValue_3 = Boolean.valueOf(_contentEquals_5).booleanValue();
+              if (_booleanValue_3) {
+                _builder.append("\t\t\t");
+                _builder.append("sb.append(\"\\tWWW ");
+                String _name_12 = e_5.getName();
+                String _upperCase_4 = _name_12.toUpperCase();
+                _builder.append(_upperCase_4, "			");
+                _builder.append(" IMAGES: \" + _CONFIG_WWW_");
+                String _name_13 = e_5.getName();
+                String _upperCase_5 = _name_13.toUpperCase();
+                _builder.append(_upperCase_5, "			");
+                _builder.append("_IMAGES + \"\\n\");");
+                _builder.newLineIfNotEmpty();
+              }
+            }
+          }
+        }
+      }
+    }
+    _builder.append("\t\t\t");
+    _builder.append("LOGGER.info(sb.toString());");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("propertiesLoaded = true;");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("} catch (ConfigurationException e) {");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("LOGGER.log(");
+    _builder.newLine();
+    _builder.append("\t\t\t\t\t");
+    _builder.append("Level.SEVERE,");
+    _builder.newLine();
+    _builder.append("\t\t\t\t\t");
+    _builder.append("\"A Fatal Problem Occured. Could not start server (properties file was not loaded).\",");
+    _builder.newLine();
+    _builder.append("\t\t\t\t\t");
+    _builder.append("e);");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("} catch (NoSuchElementException e) {");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("LOGGER.log(");
+    _builder.newLine();
+    _builder.append("\t\t\t\t\t");
+    _builder.append("Level.SEVERE,");
+    _builder.newLine();
+    _builder.append("\t\t\t\t\t");
+    _builder.append("\"A Fatal Problem Occured. Could not start server  (could not load required fields from properties file).\",");
+    _builder.newLine();
+    _builder.append("\t\t\t\t\t");
+    _builder.append("e);");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("} finally {");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("if (!propertiesLoaded)");
+    _builder.newLine();
+    _builder.append("\t\t\t\t");
+    _builder.append("System.exit(0);");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("// Load server ---");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("try {");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("Component serverComponent = new Component();");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("initiliaseComponent(serverComponent);");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("initialiseLogging(serverComponent);");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("if (_CONFIG_WWW_SERVER.equals(\"jetty\"))");
+    _builder.newLine();
+    _builder.append("\t\t\t\t");
+    _builder.append("loadJettyServer(serverComponent);");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("else");
+    _builder.newLine();
+    _builder.append("\t\t\t\t");
+    _builder.append("loadJseServer(serverComponent);");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("LOGGER.info(sb.toString());");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("} catch (IOException e) {");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("LOGGER.log(Level.SEVERE, \"A Fatal Problem Occured.\", e);");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("} catch (Exception e) {");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("LOGGER.log(Level.SEVERE, \"A Fatal Problem Occured.\", e);");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.newLine();
+    return _builder;
+  }
+  
   public CharSequence compileSGLSqlProvider() {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("\t");
@@ -1272,13 +2229,6 @@ public class ServerGeneratorLanguageGenerator implements IGenerator {
     _builder.newLine();
     _builder.append("}");
     _builder.newLine();
-    _builder.newLine();
-    return _builder;
-  }
-  
-  public CharSequence compileSGLResourceMapper() {
-    StringConcatenation _builder = new StringConcatenation();
-    _builder.append("Output/Images");
     _builder.newLine();
     return _builder;
   }
