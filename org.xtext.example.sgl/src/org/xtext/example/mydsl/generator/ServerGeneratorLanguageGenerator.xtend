@@ -39,13 +39,13 @@ class ServerGeneratorLanguageGenerator implements IGenerator {
 		    	fsa.generateFile(
 		    	"src"+"/"+"com"+"/"+"pallyup"+"/"+"sgl"+"/"+"server"+"/"+"resource"+"/"+ //package "com.pallyup.sgl.server.resource"
 		    	e.name.toFirstUpper+"Resource"+".java", //class name
-		    	e.compileResource1)
+		    	e.compileEntityResource)
 		    }
 		for(e: resource.allContents.toIterable.filter(typeof(Entity))) {
 		    	fsa.generateFile(
 		    	"src"+"/"+"com"+"/"+"pallyup"+"/"+"sgl"+"/"+"server"+"/"+"resource"+"/"+ //package "com.pallyup.sgl.server.resource"
 		    	e.name.toFirstUpper+"sResource"+".java", //class name
-		    	e.compileResource2)
+		    	e.compileEntityResources)
 			}
 		for(d: resource.allContents.toIterable.filter(typeof(DomainModel))) {
 		    	fsa.generateFile(
@@ -64,6 +64,12 @@ class ServerGeneratorLanguageGenerator implements IGenerator {
 		    	"src"+"/"+"com"+"/"+"pallyup"+"/"+"sgl"+"/"+"server"+"/"+ //package "com.pallyup.sgl.server"
 		    	"SGLServerMain"+".java", //class name
 		    	e.compileSGLServerMain)
+			}
+		for(e: resource.allContents.toIterable.filter(typeof(DomainModel))) {
+		    	fsa.generateFile(
+		    	"src"+"/"+"com"+"/"+"pallyup"+"/"+"sgl"+"/"+"server"+"/"+ //package "com.pallyup.sgl.server"
+		    	"SGLServerConstants"+".java", //class name
+		    	e.compileSGLServerConstants)
 			}
 		
 		
@@ -179,8 +185,8 @@ class ServerGeneratorLanguageGenerator implements IGenerator {
 		}
 	}
 		''' 
-
-	def compileResource1(Entity e) '''
+		
+	def compileEntityResource(Entity e) '''
 	package com.pallyup.sgl.server.resource;
 
 	import java.util.logging.Level;
@@ -191,9 +197,9 @@ class ServerGeneratorLanguageGenerator implements IGenerator {
 	import org.restlet.resource.ServerResource;
 	
 	import com.pallyup.sgl.server.core.Result;
-	import com.pallyup.sql.core.entity.«e.name.toFirstUpper»;
-	import com.pallyup.sql.core.entity.dao.«e.name.toFirstUpper»Dao;
-	import com.pallyup.sql.core.entity.dao.SGLDaoException;
+	import com.pallyup.sgl.core.entity.«e.name.toFirstUpper»;
+	import com.pallyup.sgl.core.entity.dao.«e.name.toFirstUpper»Dao;
+	import com.pallyup.sgl.core.entity.dao.SGLDaoException;
 
 	public class «e.name.toFirstUpper»Resource extends ServerResource {
 
@@ -246,7 +252,7 @@ class ServerGeneratorLanguageGenerator implements IGenerator {
 }
 	'''
 
-	def compileResource2(Entity e) '''
+	def compileEntityResources(Entity e) '''
 	Output
 	'''
 
@@ -629,7 +635,7 @@ class ServerGeneratorLanguageGenerator implements IGenerator {
 	«FOR e:d.entitys»
 		«FOR a:e.attributes»
 			«IF a.eClass.name.contentEquals('ImageAttribute')»
-				//public static final String CONFIG_WWW_«e.name.toUpperCase»_IMAGES = "sgl.www.«e.name»_images";»
+				//public static final String CONFIG_WWW_«e.name.toUpperCase»_IMAGES = "sgl.www.«e.name»_images";
 			«ENDIF»
 		«ENDFOR»
 	«ENDFOR»

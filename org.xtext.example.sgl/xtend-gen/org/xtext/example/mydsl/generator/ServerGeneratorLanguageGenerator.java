@@ -78,8 +78,8 @@ public class ServerGeneratorLanguageGenerator implements IGenerator {
       String _plus_24 = (_plus_23 + _firstUpper_1);
       String _plus_25 = (_plus_24 + "Resource");
       String _plus_26 = (_plus_25 + ".java");
-      CharSequence _compileResource1 = this.compileResource1(e_1);
-      fsa.generateFile(_plus_26, _compileResource1);
+      CharSequence _compileEntityResource = this.compileEntityResource(e_1);
+      fsa.generateFile(_plus_26, _compileEntityResource);
     }
     TreeIterator<EObject> _allContents_3 = resource.getAllContents();
     Iterable<EObject> _iterable_3 = IteratorExtensions.<EObject>toIterable(_allContents_3);
@@ -101,8 +101,8 @@ public class ServerGeneratorLanguageGenerator implements IGenerator {
       String _plus_38 = (_plus_37 + _firstUpper_2);
       String _plus_39 = (_plus_38 + "sResource");
       String _plus_40 = (_plus_39 + ".java");
-      CharSequence _compileResource2 = this.compileResource2(e_2);
-      fsa.generateFile(_plus_40, _compileResource2);
+      CharSequence _compileEntityResources = this.compileEntityResources(e_2);
+      fsa.generateFile(_plus_40, _compileEntityResources);
     }
     TreeIterator<EObject> _allContents_4 = resource.getAllContents();
     Iterable<EObject> _iterable_4 = IteratorExtensions.<EObject>toIterable(_allContents_4);
@@ -164,85 +164,104 @@ public class ServerGeneratorLanguageGenerator implements IGenerator {
       CharSequence _compileSGLServerMain = this.compileSGLServerMain(e_4);
       fsa.generateFile(_plus_76, _compileSGLServerMain);
     }
-    String _plus_77 = ("src" + "/");
-    String _plus_78 = (_plus_77 + "com");
-    String _plus_79 = (_plus_78 + "/");
-    String _plus_80 = (_plus_79 + "pallyup");
-    String _plus_81 = (_plus_80 + "/");
-    String _plus_82 = (_plus_81 + "sgl");
-    String _plus_83 = (_plus_82 + "/");
-    String _plus_84 = (_plus_83 + "core");
-    String _plus_85 = (_plus_84 + "/");
-    String _plus_86 = (_plus_85 + "data");
-    String _plus_87 = (_plus_86 + "/");
-    String _plus_88 = (_plus_87 + 
+    TreeIterator<EObject> _allContents_7 = resource.getAllContents();
+    Iterable<EObject> _iterable_7 = IteratorExtensions.<EObject>toIterable(_allContents_7);
+    Iterable<DomainModel> _filter_7 = Iterables.<DomainModel>filter(_iterable_7, DomainModel.class);
+    for (final DomainModel e_5 : _filter_7) {
+      String _plus_77 = ("src" + "/");
+      String _plus_78 = (_plus_77 + "com");
+      String _plus_79 = (_plus_78 + "/");
+      String _plus_80 = (_plus_79 + "pallyup");
+      String _plus_81 = (_plus_80 + "/");
+      String _plus_82 = (_plus_81 + "sgl");
+      String _plus_83 = (_plus_82 + "/");
+      String _plus_84 = (_plus_83 + "server");
+      String _plus_85 = (_plus_84 + "/");
+      String _plus_86 = (_plus_85 + 
+        "SGLServerConstants");
+      String _plus_87 = (_plus_86 + ".java");
+      CharSequence _compileSGLServerConstants = this.compileSGLServerConstants(e_5);
+      fsa.generateFile(_plus_87, _compileSGLServerConstants);
+    }
+    String _plus_88 = ("src" + "/");
+    String _plus_89 = (_plus_88 + "com");
+    String _plus_90 = (_plus_89 + "/");
+    String _plus_91 = (_plus_90 + "pallyup");
+    String _plus_92 = (_plus_91 + "/");
+    String _plus_93 = (_plus_92 + "sgl");
+    String _plus_94 = (_plus_93 + "/");
+    String _plus_95 = (_plus_94 + "core");
+    String _plus_96 = (_plus_95 + "/");
+    String _plus_97 = (_plus_96 + "data");
+    String _plus_98 = (_plus_97 + "/");
+    String _plus_99 = (_plus_98 + 
       "SGLSqlProvider.java");
     CharSequence _compileSGLSqlProvider = this.compileSGLSqlProvider();
-    fsa.generateFile(_plus_88, _compileSGLSqlProvider);
-    String _plus_89 = ("src" + "/");
-    String _plus_90 = (_plus_89 + "com");
-    String _plus_91 = (_plus_90 + "/");
-    String _plus_92 = (_plus_91 + "pallyup");
-    String _plus_93 = (_plus_92 + "/");
-    String _plus_94 = (_plus_93 + "sgl");
-    String _plus_95 = (_plus_94 + "/");
-    String _plus_96 = (_plus_95 + "core");
-    String _plus_97 = (_plus_96 + "/");
-    String _plus_98 = (_plus_97 + "entity");
-    String _plus_99 = (_plus_98 + "/");
-    String _plus_100 = (_plus_99 + "dao");
-    String _plus_101 = (_plus_100 + "/");
-    String _plus_102 = (_plus_101 + 
+    fsa.generateFile(_plus_99, _compileSGLSqlProvider);
+    String _plus_100 = ("src" + "/");
+    String _plus_101 = (_plus_100 + "com");
+    String _plus_102 = (_plus_101 + "/");
+    String _plus_103 = (_plus_102 + "pallyup");
+    String _plus_104 = (_plus_103 + "/");
+    String _plus_105 = (_plus_104 + "sgl");
+    String _plus_106 = (_plus_105 + "/");
+    String _plus_107 = (_plus_106 + "core");
+    String _plus_108 = (_plus_107 + "/");
+    String _plus_109 = (_plus_108 + "entity");
+    String _plus_110 = (_plus_109 + "/");
+    String _plus_111 = (_plus_110 + "dao");
+    String _plus_112 = (_plus_111 + "/");
+    String _plus_113 = (_plus_112 + 
       "DaoOptions.java");
     CharSequence _compileDaoOptions = this.compileDaoOptions();
-    fsa.generateFile(_plus_102, _compileDaoOptions);
-    String _plus_103 = ("src" + "/");
-    String _plus_104 = (_plus_103 + "com");
-    String _plus_105 = (_plus_104 + "/");
-    String _plus_106 = (_plus_105 + "pallyup");
-    String _plus_107 = (_plus_106 + "/");
-    String _plus_108 = (_plus_107 + "sgl");
-    String _plus_109 = (_plus_108 + "/");
-    String _plus_110 = (_plus_109 + "core");
-    String _plus_111 = (_plus_110 + "/");
-    String _plus_112 = (_plus_111 + "entity");
-    String _plus_113 = (_plus_112 + "/");
-    String _plus_114 = (_plus_113 + "dao");
-    String _plus_115 = (_plus_114 + "/");
-    String _plus_116 = (_plus_115 + 
+    fsa.generateFile(_plus_113, _compileDaoOptions);
+    String _plus_114 = ("src" + "/");
+    String _plus_115 = (_plus_114 + "com");
+    String _plus_116 = (_plus_115 + "/");
+    String _plus_117 = (_plus_116 + "pallyup");
+    String _plus_118 = (_plus_117 + "/");
+    String _plus_119 = (_plus_118 + "sgl");
+    String _plus_120 = (_plus_119 + "/");
+    String _plus_121 = (_plus_120 + "core");
+    String _plus_122 = (_plus_121 + "/");
+    String _plus_123 = (_plus_122 + "entity");
+    String _plus_124 = (_plus_123 + "/");
+    String _plus_125 = (_plus_124 + "dao");
+    String _plus_126 = (_plus_125 + "/");
+    String _plus_127 = (_plus_126 + 
       "SGLDaoException.java");
     CharSequence _compileSGLDaoException = this.compileSGLDaoException();
-    fsa.generateFile(_plus_116, _compileSGLDaoException);
-    String _plus_117 = ("src" + "/");
-    String _plus_118 = (_plus_117 + "com");
-    String _plus_119 = (_plus_118 + "/");
-    String _plus_120 = (_plus_119 + "pallyup");
-    String _plus_121 = (_plus_120 + "/");
-    String _plus_122 = (_plus_121 + "sgl");
-    String _plus_123 = (_plus_122 + "/");
-    String _plus_124 = (_plus_123 + "core");
-    String _plus_125 = (_plus_124 + "/");
-    String _plus_126 = (_plus_125 + "util");
-    String _plus_127 = (_plus_126 + "/");
-    String _plus_128 = (_plus_127 + 
+    fsa.generateFile(_plus_127, _compileSGLDaoException);
+    String _plus_128 = ("src" + "/");
+    String _plus_129 = (_plus_128 + "com");
+    String _plus_130 = (_plus_129 + "/");
+    String _plus_131 = (_plus_130 + "pallyup");
+    String _plus_132 = (_plus_131 + "/");
+    String _plus_133 = (_plus_132 + "sgl");
+    String _plus_134 = (_plus_133 + "/");
+    String _plus_135 = (_plus_134 + "core");
+    String _plus_136 = (_plus_135 + "/");
+    String _plus_137 = (_plus_136 + "util");
+    String _plus_138 = (_plus_137 + "/");
+    String _plus_139 = (_plus_138 + 
       "CommonUtils.java");
     CharSequence _compileCommonUtils = this.compileCommonUtils();
-    fsa.generateFile(_plus_128, _compileCommonUtils);
-    String _plus_129 = ("src" + "/");
-    String _plus_130 = (_plus_129 + "com");
-    String _plus_131 = (_plus_130 + "/");
-    String _plus_132 = (_plus_131 + "pallyup");
-    String _plus_133 = (_plus_132 + "/");
-    String _plus_134 = (_plus_133 + "sgl");
-    String _plus_135 = (_plus_134 + "/");
-    String _plus_136 = (_plus_135 + "server");
-    String _plus_137 = (_plus_136 + "/");
-    String _plus_138 = (_plus_137 + "core");
-    String _plus_139 = (_plus_138 + "/");
-    String _plus_140 = (_plus_139 + 
+    fsa.generateFile(_plus_139, _compileCommonUtils);
+    String _plus_140 = ("src" + "/");
+    String _plus_141 = (_plus_140 + "com");
+    String _plus_142 = (_plus_141 + "/");
+    String _plus_143 = (_plus_142 + "pallyup");
+    String _plus_144 = (_plus_143 + "/");
+    String _plus_145 = (_plus_144 + "sgl");
+    String _plus_146 = (_plus_145 + "/");
+    String _plus_147 = (_plus_146 + "server");
+    String _plus_148 = (_plus_147 + "/");
+    String _plus_149 = (_plus_148 + "core");
+    String _plus_150 = (_plus_149 + "/");
+    String _plus_151 = (_plus_150 + 
       "Result.java");
     CharSequence _compileResult = this.compileResult();
-    fsa.generateFile(_plus_140, _compileResult);
+    fsa.generateFile(_plus_151, _compileResult);
   }
   
   public CharSequence compileServer(final Server s) {
@@ -638,7 +657,7 @@ public class ServerGeneratorLanguageGenerator implements IGenerator {
     return _builder;
   }
   
-  public CharSequence compileResource1(final Entity e) {
+  public CharSequence compileEntityResource(final Entity e) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("package com.pallyup.sgl.server.resource;");
     _builder.newLine();
@@ -657,19 +676,19 @@ public class ServerGeneratorLanguageGenerator implements IGenerator {
     _builder.newLine();
     _builder.append("import com.pallyup.sgl.server.core.Result;");
     _builder.newLine();
-    _builder.append("import com.pallyup.sql.core.entity.");
+    _builder.append("import com.pallyup.sgl.core.entity.");
     String _name = e.getName();
     String _firstUpper = StringExtensions.toFirstUpper(_name);
     _builder.append(_firstUpper, "");
     _builder.append(";");
     _builder.newLineIfNotEmpty();
-    _builder.append("import com.pallyup.sql.core.entity.dao.");
+    _builder.append("import com.pallyup.sgl.core.entity.dao.");
     String _name_1 = e.getName();
     String _firstUpper_1 = StringExtensions.toFirstUpper(_name_1);
     _builder.append(_firstUpper_1, "");
     _builder.append("Dao;");
     _builder.newLineIfNotEmpty();
-    _builder.append("import com.pallyup.sql.core.entity.dao.SGLDaoException;");
+    _builder.append("import com.pallyup.sgl.core.entity.dao.SGLDaoException;");
     _builder.newLine();
     _builder.newLine();
     _builder.append("public class ");
@@ -874,7 +893,7 @@ public class ServerGeneratorLanguageGenerator implements IGenerator {
     return _builder;
   }
   
-  public CharSequence compileResource2(final Entity e) {
+  public CharSequence compileEntityResources(final Entity e) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("Output");
     _builder.newLine();
@@ -2035,7 +2054,7 @@ public class ServerGeneratorLanguageGenerator implements IGenerator {
                 _builder.append("_IMAGES = \"sgl.www.");
                 String _name_2 = e.getName();
                 _builder.append(_name_2, "");
-                _builder.append("_images\";\u00BB");
+                _builder.append("_images\";");
                 _builder.newLineIfNotEmpty();
               }
             }
