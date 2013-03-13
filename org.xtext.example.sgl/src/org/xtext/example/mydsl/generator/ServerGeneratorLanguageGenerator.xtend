@@ -25,7 +25,7 @@ class ServerGeneratorLanguageGenerator implements IGenerator {
 //				.join(', '))
 
 		for(s: resource.allContents.toIterable.filter(typeof(Server))) {
-		    fsa.generateFile("sql.properties",
+		    fsa.generateFile("sgl.properties",
 		    	s.compileServer)
 		    }
 		for(e: resource.allContents.toIterable.filter(typeof(Entity))) {
@@ -815,7 +815,7 @@ class ServerGeneratorLanguageGenerator implements IGenerator {
 				«FOR e:d.entitys»
 					«FOR a:e.attributes»
 						«IF a.eClass.name.contentEquals('ImageAttribute').booleanValue»
-							sb.append("\tWWW «e.name.toUpperCase» IMAGES: " + _CONFIG_WWW_«e.name.toUpperCase»_IMAGES + "\n");
+							//sb.append("\tWWW «e.name.toUpperCase» IMAGES: " + _CONFIG_WWW_«e.name.toUpperCase»_IMAGES + "\n");
 						«ENDIF»
 					«ENDFOR»
 				«ENDFOR»

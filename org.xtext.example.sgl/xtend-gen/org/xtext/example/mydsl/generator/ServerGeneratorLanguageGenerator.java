@@ -34,7 +34,7 @@ public class ServerGeneratorLanguageGenerator implements IGenerator {
     Iterable<Server> _filter = Iterables.<Server>filter(_iterable, Server.class);
     for (final Server s : _filter) {
       CharSequence _compileServer = this.compileServer(s);
-      fsa.generateFile("sql.properties", _compileServer);
+      fsa.generateFile("sgl.properties", _compileServer);
     }
     TreeIterator<EObject> _allContents_1 = resource.getAllContents();
     Iterable<EObject> _iterable_1 = IteratorExtensions.<EObject>toIterable(_allContents_1);
@@ -2963,7 +2963,7 @@ public class ServerGeneratorLanguageGenerator implements IGenerator {
               boolean _booleanValue_3 = Boolean.valueOf(_contentEquals_4).booleanValue();
               if (_booleanValue_3) {
                 _builder.append("\t\t\t");
-                _builder.append("sb.append(\"\\tWWW ");
+                _builder.append("//sb.append(\"\\tWWW ");
                 String _name_11 = e_4.getName();
                 String _upperCase_5 = _name_11.toUpperCase();
                 _builder.append(_upperCase_5, "			");
