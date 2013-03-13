@@ -9,7 +9,7 @@ import org.eclipse.xtext.generator.IFileSystemAccess
 import org.xtext.example.mydsl.serverGeneratorLanguage.Entity
 import org.xtext.example.mydsl.serverGeneratorLanguage.Server
 import org.xtext.example.mydsl.serverGeneratorLanguage.DomainModel
-
+import org.xtext.example.mydsl.serverGeneratorLanguage.Attribute
 
 /**
  * Generates code from your model files on save.
@@ -133,6 +133,21 @@ class ServerGeneratorLanguageGenerator implements IGenerator {
 		var String output = '''«FOR a:e.attributes SEPARATOR ', '»«IF a.name.contentEquals('id0')»«ELSE»«a.eClass.name.toJavaType()» «a.name»«ENDIF»«ENDFOR»'''
 		output.substring(2)
 	}
+
+	def outputAllExceptId2(Entity e) {
+		var String output = '''«FOR a:e.attributes SEPARATOR ', '»«IF a.name.contentEquals('id0')»«ELSE»«a.name»«ENDIF»«ENDFOR»'''
+		output.substring(2)
+	}
+	
+	def outputSetAll(Entity e) {
+		var String output = '''«FOR a:e.attributes SEPARATOR ', '»«IF a.name.contentEquals('id0')»«ELSE»«a.name»=?«ENDIF»«ENDFOR»'''
+		output.substring(2)
+	}
+	
+	def outputAllQmarkExceptId(Entity e) {
+		var String output = '''«FOR a:e.attributes SEPARATOR ', '»«IF a.name.contentEquals('id0')»«ELSE»?«ENDIF»«ENDFOR»'''
+		output.substring(2)
+	}
 	
 	def compileEntity(Entity e) '''
 	package com.pallyup.sgl.core.entity;
@@ -252,8 +267,215 @@ class ServerGeneratorLanguageGenerator implements IGenerator {
 }
 	'''
 
+	def returnType(String inp) {
+		switch (inp) {
+			case "NumberAttribute" : "Int"
+			case "StringAttribute" : "String"
+			case "ImageAttribute" : "String"
+			default : ""
+		}
+	}
+	
 	def compileEntityResources(Entity e) '''
-	Output
+	package com.pallyup.sgl.core.entity.dao;
+	
+	import java.sql.PreparedStatement;
+	import java.sql.ResultSet;
+	import java.sql.SQLException;
+	import java.util.logging.Level;
+	import java.util.logging.Logger;
+	
+	import com.pallyup.sgl.core.data.SGLSqlProvider;
+	import com.pallyup.sgl.core.entity.«e.name.toFirstUpper»;
+	import com.pallyup.sgl.core.entity.«e.name.toFirstUpper».«e.name.toFirstUpper»s;
+	
+	public class AuctionDao {
+		private static Logger LOGGER = Logger.getLogger(«e.name.toFirstUpper»Dao.class.getSimpleName());
+		
+		private static final int MAX_BATCH_SIZE = 20;
+		
+		public static final String TABLE_NAME = "«e.name»s";
+		
+		private static final String SELECT_ALL = "SELECT id, «e.outputAllExceptId2» FROM " + TABLE_NAME;
+		private static final String SELECT_BY_ID = SELECT_ALL + " WHERE id=?";
+		
+		private static final String INSERT = "INSERT INTO " + TABLE_NAME + "(«e.outputAllExceptId2») VALUES(«e.outputAllQmarkExceptId»)";
+		
+		private static final String UPDATE = "UPDATE " + TABLE_NAME + " SET «e.outputSetAll» WHERE id=?";
+		
+		private static final String DELETE_ALL = "DELETE FROM " + TABLE_NAME;
+		private static final String DELETE_BY_ID = DELETE_ALL + " WHERE id=?";
+		
+		public static Auctions getAuctions() {
+			«e.name.toFirstUpper»s «e.name» = «e.name.toFirstUpper».collectionInstance();
+			try {
+				PreparedStatement st = SGLSqlProvider.getPreparedStatement(SELECT_ALL);
+	
+				ResultSet rs = st.executeQuery();
+	
+				«e.name.toFirstUpper» «e.name»;
+				while (rs.next()) {
+					«e.name» = new «e.name.toFirstUpper»();
+					«FOR a:e.attributes»
+						«IF a.name.contentEquals('id0')»
+							«e.name».setId(rs.getInt("id"));
+						«ELSE»
+							«e.name».set«a.name.toFirstUpper»(rs.get«a.eClass.name.returnType»("«a.name»"));
+						«ENDIF»
+					«ENDFOR»
+					«e.name»s.add(«e.name»);
+				}
+				rs.close();
+				st.close();
+			} catch (SQLException e) {
+				LOGGER.log(Level.SEVERE, "(SQL ERROR CODE: " + e.getErrorCode() + ") Dao could not complete get«e.name.toFirstUpper»s for " + SELECT_ALL, e);
+				throw new SGLDaoException(e.getMessage(), e);
+			}
+			return «e.name»s;
+		}
+	
+		public static «e.name.toFirstUpper» get«e.name.toFirstUpper»(int id) {
+			
+			if(id<0){
+				throw new IllegalArgumentException("Invalid «e.name.toFirstUpper» ID: «e.name.toFirstUpper» ID cannot be negative");
+			}
+			
+			«e.name.toFirstUpper» «e.name» = new «e.name.toFirstUpper»();
+			«e.name».setId(id);
+			
+			try {
+	
+				PreparedStatement prep = SGLSqlProvider.getPreparedStatement(SELECT_BY_ID);
+			
+				prep.setInt(1, «e.name».getId());
+	
+				ResultSet rs = prep.executeQuery();
+				if (rs.next()) {
+					«FOR a:e.attributes»
+						«IF a.name.contentEquals('id0')»«ELSE»«e.name».set«a.name.toFirstUpper»(rs.get«a.eClass.name.returnType»("«a.name»"));«ENDIF»
+					«ENDFOR»
+				} else {
+					«e.name» = null;
+				}
+				
+			} catch (SQLException e) {
+				LOGGER.log(Level.SEVERE, "(SQL ERROR CODE: " + e.getErrorCode() + ") Dao could not complete get«e.name.toFirstUpper» for " + SELECT_BY_ID, e);
+				throw new SGLDaoException(e.getMessage(), e);
+			}
+			return «e.name»;	
+		}
+	
+		public static int create«e.name.toFirstUpper»(«e.name.toFirstUpper» «e.name») {
+			
+			if(«e.name»==null){
+				throw new IllegalArgumentException("Invalid «e.name.toFirstUpper» Object: Cannot persist null object");
+			}
+			
+			int generatedKey = -1;
+			try {
+				PreparedStatement prep = SGLSqlProvider.getPreparedStatement(INSERT);
+				«FOR a:e.attributes»
+					«IF a.name.contentEquals('id0')»«ELSE»//prep.set«a.eClass.name.returnType»([note:num], «e.name».get«a.name.toFirstUpper»());«ENDIF»
+				«ENDFOR»
+				prep.execute();
+				
+				ResultSet generatedKeys = prep.getGeneratedKeys();
+				
+				if (generatedKeys.next()) {
+		            generatedKey = (int) generatedKeys.getLong(1);
+		        } else {
+		            throw new SQLException("Creating «e.name» failed, no generated key obtained.");
+		        }
+			}
+			catch (SQLException e) {
+				LOGGER.log(Level.SEVERE, "(SQL ERROR CODE: " + e.getErrorCode() + ") Dao could not complete create«e.name.toFirstUpper» for " + INSERT + " and «e.name»s " + «e.name», e);
+				throw new SGLDaoException(e.getMessage(), e);
+			}
+			return generatedKey;
+		}
+		
+		public static void create«e.name.toFirstUpper»(«e.name.toFirstUpper»s «e.name»s){
+	
+			if(«e.name»s==null){
+				throw new IllegalArgumentException("Invalid «e.name.toFirstUpper»s Object: Cannot persist null object");
+			}
+			
+			PreparedStatement prep = SGLSqlProvider.getPreparedStatement(INSERT);
+			try {
+				prep.getConnection().setAutoCommit(false);
+				«e.name.toFirstUpper» «e.name»;
+				for (int i=0; i<«e.name»s.size(); i++){
+					«e.name» = «e.name»s.get(i);
+					«FOR a:e.attributes»
+						«IF a.name.contentEquals('id0')»prep.setInt(1, «e.name».getId());«ELSE»//prep.set«a.eClass.name.returnType»([note:num], «e.name».get«a.name.toFirstUpper»());«ENDIF»
+					«ENDFOR»
+					prep.addBatch();
+					//«e.name» has reached batch size or «e.name» size is complete
+					if( (i%MAX_BATCH_SIZE)==0 || i==«e.name»s.size()-1){
+						prep.executeBatch();
+						ResultSet generatedKeys = prep.getGeneratedKeys();
+						while(generatedKeys.next()){
+							long id = generatedKeys.getLong(1);
+							System.out.println(id);
+						}
+					}
+				}
+				prep.getConnection().setAutoCommit(true);
+				LOGGER.info("Executing SQL insert for" + «e.name»s);
+			} catch (SQLException e) {
+				LOGGER.log(Level.SEVERE, "(SQL ERROR CODE: " + e.getErrorCode() + ") Dao could not complete create«e.name.toFirstUpper»s for " + INSERT + " and «e.name»s " + «e.name»s, e);
+				throw new SGLDaoException(e.getMessage(), e);
+			}
+		}
+		
+		public static void update«e.name.toFirstUpper»(«e.name.toFirstUpper» «e.name») {
+	
+			if(«e.name»==null){
+				throw new IllegalArgumentException("Invalid «e.name.toFirstUpper» Object: Cannot persist null object");
+			}
+			
+			PreparedStatement prep = SGLSqlProvider.getPreparedStatement(UPDATE);
+			try {
+				«FOR a:e.attributes»
+					«IF a.name.contentEquals('id0')»«ELSE»prep.set«a.eClass.name.returnType»([note:num], «e.name».get«a.name.toFirstUpper»());«ENDIF»
+				«ENDFOR»
+				int result = prep.executeUpdate();
+				LOGGER.info(result + " rows were affected when executing " + UPDATE + " with param " + «e.name»);
+			} catch (SQLException e) {
+				LOGGER.log(Level.SEVERE, "(SQL ERROR CODE: " + e.getErrorCode() + ") Dao could not complete update«e.name.toFirstUpper» for " + UPDATE + " and «e.name» " + «e.name», e);
+				throw new SGLDaoException(e.getMessage(), e);
+			}
+		}
+	
+		public static void delete«e.name.toFirstUpper»(int id) {
+	
+			if(id<0){
+				throw new IllegalArgumentException("Invalid «e.name.toFirstUpper» ID: «e.name.toFirstUpper» ID cannot be negative");
+			}
+			
+			try {
+				PreparedStatement prep = SGLSqlProvider.getPreparedStatement(DELETE_BY_ID);
+				prep.setInt(1, id);
+				int result = prep.executeUpdate();
+				LOGGER.info(result + " rows were affected when executing " + DELETE_BY_ID + " with param " + id);
+			} catch (SQLException e) {
+				LOGGER.log(Level.SEVERE, "(SQL ERROR CODE: " + e.getErrorCode() + ") Dao could not complete delete«e.name.toFirstUpper» for " + DELETE_BY_ID, e);
+				throw new SGLDaoException(e.getMessage(), e);
+			}
+		}
+		
+		/*public static void deleteAllAuctions(){
+			try {
+				PreparedStatement prep = SGLSqlProvider.getPreparedStatement(DELETE_ALL);
+				int result = prep.executeUpdate();
+				LOGGER.info(result + " rows were affected when executing " + DELETE_ALL);
+			} catch (SQLException e) {
+				LOGGER.log(Level.SEVERE, "(SQL ERROR CODE: " + e.getErrorCode() + ") Dao could not complete deleteAllAuctions for " + DELETE_ALL, e);
+				throw new SGLDaoException(e.getMessage(), e);
+			}
+		}*/
+	}
+
 	'''
 
 	def compileSGLServerApplication(DomainModel d) '''

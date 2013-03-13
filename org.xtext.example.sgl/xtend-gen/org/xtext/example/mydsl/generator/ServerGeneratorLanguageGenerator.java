@@ -410,6 +410,99 @@ public class ServerGeneratorLanguageGenerator implements IGenerator {
     return _xblockexpression;
   }
   
+  public String outputAllExceptId2(final Entity e) {
+    String _xblockexpression = null;
+    {
+      StringConcatenation _builder = new StringConcatenation();
+      {
+        EList<Attribute> _attributes = e.getAttributes();
+        boolean _hasElements = false;
+        for(final Attribute a : _attributes) {
+          if (!_hasElements) {
+            _hasElements = true;
+          } else {
+            _builder.appendImmediate(", ", "");
+          }
+          {
+            String _name = a.getName();
+            boolean _contentEquals = _name.contentEquals("id0");
+            if (_contentEquals) {
+            } else {
+              String _name_1 = a.getName();
+              _builder.append(_name_1, "");
+            }
+          }
+        }
+      }
+      String output = _builder.toString();
+      String _substring = output.substring(2);
+      _xblockexpression = (_substring);
+    }
+    return _xblockexpression;
+  }
+  
+  public String outputSetAll(final Entity e) {
+    String _xblockexpression = null;
+    {
+      StringConcatenation _builder = new StringConcatenation();
+      {
+        EList<Attribute> _attributes = e.getAttributes();
+        boolean _hasElements = false;
+        for(final Attribute a : _attributes) {
+          if (!_hasElements) {
+            _hasElements = true;
+          } else {
+            _builder.appendImmediate(", ", "");
+          }
+          {
+            String _name = a.getName();
+            boolean _contentEquals = _name.contentEquals("id0");
+            if (_contentEquals) {
+            } else {
+              String _name_1 = a.getName();
+              _builder.append(_name_1, "");
+              _builder.append("=?");
+            }
+          }
+        }
+      }
+      String output = _builder.toString();
+      String _substring = output.substring(2);
+      _xblockexpression = (_substring);
+    }
+    return _xblockexpression;
+  }
+  
+  public String outputAllQmarkExceptId(final Entity e) {
+    String _xblockexpression = null;
+    {
+      StringConcatenation _builder = new StringConcatenation();
+      {
+        EList<Attribute> _attributes = e.getAttributes();
+        boolean _hasElements = false;
+        for(final Attribute a : _attributes) {
+          if (!_hasElements) {
+            _hasElements = true;
+          } else {
+            _builder.appendImmediate(", ", "");
+          }
+          {
+            String _name = a.getName();
+            boolean _contentEquals = _name.contentEquals("id0");
+            if (_contentEquals) {
+            } else {
+              _builder.append("?");
+            }
+          }
+        }
+      }
+      String output = _builder.toString();
+      String _substring = output.substring(2);
+      _xblockexpression = (_substring);
+    }
+    return _xblockexpression;
+  }
+  
   public CharSequence compileEntity(final Entity e) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("package com.pallyup.sgl.core.entity;");
@@ -893,9 +986,898 @@ public class ServerGeneratorLanguageGenerator implements IGenerator {
     return _builder;
   }
   
+  public String returnType(final String inp) {
+    String _switchResult = null;
+    boolean _matched = false;
+    if (!_matched) {
+      if (Objects.equal(inp,"NumberAttribute")) {
+        _matched=true;
+        _switchResult = "Int";
+      }
+    }
+    if (!_matched) {
+      if (Objects.equal(inp,"StringAttribute")) {
+        _matched=true;
+        _switchResult = "String";
+      }
+    }
+    if (!_matched) {
+      if (Objects.equal(inp,"ImageAttribute")) {
+        _matched=true;
+        _switchResult = "String";
+      }
+    }
+    if (!_matched) {
+      _switchResult = "";
+    }
+    return _switchResult;
+  }
+  
   public CharSequence compileEntityResources(final Entity e) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("Output");
+    _builder.append("package com.pallyup.sgl.core.entity.dao;");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("import java.sql.PreparedStatement;");
+    _builder.newLine();
+    _builder.append("import java.sql.ResultSet;");
+    _builder.newLine();
+    _builder.append("import java.sql.SQLException;");
+    _builder.newLine();
+    _builder.append("import java.util.logging.Level;");
+    _builder.newLine();
+    _builder.append("import java.util.logging.Logger;");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("import com.pallyup.sgl.core.data.SGLSqlProvider;");
+    _builder.newLine();
+    _builder.append("import com.pallyup.sgl.core.entity.");
+    String _name = e.getName();
+    String _firstUpper = StringExtensions.toFirstUpper(_name);
+    _builder.append(_firstUpper, "");
+    _builder.append(";");
+    _builder.newLineIfNotEmpty();
+    _builder.append("import com.pallyup.sgl.core.entity.");
+    String _name_1 = e.getName();
+    String _firstUpper_1 = StringExtensions.toFirstUpper(_name_1);
+    _builder.append(_firstUpper_1, "");
+    _builder.append(".");
+    String _name_2 = e.getName();
+    String _firstUpper_2 = StringExtensions.toFirstUpper(_name_2);
+    _builder.append(_firstUpper_2, "");
+    _builder.append("s;");
+    _builder.newLineIfNotEmpty();
+    _builder.newLine();
+    _builder.append("public class AuctionDao {");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("private static Logger LOGGER = Logger.getLogger(");
+    String _name_3 = e.getName();
+    String _firstUpper_3 = StringExtensions.toFirstUpper(_name_3);
+    _builder.append(_firstUpper_3, "	");
+    _builder.append("Dao.class.getSimpleName());");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("private static final int MAX_BATCH_SIZE = 20;");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("public static final String TABLE_NAME = \"");
+    String _name_4 = e.getName();
+    _builder.append(_name_4, "	");
+    _builder.append("s\";");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("private static final String SELECT_ALL = \"SELECT id, ");
+    String _outputAllExceptId2 = this.outputAllExceptId2(e);
+    _builder.append(_outputAllExceptId2, "	");
+    _builder.append(" FROM \" + TABLE_NAME;");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    _builder.append("private static final String SELECT_BY_ID = SELECT_ALL + \" WHERE id=?\";");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("private static final String INSERT = \"INSERT INTO \" + TABLE_NAME + \"(");
+    String _outputAllExceptId2_1 = this.outputAllExceptId2(e);
+    _builder.append(_outputAllExceptId2_1, "	");
+    _builder.append(") VALUES(");
+    String _outputAllQmarkExceptId = this.outputAllQmarkExceptId(e);
+    _builder.append(_outputAllQmarkExceptId, "	");
+    _builder.append(")\";");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("private static final String UPDATE = \"UPDATE \" + TABLE_NAME + \" SET ");
+    String _outputSetAll = this.outputSetAll(e);
+    _builder.append(_outputSetAll, "	");
+    _builder.append(" WHERE id=?\";");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("private static final String DELETE_ALL = \"DELETE FROM \" + TABLE_NAME;");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("private static final String DELETE_BY_ID = DELETE_ALL + \" WHERE id=?\";");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("public static Auctions getAuctions() {");
+    _builder.newLine();
+    _builder.append("\t\t");
+    String _name_5 = e.getName();
+    String _firstUpper_4 = StringExtensions.toFirstUpper(_name_5);
+    _builder.append(_firstUpper_4, "		");
+    _builder.append("s ");
+    String _name_6 = e.getName();
+    _builder.append(_name_6, "		");
+    _builder.append(" = ");
+    String _name_7 = e.getName();
+    String _firstUpper_5 = StringExtensions.toFirstUpper(_name_7);
+    _builder.append(_firstUpper_5, "		");
+    _builder.append(".collectionInstance();");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t");
+    _builder.append("try {");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("PreparedStatement st = SGLSqlProvider.getPreparedStatement(SELECT_ALL);");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("ResultSet rs = st.executeQuery();");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    String _name_8 = e.getName();
+    String _firstUpper_6 = StringExtensions.toFirstUpper(_name_8);
+    _builder.append(_firstUpper_6, "			");
+    _builder.append(" ");
+    String _name_9 = e.getName();
+    _builder.append(_name_9, "			");
+    _builder.append(";");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t\t");
+    _builder.append("while (rs.next()) {");
+    _builder.newLine();
+    _builder.append("\t\t\t\t");
+    String _name_10 = e.getName();
+    _builder.append(_name_10, "				");
+    _builder.append(" = new ");
+    String _name_11 = e.getName();
+    String _firstUpper_7 = StringExtensions.toFirstUpper(_name_11);
+    _builder.append(_firstUpper_7, "				");
+    _builder.append("();");
+    _builder.newLineIfNotEmpty();
+    {
+      EList<Attribute> _attributes = e.getAttributes();
+      for(final Attribute a : _attributes) {
+        {
+          String _name_12 = a.getName();
+          boolean _contentEquals = _name_12.contentEquals("id0");
+          if (_contentEquals) {
+            _builder.append("\t\t\t\t");
+            String _name_13 = e.getName();
+            _builder.append(_name_13, "				");
+            _builder.append(".setId(rs.getInt(\"id\"));");
+            _builder.newLineIfNotEmpty();
+          } else {
+            _builder.append("\t\t\t\t");
+            String _name_14 = e.getName();
+            _builder.append(_name_14, "				");
+            _builder.append(".set");
+            String _name_15 = a.getName();
+            String _firstUpper_8 = StringExtensions.toFirstUpper(_name_15);
+            _builder.append(_firstUpper_8, "				");
+            _builder.append("(rs.get");
+            EClass _eClass = a.eClass();
+            String _name_16 = _eClass.getName();
+            String _returnType = this.returnType(_name_16);
+            _builder.append(_returnType, "				");
+            _builder.append("(\"");
+            String _name_17 = a.getName();
+            _builder.append(_name_17, "				");
+            _builder.append("\"));");
+            _builder.newLineIfNotEmpty();
+          }
+        }
+      }
+    }
+    _builder.append("\t\t\t\t");
+    String _name_18 = e.getName();
+    _builder.append(_name_18, "				");
+    _builder.append("s.add(");
+    String _name_19 = e.getName();
+    _builder.append(_name_19, "				");
+    _builder.append(");");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t\t");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("rs.close();");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("st.close();");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("} catch (SQLException e) {");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("LOGGER.log(Level.SEVERE, \"(SQL ERROR CODE: \" + e.getErrorCode() + \") Dao could not complete get");
+    String _name_20 = e.getName();
+    String _firstUpper_9 = StringExtensions.toFirstUpper(_name_20);
+    _builder.append(_firstUpper_9, "			");
+    _builder.append("s for \" + SELECT_ALL, e);");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t\t");
+    _builder.append("throw new SGLDaoException(e.getMessage(), e);");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("return ");
+    String _name_21 = e.getName();
+    _builder.append(_name_21, "		");
+    _builder.append("s;");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("public static ");
+    String _name_22 = e.getName();
+    String _firstUpper_10 = StringExtensions.toFirstUpper(_name_22);
+    _builder.append(_firstUpper_10, "	");
+    _builder.append(" get");
+    String _name_23 = e.getName();
+    String _firstUpper_11 = StringExtensions.toFirstUpper(_name_23);
+    _builder.append(_firstUpper_11, "	");
+    _builder.append("(int id) {");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("if(id<0){");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("throw new IllegalArgumentException(\"Invalid ");
+    String _name_24 = e.getName();
+    String _firstUpper_12 = StringExtensions.toFirstUpper(_name_24);
+    _builder.append(_firstUpper_12, "			");
+    _builder.append(" ID: ");
+    String _name_25 = e.getName();
+    String _firstUpper_13 = StringExtensions.toFirstUpper(_name_25);
+    _builder.append(_firstUpper_13, "			");
+    _builder.append(" ID cannot be negative\");");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.newLine();
+    _builder.append("\t\t");
+    String _name_26 = e.getName();
+    String _firstUpper_14 = StringExtensions.toFirstUpper(_name_26);
+    _builder.append(_firstUpper_14, "		");
+    _builder.append(" ");
+    String _name_27 = e.getName();
+    _builder.append(_name_27, "		");
+    _builder.append(" = new ");
+    String _name_28 = e.getName();
+    String _firstUpper_15 = StringExtensions.toFirstUpper(_name_28);
+    _builder.append(_firstUpper_15, "		");
+    _builder.append("();");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t");
+    String _name_29 = e.getName();
+    _builder.append(_name_29, "		");
+    _builder.append(".setId(id);");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("try {");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("PreparedStatement prep = SGLSqlProvider.getPreparedStatement(SELECT_BY_ID);");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("prep.setInt(1, ");
+    String _name_30 = e.getName();
+    _builder.append(_name_30, "			");
+    _builder.append(".getId());");
+    _builder.newLineIfNotEmpty();
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("ResultSet rs = prep.executeQuery();");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("if (rs.next()) {");
+    _builder.newLine();
+    {
+      EList<Attribute> _attributes_1 = e.getAttributes();
+      for(final Attribute a_1 : _attributes_1) {
+        _builder.append("\t\t\t\t");
+        {
+          String _name_31 = a_1.getName();
+          boolean _contentEquals_1 = _name_31.contentEquals("id0");
+          if (_contentEquals_1) {
+          } else {
+            String _name_32 = e.getName();
+            _builder.append(_name_32, "				");
+            _builder.append(".set");
+            String _name_33 = a_1.getName();
+            String _firstUpper_16 = StringExtensions.toFirstUpper(_name_33);
+            _builder.append(_firstUpper_16, "				");
+            _builder.append("(rs.get");
+            EClass _eClass_1 = a_1.eClass();
+            String _name_34 = _eClass_1.getName();
+            String _returnType_1 = this.returnType(_name_34);
+            _builder.append(_returnType_1, "				");
+            _builder.append("(\"");
+            String _name_35 = a_1.getName();
+            _builder.append(_name_35, "				");
+            _builder.append("\"));");
+          }
+        }
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    _builder.append("\t\t\t");
+    _builder.append("} else {");
+    _builder.newLine();
+    _builder.append("\t\t\t\t");
+    String _name_36 = e.getName();
+    _builder.append(_name_36, "				");
+    _builder.append(" = null;");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t\t");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("} catch (SQLException e) {");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("LOGGER.log(Level.SEVERE, \"(SQL ERROR CODE: \" + e.getErrorCode() + \") Dao could not complete get");
+    String _name_37 = e.getName();
+    String _firstUpper_17 = StringExtensions.toFirstUpper(_name_37);
+    _builder.append(_firstUpper_17, "			");
+    _builder.append(" for \" + SELECT_BY_ID, e);");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t\t");
+    _builder.append("throw new SGLDaoException(e.getMessage(), e);");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("return ");
+    String _name_38 = e.getName();
+    _builder.append(_name_38, "		");
+    _builder.append(";\t");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("public static int create");
+    String _name_39 = e.getName();
+    String _firstUpper_18 = StringExtensions.toFirstUpper(_name_39);
+    _builder.append(_firstUpper_18, "	");
+    _builder.append("(");
+    String _name_40 = e.getName();
+    String _firstUpper_19 = StringExtensions.toFirstUpper(_name_40);
+    _builder.append(_firstUpper_19, "	");
+    _builder.append(" ");
+    String _name_41 = e.getName();
+    _builder.append(_name_41, "	");
+    _builder.append(") {");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("if(");
+    String _name_42 = e.getName();
+    _builder.append(_name_42, "		");
+    _builder.append("==null){");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t\t");
+    _builder.append("throw new IllegalArgumentException(\"Invalid ");
+    String _name_43 = e.getName();
+    String _firstUpper_20 = StringExtensions.toFirstUpper(_name_43);
+    _builder.append(_firstUpper_20, "			");
+    _builder.append(" Object: Cannot persist null object\");");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("int generatedKey = -1;");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("try {");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("PreparedStatement prep = SGLSqlProvider.getPreparedStatement(INSERT);");
+    _builder.newLine();
+    {
+      EList<Attribute> _attributes_2 = e.getAttributes();
+      for(final Attribute a_2 : _attributes_2) {
+        _builder.append("\t\t\t");
+        {
+          String _name_44 = a_2.getName();
+          boolean _contentEquals_2 = _name_44.contentEquals("id0");
+          if (_contentEquals_2) {
+          } else {
+            _builder.append("//prep.set");
+            EClass _eClass_2 = a_2.eClass();
+            String _name_45 = _eClass_2.getName();
+            String _returnType_2 = this.returnType(_name_45);
+            _builder.append(_returnType_2, "			");
+            _builder.append("([note:num], ");
+            String _name_46 = e.getName();
+            _builder.append(_name_46, "			");
+            _builder.append(".get");
+            String _name_47 = a_2.getName();
+            String _firstUpper_21 = StringExtensions.toFirstUpper(_name_47);
+            _builder.append(_firstUpper_21, "			");
+            _builder.append("());");
+          }
+        }
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    _builder.append("\t\t\t");
+    _builder.append("prep.execute();");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("ResultSet generatedKeys = prep.getGeneratedKeys();");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("if (generatedKeys.next()) {");
+    _builder.newLine();
+    _builder.append("\t            ");
+    _builder.append("generatedKey = (int) generatedKeys.getLong(1);");
+    _builder.newLine();
+    _builder.append("\t        ");
+    _builder.append("} else {");
+    _builder.newLine();
+    _builder.append("\t            ");
+    _builder.append("throw new SQLException(\"Creating ");
+    String _name_48 = e.getName();
+    _builder.append(_name_48, "	            ");
+    _builder.append(" failed, no generated key obtained.\");");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t        ");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("catch (SQLException e) {");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("LOGGER.log(Level.SEVERE, \"(SQL ERROR CODE: \" + e.getErrorCode() + \") Dao could not complete create");
+    String _name_49 = e.getName();
+    String _firstUpper_22 = StringExtensions.toFirstUpper(_name_49);
+    _builder.append(_firstUpper_22, "			");
+    _builder.append(" for \" + INSERT + \" and ");
+    String _name_50 = e.getName();
+    _builder.append(_name_50, "			");
+    _builder.append("s \" + ");
+    String _name_51 = e.getName();
+    _builder.append(_name_51, "			");
+    _builder.append(", e);");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t\t");
+    _builder.append("throw new SGLDaoException(e.getMessage(), e);");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("return generatedKey;");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("public static void create");
+    String _name_52 = e.getName();
+    String _firstUpper_23 = StringExtensions.toFirstUpper(_name_52);
+    _builder.append(_firstUpper_23, "	");
+    _builder.append("(");
+    String _name_53 = e.getName();
+    String _firstUpper_24 = StringExtensions.toFirstUpper(_name_53);
+    _builder.append(_firstUpper_24, "	");
+    _builder.append("s ");
+    String _name_54 = e.getName();
+    _builder.append(_name_54, "	");
+    _builder.append("s){");
+    _builder.newLineIfNotEmpty();
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("if(");
+    String _name_55 = e.getName();
+    _builder.append(_name_55, "		");
+    _builder.append("s==null){");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t\t");
+    _builder.append("throw new IllegalArgumentException(\"Invalid ");
+    String _name_56 = e.getName();
+    String _firstUpper_25 = StringExtensions.toFirstUpper(_name_56);
+    _builder.append(_firstUpper_25, "			");
+    _builder.append("s Object: Cannot persist null object\");");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("PreparedStatement prep = SGLSqlProvider.getPreparedStatement(INSERT);");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("try {");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("prep.getConnection().setAutoCommit(false);");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    String _name_57 = e.getName();
+    String _firstUpper_26 = StringExtensions.toFirstUpper(_name_57);
+    _builder.append(_firstUpper_26, "			");
+    _builder.append(" ");
+    String _name_58 = e.getName();
+    _builder.append(_name_58, "			");
+    _builder.append(";");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t\t");
+    _builder.append("for (int i=0; i<");
+    String _name_59 = e.getName();
+    _builder.append(_name_59, "			");
+    _builder.append("s.size(); i++){");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t\t\t");
+    String _name_60 = e.getName();
+    _builder.append(_name_60, "				");
+    _builder.append(" = ");
+    String _name_61 = e.getName();
+    _builder.append(_name_61, "				");
+    _builder.append("s.get(i);");
+    _builder.newLineIfNotEmpty();
+    {
+      EList<Attribute> _attributes_3 = e.getAttributes();
+      for(final Attribute a_3 : _attributes_3) {
+        _builder.append("\t\t\t\t");
+        {
+          String _name_62 = a_3.getName();
+          boolean _contentEquals_3 = _name_62.contentEquals("id0");
+          if (_contentEquals_3) {
+            _builder.append("prep.setInt(1, ");
+            String _name_63 = e.getName();
+            _builder.append(_name_63, "				");
+            _builder.append(".getId());");
+          } else {
+            _builder.append("//prep.set");
+            EClass _eClass_3 = a_3.eClass();
+            String _name_64 = _eClass_3.getName();
+            String _returnType_3 = this.returnType(_name_64);
+            _builder.append(_returnType_3, "				");
+            _builder.append("([note:num], ");
+            String _name_65 = e.getName();
+            _builder.append(_name_65, "				");
+            _builder.append(".get");
+            String _name_66 = a_3.getName();
+            String _firstUpper_27 = StringExtensions.toFirstUpper(_name_66);
+            _builder.append(_firstUpper_27, "				");
+            _builder.append("());");
+          }
+        }
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    _builder.append("\t\t\t\t");
+    _builder.append("prep.addBatch();");
+    _builder.newLine();
+    _builder.append("\t\t\t\t");
+    _builder.append("//");
+    String _name_67 = e.getName();
+    _builder.append(_name_67, "				");
+    _builder.append(" has reached batch size or ");
+    String _name_68 = e.getName();
+    _builder.append(_name_68, "				");
+    _builder.append(" size is complete");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t\t\t");
+    _builder.append("if( (i%MAX_BATCH_SIZE)==0 || i==");
+    String _name_69 = e.getName();
+    _builder.append(_name_69, "				");
+    _builder.append("s.size()-1){");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t\t\t\t");
+    _builder.append("prep.executeBatch();");
+    _builder.newLine();
+    _builder.append("\t\t\t\t\t");
+    _builder.append("ResultSet generatedKeys = prep.getGeneratedKeys();");
+    _builder.newLine();
+    _builder.append("\t\t\t\t\t");
+    _builder.append("while(generatedKeys.next()){");
+    _builder.newLine();
+    _builder.append("\t\t\t\t\t\t");
+    _builder.append("long id = generatedKeys.getLong(1);");
+    _builder.newLine();
+    _builder.append("\t\t\t\t\t\t");
+    _builder.append("System.out.println(id);");
+    _builder.newLine();
+    _builder.append("\t\t\t\t\t");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("\t\t\t\t");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("prep.getConnection().setAutoCommit(true);");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("LOGGER.info(\"Executing SQL insert for\" + ");
+    String _name_70 = e.getName();
+    _builder.append(_name_70, "			");
+    _builder.append("s);");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t");
+    _builder.append("} catch (SQLException e) {");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("LOGGER.log(Level.SEVERE, \"(SQL ERROR CODE: \" + e.getErrorCode() + \") Dao could not complete create");
+    String _name_71 = e.getName();
+    String _firstUpper_28 = StringExtensions.toFirstUpper(_name_71);
+    _builder.append(_firstUpper_28, "			");
+    _builder.append("s for \" + INSERT + \" and ");
+    String _name_72 = e.getName();
+    _builder.append(_name_72, "			");
+    _builder.append("s \" + ");
+    String _name_73 = e.getName();
+    _builder.append(_name_73, "			");
+    _builder.append("s, e);");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t\t");
+    _builder.append("throw new SGLDaoException(e.getMessage(), e);");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("public static void update");
+    String _name_74 = e.getName();
+    String _firstUpper_29 = StringExtensions.toFirstUpper(_name_74);
+    _builder.append(_firstUpper_29, "	");
+    _builder.append("(");
+    String _name_75 = e.getName();
+    String _firstUpper_30 = StringExtensions.toFirstUpper(_name_75);
+    _builder.append(_firstUpper_30, "	");
+    _builder.append(" ");
+    String _name_76 = e.getName();
+    _builder.append(_name_76, "	");
+    _builder.append(") {");
+    _builder.newLineIfNotEmpty();
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("if(");
+    String _name_77 = e.getName();
+    _builder.append(_name_77, "		");
+    _builder.append("==null){");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t\t");
+    _builder.append("throw new IllegalArgumentException(\"Invalid ");
+    String _name_78 = e.getName();
+    String _firstUpper_31 = StringExtensions.toFirstUpper(_name_78);
+    _builder.append(_firstUpper_31, "			");
+    _builder.append(" Object: Cannot persist null object\");");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("PreparedStatement prep = SGLSqlProvider.getPreparedStatement(UPDATE);");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("try {");
+    _builder.newLine();
+    {
+      EList<Attribute> _attributes_4 = e.getAttributes();
+      for(final Attribute a_4 : _attributes_4) {
+        _builder.append("\t\t\t");
+        {
+          String _name_79 = a_4.getName();
+          boolean _contentEquals_4 = _name_79.contentEquals("id0");
+          if (_contentEquals_4) {
+          } else {
+            _builder.append("prep.set");
+            EClass _eClass_4 = a_4.eClass();
+            String _name_80 = _eClass_4.getName();
+            String _returnType_4 = this.returnType(_name_80);
+            _builder.append(_returnType_4, "			");
+            _builder.append("([note:num], ");
+            String _name_81 = e.getName();
+            _builder.append(_name_81, "			");
+            _builder.append(".get");
+            String _name_82 = a_4.getName();
+            String _firstUpper_32 = StringExtensions.toFirstUpper(_name_82);
+            _builder.append(_firstUpper_32, "			");
+            _builder.append("());");
+          }
+        }
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    _builder.append("\t\t\t");
+    _builder.append("int result = prep.executeUpdate();");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("LOGGER.info(result + \" rows were affected when executing \" + UPDATE + \" with param \" + ");
+    String _name_83 = e.getName();
+    _builder.append(_name_83, "			");
+    _builder.append(");");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t");
+    _builder.append("} catch (SQLException e) {");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("LOGGER.log(Level.SEVERE, \"(SQL ERROR CODE: \" + e.getErrorCode() + \") Dao could not complete update");
+    String _name_84 = e.getName();
+    String _firstUpper_33 = StringExtensions.toFirstUpper(_name_84);
+    _builder.append(_firstUpper_33, "			");
+    _builder.append(" for \" + UPDATE + \" and ");
+    String _name_85 = e.getName();
+    _builder.append(_name_85, "			");
+    _builder.append(" \" + ");
+    String _name_86 = e.getName();
+    _builder.append(_name_86, "			");
+    _builder.append(", e);");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t\t");
+    _builder.append("throw new SGLDaoException(e.getMessage(), e);");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("public static void delete");
+    String _name_87 = e.getName();
+    String _firstUpper_34 = StringExtensions.toFirstUpper(_name_87);
+    _builder.append(_firstUpper_34, "	");
+    _builder.append("(int id) {");
+    _builder.newLineIfNotEmpty();
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("if(id<0){");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("throw new IllegalArgumentException(\"Invalid ");
+    String _name_88 = e.getName();
+    String _firstUpper_35 = StringExtensions.toFirstUpper(_name_88);
+    _builder.append(_firstUpper_35, "			");
+    _builder.append(" ID: ");
+    String _name_89 = e.getName();
+    String _firstUpper_36 = StringExtensions.toFirstUpper(_name_89);
+    _builder.append(_firstUpper_36, "			");
+    _builder.append(" ID cannot be negative\");");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("try {");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("PreparedStatement prep = SGLSqlProvider.getPreparedStatement(DELETE_BY_ID);");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("prep.setInt(1, id);");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("int result = prep.executeUpdate();");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("LOGGER.info(result + \" rows were affected when executing \" + DELETE_BY_ID + \" with param \" + id);");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("} catch (SQLException e) {");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("LOGGER.log(Level.SEVERE, \"(SQL ERROR CODE: \" + e.getErrorCode() + \") Dao could not complete delete");
+    String _name_90 = e.getName();
+    String _firstUpper_37 = StringExtensions.toFirstUpper(_name_90);
+    _builder.append(_firstUpper_37, "			");
+    _builder.append(" for \" + DELETE_BY_ID, e);");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t\t");
+    _builder.append("throw new SGLDaoException(e.getMessage(), e);");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("/*public static void deleteAllAuctions(){");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("try {");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("PreparedStatement prep = SGLSqlProvider.getPreparedStatement(DELETE_ALL);");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("int result = prep.executeUpdate();");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("LOGGER.info(result + \" rows were affected when executing \" + DELETE_ALL);");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("} catch (SQLException e) {");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("LOGGER.log(Level.SEVERE, \"(SQL ERROR CODE: \" + e.getErrorCode() + \") Dao could not complete deleteAllAuctions for \" + DELETE_ALL, e);");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("throw new SGLDaoException(e.getMessage(), e);");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("}*/");
+    _builder.newLine();
+    _builder.append("}");
+    _builder.newLine();
     _builder.newLine();
     return _builder;
   }
