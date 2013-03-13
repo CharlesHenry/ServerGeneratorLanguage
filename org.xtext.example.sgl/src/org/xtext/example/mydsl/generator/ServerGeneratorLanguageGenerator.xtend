@@ -549,34 +549,19 @@ class ServerGeneratorLanguageGenerator implements IGenerator {
 	def compileSGLResourceMapper(DomainModel d) '''
 	package com.pallyup.sgl.core.entity.dao;
 	
-	import com.pallyup.sgl.core.util.CommonUtils;
 	import com.pallyup.sgl.server.SGLServerMain;
 	
-		public class SGLResourceMapper {
+	public class SGLResourceMapper {
 		//public static String get<<e.name>>s<<a.name.toFirstUpper>>(int <<e.name>>Id){
 		//	return "http://" + SGLServerMain.getExternalHostAddress() + ":" + SGLServerMain.getExternalHostPort() + "/images/sales/<<e.name>><<a.name.toFirstUpper>>" + <<e.name>>Id + ".gif";
 		//}
 	«FOR e:d.entitys»
 		«FOR a:e.attributes»
 			«IF a.eClass.name.contentEquals('ImageAttribute')»
-					public static String get«e.name»«a.name.toFirstUpper»(String «e.name»«a.name.toFirstUpper»){
-						String url = "http://" + SGLServerMain.getExternalHostAddress() + ":" + SGLServerMain.getExternalHostPort() + "/images/«e.name»/";
-						if(CommonUtils.fileExists(SGLServerMain.get«e.name»«a.name.toFirstUpper»sDirectory() + "thumbs/" + «e.name»«a.name» + ".JPG"))
-							return url + "thumbs/" + «e.name»«a.name.toFirstUpper» + ".JPG";
-						else if(CommonUtils.fileExists(SGLServerMain.get«e.name»«a.name.toFirstUpper»sDirectory() + "thumbs/" + «e.name»«a.name.toFirstUpper» + ".jpg"))
-							return url + "thumbs/" + «e.name»«a.name.toFirstUpper» + ".jpg";
-						return  url + "default/«e.name»«a.name.toFirstUpper»».jpg";
+					public static String get«e.name.toFirstUpper»s«a.name.toFirstUpper»(int «e.name»sId){
+						//SGLServerMain.get«e.name.toFirstUpper»sImagesDirectory();
+						return "http://" + SGLServerMain.getExternalHostAddress() + ":" + SGLServerMain.getExternalHostPort() + "/images/«e.name»s/«e.name.toFirstUpper»s_«a.name.toFirstUpper»_" + «e.name»sId + ".gif";
 					}
-					public static String get«e.name»«a.name.toFirstUpper»Large(String «e.name»«a.name.toFirstUpper»Large){
-						String url = "http://" + SGLServerMain.getExternalHostAddress() + ":" + SGLServerMain.getExternalHostPort() + "/images/«e.name»s/";
-						
-						if(CommonUtils.fileExists(SGLServerMain.getLotImagesDirectory() + "large/" + «e.name»«a.name.toFirstUpper» + ".JPG"))
-							return url + "large/" + «e.name»«a.name.toFirstUpper» + ".JPG";
-						else if(CommonUtils.fileExists(SGLServerMain.getLotImagesDirectory() + "large/" + «e.name»«a.name.toFirstUpper» + ".jpg"))
-							return url + "large/" + «e.name»«a.name.toFirstUpper» + ".jpg";
-						
-						return  url + "default/«e.name».jpg";
-					}	
 				«ENDIF»
 		«ENDFOR»
 	«ENDFOR»
