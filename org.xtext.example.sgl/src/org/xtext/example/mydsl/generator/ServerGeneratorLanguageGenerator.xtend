@@ -45,7 +45,7 @@ class ServerGeneratorLanguageGenerator implements IGenerator {
 		    	fsa.generateFile(
 		    	"src"+"/"+"com"+"/"+"pallyup"+"/"+"sgl"+"/"+"server"+"/"+"resource"+"/"+ //package "com.pallyup.sgl.server.resource"
 		    	e.name.toFirstUpper+"sResource"+".java", //class name
-		    	e.compileEntityResources)
+		    	e.compileEntitysResource)
 			}
 		for(d: resource.allContents.toIterable.filter(typeof(DomainModel))) {
 		    	fsa.generateFile(
@@ -70,6 +70,11 @@ class ServerGeneratorLanguageGenerator implements IGenerator {
 		    	"src"+"/"+"com"+"/"+"pallyup"+"/"+"sgl"+"/"+"server"+"/"+ //package "com.pallyup.sgl.server"
 		    	"SGLServerConstants"+".java", //class name
 		    	e.compileSGLServerConstants)
+			}
+		for(e: resource.allContents.toIterable.filter(typeof(Entity))) {
+		    	fsa.generateFile("src"+"/"+"com"+"/"+"pallyup"+"/"+"sgl"+"/"+"core"+"/"+"entity"+"/"+"dao"+"/"+ //package "com.pallyup.sgl.core.entity.dao"
+		    	e.name.toFirstUpper+"Dao"+".java", //class name
+		    	e.compileSGLEntityDao)
 			}
 		
 		
@@ -156,7 +161,7 @@ class ServerGeneratorLanguageGenerator implements IGenerator {
 	 
 	 
 	public class «e.name.toFirstUpper» {
-		private String id;
+		private int id;
 		«FOR a:e.attributes»
 			«IF a.name.contentEquals('id0')»
 			«ELSE»
@@ -173,10 +178,10 @@ class ServerGeneratorLanguageGenerator implements IGenerator {
 				«IF a.name.contentEquals('id0')»«ELSE»this.«a.name» = «a.name»;«ENDIF»
 			«ENDFOR»
 		}
-		public String getId() {
+		public int getId() {
 			return id;
 		}
-		public void setId(String id) {
+		public void setId(int id) {
 			this.id = id;
 		}
 		«FOR a:e.attributes»«IF a.name.contentEquals('id0')»«ELSE»
@@ -267,6 +272,12 @@ class ServerGeneratorLanguageGenerator implements IGenerator {
 }
 	'''
 
+	def compileEntitysResource(Entity e) '''
+	package com.pallyup.sgl.server.resource;
+	import org.restlet.resource.ServerResource;
+	public class «e.name.toFirstUpper»sResource extends ServerResource {}
+	'''
+
 	def returnType(String inp) {
 		switch (inp) {
 			case "NumberAttribute" : "Int"
@@ -276,7 +287,7 @@ class ServerGeneratorLanguageGenerator implements IGenerator {
 		}
 	}
 	
-	def compileEntityResources(Entity e) '''
+	def compileSGLEntityDao(Entity e) '''
 	package com.pallyup.sgl.core.entity.dao;
 	
 	import java.sql.PreparedStatement;
@@ -289,7 +300,7 @@ class ServerGeneratorLanguageGenerator implements IGenerator {
 	import com.pallyup.sgl.core.entity.«e.name.toFirstUpper»;
 	import com.pallyup.sgl.core.entity.«e.name.toFirstUpper».«e.name.toFirstUpper»s;
 	
-	public class AuctionDao {
+	public class «e.name.toFirstUpper»Dao {
 		private static Logger LOGGER = Logger.getLogger(«e.name.toFirstUpper»Dao.class.getSimpleName());
 		
 		private static final int MAX_BATCH_SIZE = 20;
@@ -306,8 +317,8 @@ class ServerGeneratorLanguageGenerator implements IGenerator {
 		private static final String DELETE_ALL = "DELETE FROM " + TABLE_NAME;
 		private static final String DELETE_BY_ID = DELETE_ALL + " WHERE id=?";
 		
-		public static Auctions getAuctions() {
-			«e.name.toFirstUpper»s «e.name» = «e.name.toFirstUpper».collectionInstance();
+		public static «e.name.toFirstUpper»s get«e.name.toFirstUpper»s() {
+			«e.name.toFirstUpper»s «e.name»s = «e.name.toFirstUpper».collectionInstance();
 			try {
 				PreparedStatement st = SGLSqlProvider.getPreparedStatement(SELECT_ALL);
 	
@@ -437,7 +448,7 @@ class ServerGeneratorLanguageGenerator implements IGenerator {
 			PreparedStatement prep = SGLSqlProvider.getPreparedStatement(UPDATE);
 			try {
 				«FOR a:e.attributes»
-					«IF a.name.contentEquals('id0')»«ELSE»prep.set«a.eClass.name.returnType»([note:num], «e.name».get«a.name.toFirstUpper»());«ENDIF»
+					«IF a.name.contentEquals('id0')»«ELSE»//prep.set«a.eClass.name.returnType»([note:num], «e.name».get«a.name.toFirstUpper»());«ENDIF»
 				«ENDFOR»
 				int result = prep.executeUpdate();
 				LOGGER.info(result + " rows were affected when executing " + UPDATE + " with param " + «e.name»);
@@ -464,13 +475,13 @@ class ServerGeneratorLanguageGenerator implements IGenerator {
 			}
 		}
 		
-		/*public static void deleteAllAuctions(){
+		/*public static void deleteAll«e.name.toFirstUpper»s(){
 			try {
 				PreparedStatement prep = SGLSqlProvider.getPreparedStatement(DELETE_ALL);
 				int result = prep.executeUpdate();
 				LOGGER.info(result + " rows were affected when executing " + DELETE_ALL);
 			} catch (SQLException e) {
-				LOGGER.log(Level.SEVERE, "(SQL ERROR CODE: " + e.getErrorCode() + ") Dao could not complete deleteAllAuctions for " + DELETE_ALL, e);
+				LOGGER.log(Level.SEVERE, "(SQL ERROR CODE: " + e.getErrorCode() + ") Dao could not complete deleteAll«e.name.toFirstUpper»s for " + DELETE_ALL, e);
 				throw new SGLDaoException(e.getMessage(), e);
 			}
 		}*/
@@ -492,7 +503,6 @@ class ServerGeneratorLanguageGenerator implements IGenerator {
 			import com.pallyup.sgl.server.resource.«e.name.toFirstUpper»Resource;
 			import com.pallyup.sgl.server.resource.«e.name.toFirstUpper»sResource;
 	«ENDFOR»
-	import com.pallyup.sgl.server.resource.AuctionManagerResource;
 	
 	public class SGLServerApplication extends Application implements SGLServerConstants {
 	
@@ -525,10 +535,6 @@ class ServerGeneratorLanguageGenerator implements IGenerator {
 	    		LOGGER.info("Attaching endpoint for " + «e.name.toFirstUpper»Resource.class.getSimpleName() + ": " + «e.name.toFirstUpper»Resource.ENDPOINT);
 	    		router.attach(«e.name.toFirstUpper»Resource.ENDPOINT, «e.name.toFirstUpper»Resource.class);
 			«ENDFOR»
-	        
-	        // ENDPOINT = /auctionmanager
-	        LOGGER.info("Attaching endpoint for " + AuctionManagerResource.class.getSimpleName() + ": " + AuctionManagerResource.ENDPOINT);
-	        router.attach(AuctionManagerResource.ENDPOINT, AuctionManagerResource.class);
 	        
 	        // ENDPOINT = /
 	        LOGGER.info("Attaching static html endpoint: " + this.wwwRootDir);
