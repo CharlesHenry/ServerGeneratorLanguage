@@ -609,7 +609,32 @@ class ServerGeneratorLanguageGenerator implements IGenerator {
 		
 	'''
 
+	def compileSGLServerConstants(DomainModel d) '''
+	package com.pallyup.sgl.server;
 
+	public interface SGLServerConstants {
+	public static final String CONFIG_DEFAULT_FILE = "sgl.properties";
+	
+	public static final String CONFIG_WWW_ROOT_DIR_URI = "sgl.www.rootdir";
+
+	public static final String CONFIG_WWW_LOG = "sgl.www.log";
+	
+	public static final String CONFIG_WWW_PORT = "sgl.www.port";	
+
+	public static final String CONFIG_WWW_SQLITE_DB = "sgl.www.sqlitedb";
+	
+	public static final String CONFIG_WWW_HOSTNAME = "sgl.www.hostname";
+
+	public static final String CONFIG_WWW_SERVER = "sgl.www.server";
+	«FOR e:d.entitys»
+		«FOR a:e.attributes»
+			«IF a.eClass.name.contentEquals('ImageAttribute')»
+				//public static final String CONFIG_WWW_«e.name.toUpperCase»_IMAGES = "sgl.www.«e.name»_images";»
+			«ENDIF»
+		«ENDFOR»
+	«ENDFOR»
+	}
+	'''
 
 
 

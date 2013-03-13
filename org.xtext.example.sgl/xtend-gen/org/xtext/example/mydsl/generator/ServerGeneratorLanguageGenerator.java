@@ -1990,6 +1990,64 @@ public class ServerGeneratorLanguageGenerator implements IGenerator {
     return _builder;
   }
   
+  public CharSequence compileSGLServerConstants(final DomainModel d) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("package com.pallyup.sgl.server;");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("public interface SGLServerConstants {");
+    _builder.newLine();
+    _builder.append("public static final String CONFIG_DEFAULT_FILE = \"sgl.properties\";");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("public static final String CONFIG_WWW_ROOT_DIR_URI = \"sgl.www.rootdir\";");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("public static final String CONFIG_WWW_LOG = \"sgl.www.log\";");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("public static final String CONFIG_WWW_PORT = \"sgl.www.port\";\t");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("public static final String CONFIG_WWW_SQLITE_DB = \"sgl.www.sqlitedb\";");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("public static final String CONFIG_WWW_HOSTNAME = \"sgl.www.hostname\";");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("public static final String CONFIG_WWW_SERVER = \"sgl.www.server\";");
+    _builder.newLine();
+    {
+      EList<Entity> _entitys = d.getEntitys();
+      for(final Entity e : _entitys) {
+        {
+          EList<Attribute> _attributes = e.getAttributes();
+          for(final Attribute a : _attributes) {
+            {
+              EClass _eClass = a.eClass();
+              String _name = _eClass.getName();
+              boolean _contentEquals = _name.contentEquals("ImageAttribute");
+              if (_contentEquals) {
+                _builder.append("//public static final String CONFIG_WWW_");
+                String _name_1 = e.getName();
+                String _upperCase = _name_1.toUpperCase();
+                _builder.append(_upperCase, "");
+                _builder.append("_IMAGES = \"sgl.www.");
+                String _name_2 = e.getName();
+                _builder.append(_name_2, "");
+                _builder.append("_images\";\u00BB");
+                _builder.newLineIfNotEmpty();
+              }
+            }
+          }
+        }
+      }
+    }
+    _builder.append("}");
+    _builder.newLine();
+    return _builder;
+  }
+  
   public CharSequence compileSGLSqlProvider() {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("\t");
