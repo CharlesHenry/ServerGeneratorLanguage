@@ -385,14 +385,7 @@ class ServerGeneratorLanguageGenerator implements IGenerator {
 		«FOR e:d.entitys»
 			«FOR a:e.attributes»
 				«IF a.eClass.name.contentEquals('ImageAttribute')»
-					private static String _CONFIG_WWW_«e.name.toUpperCase»_IMAGES;
-				«ENDIF»
-			«ENDFOR»
-		«ENDFOR»
-		«FOR e:d.entitys»
-			«FOR a:e.attributes»
-				«IF a.eClass.name.contentEquals('ImageAttribute')»
-					LOOP OR NOT? 1
+					//private static String _CONFIG_WWW_«e.name.toUpperCase»_IMAGES;
 				«ENDIF»
 			«ENDFOR»
 		«ENDFOR»
@@ -424,8 +417,8 @@ class ServerGeneratorLanguageGenerator implements IGenerator {
 			«FOR e:d.entitys»
 				«FOR a:e.attributes»
 					«IF a.eClass.name.contentEquals('ImageAttribute').booleanValue»
-						_CONFIG_WWW_«e.name.toUpperCase»_IMAGES = config
-						.getString(SGLServerConstants.CONFIG_WWW_«e.name.toUpperCase»_IMAGES);
+						//_CONFIG_WWW_«e.name.toUpperCase»_IMAGES = config
+						//.getString(SGLServerConstants.CONFIG_WWW_«e.name.toUpperCase»_IMAGES);
 					«ENDIF»
 				«ENDFOR»
 			«ENDFOR»
@@ -437,7 +430,7 @@ class ServerGeneratorLanguageGenerator implements IGenerator {
 			«FOR e:d.entitys»
 				«FOR a:e.attributes»
 					«IF a.eClass.name.contentEquals('ImageAttribute').booleanValue»
-						|| _CONFIG_WWW_«e.name»_IMAGES == null
+						//|| _CONFIG_WWW_«e.name.toUpperCase»_IMAGES == null
 					«ENDIF»
 				«ENDFOR»
 			«ENDFOR»
@@ -548,9 +541,9 @@ class ServerGeneratorLanguageGenerator implements IGenerator {
 		«FOR e:d.entitys»
 			«FOR a:e.attributes»
 				«IF a.eClass.name.contentEquals('ImageAttribute').booleanValue»
-					public static String get«e.name.toFirstUpper»ImagesDirectory() {
-						return _CONFIG_WWW_«e.name.toUpperCase»_IMAGES;
-					}
+					//public static String get«e.name.toFirstUpper»ImagesDirectory() {
+					//	return _CONFIG_WWW_«e.name.toUpperCase»_IMAGES;
+					//}
 				«ENDIF»
 			«ENDFOR»
 		«ENDFOR»

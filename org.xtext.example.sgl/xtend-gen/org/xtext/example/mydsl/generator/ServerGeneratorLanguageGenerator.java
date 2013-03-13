@@ -1350,32 +1350,12 @@ public class ServerGeneratorLanguageGenerator implements IGenerator {
               boolean _contentEquals = _name.contentEquals("ImageAttribute");
               if (_contentEquals) {
                 _builder.append("\t");
-                _builder.append("private static String _CONFIG_WWW_");
+                _builder.append("//private static String _CONFIG_WWW_");
                 String _name_1 = e.getName();
                 String _upperCase = _name_1.toUpperCase();
                 _builder.append(_upperCase, "	");
                 _builder.append("_IMAGES;");
                 _builder.newLineIfNotEmpty();
-              }
-            }
-          }
-        }
-      }
-    }
-    {
-      EList<Entity> _entitys_1 = d.getEntitys();
-      for(final Entity e_1 : _entitys_1) {
-        {
-          EList<Attribute> _attributes_1 = e_1.getAttributes();
-          for(final Attribute a_1 : _attributes_1) {
-            {
-              EClass _eClass_1 = a_1.eClass();
-              String _name_2 = _eClass_1.getName();
-              boolean _contentEquals_1 = _name_2.contentEquals("ImageAttribute");
-              if (_contentEquals_1) {
-                _builder.append("\t");
-                _builder.append("LOOP OR NOT? 1");
-                _builder.newLine();
               }
             }
           }
@@ -1456,28 +1436,28 @@ public class ServerGeneratorLanguageGenerator implements IGenerator {
     _builder.append(".getString(SGLServerConstants.CONFIG_WWW_SERVER);");
     _builder.newLine();
     {
-      EList<Entity> _entitys_2 = d.getEntitys();
-      for(final Entity e_2 : _entitys_2) {
+      EList<Entity> _entitys_1 = d.getEntitys();
+      for(final Entity e_1 : _entitys_1) {
         {
-          EList<Attribute> _attributes_2 = e_2.getAttributes();
-          for(final Attribute a_2 : _attributes_2) {
+          EList<Attribute> _attributes_1 = e_1.getAttributes();
+          for(final Attribute a_1 : _attributes_1) {
             {
-              EClass _eClass_2 = a_2.eClass();
-              String _name_3 = _eClass_2.getName();
-              boolean _contentEquals_2 = _name_3.contentEquals("ImageAttribute");
-              boolean _booleanValue = Boolean.valueOf(_contentEquals_2).booleanValue();
+              EClass _eClass_1 = a_1.eClass();
+              String _name_2 = _eClass_1.getName();
+              boolean _contentEquals_1 = _name_2.contentEquals("ImageAttribute");
+              boolean _booleanValue = Boolean.valueOf(_contentEquals_1).booleanValue();
               if (_booleanValue) {
                 _builder.append("\t\t");
-                _builder.append("_CONFIG_WWW_");
-                String _name_4 = e_2.getName();
-                String _upperCase_1 = _name_4.toUpperCase();
+                _builder.append("//_CONFIG_WWW_");
+                String _name_3 = e_1.getName();
+                String _upperCase_1 = _name_3.toUpperCase();
                 _builder.append(_upperCase_1, "		");
                 _builder.append("_IMAGES = config");
                 _builder.newLineIfNotEmpty();
                 _builder.append("\t\t");
-                _builder.append(".getString(SGLServerConstants.CONFIG_WWW_");
-                String _name_5 = e_2.getName();
-                String _upperCase_2 = _name_5.toUpperCase();
+                _builder.append("//.getString(SGLServerConstants.CONFIG_WWW_");
+                String _name_4 = e_1.getName();
+                String _upperCase_2 = _name_4.toUpperCase();
                 _builder.append(_upperCase_2, "		");
                 _builder.append("_IMAGES);");
                 _builder.newLineIfNotEmpty();
@@ -1501,21 +1481,22 @@ public class ServerGeneratorLanguageGenerator implements IGenerator {
     _builder.append("|| _CONFIG_WWW_HOSTNAME == null");
     _builder.newLine();
     {
-      EList<Entity> _entitys_3 = d.getEntitys();
-      for(final Entity e_3 : _entitys_3) {
+      EList<Entity> _entitys_2 = d.getEntitys();
+      for(final Entity e_2 : _entitys_2) {
         {
-          EList<Attribute> _attributes_3 = e_3.getAttributes();
-          for(final Attribute a_3 : _attributes_3) {
+          EList<Attribute> _attributes_2 = e_2.getAttributes();
+          for(final Attribute a_2 : _attributes_2) {
             {
-              EClass _eClass_3 = a_3.eClass();
-              String _name_6 = _eClass_3.getName();
-              boolean _contentEquals_3 = _name_6.contentEquals("ImageAttribute");
-              boolean _booleanValue_1 = Boolean.valueOf(_contentEquals_3).booleanValue();
+              EClass _eClass_2 = a_2.eClass();
+              String _name_5 = _eClass_2.getName();
+              boolean _contentEquals_2 = _name_5.contentEquals("ImageAttribute");
+              boolean _booleanValue_1 = Boolean.valueOf(_contentEquals_2).booleanValue();
               if (_booleanValue_1) {
                 _builder.append("\t\t");
-                _builder.append("|| _CONFIG_WWW_");
-                String _name_7 = e_3.getName();
-                _builder.append(_name_7, "		");
+                _builder.append("//|| _CONFIG_WWW_");
+                String _name_6 = e_2.getName();
+                String _upperCase_3 = _name_6.toUpperCase();
+                _builder.append(_upperCase_3, "		");
                 _builder.append("_IMAGES == null");
                 _builder.newLineIfNotEmpty();
               }
@@ -1795,34 +1776,33 @@ public class ServerGeneratorLanguageGenerator implements IGenerator {
     _builder.append("}");
     _builder.newLine();
     {
-      EList<Entity> _entitys_4 = d.getEntitys();
-      for(final Entity e_4 : _entitys_4) {
+      EList<Entity> _entitys_3 = d.getEntitys();
+      for(final Entity e_3 : _entitys_3) {
         {
-          EList<Attribute> _attributes_4 = e_4.getAttributes();
-          for(final Attribute a_4 : _attributes_4) {
+          EList<Attribute> _attributes_3 = e_3.getAttributes();
+          for(final Attribute a_3 : _attributes_3) {
             {
-              EClass _eClass_4 = a_4.eClass();
-              String _name_8 = _eClass_4.getName();
-              boolean _contentEquals_4 = _name_8.contentEquals("ImageAttribute");
-              boolean _booleanValue_2 = Boolean.valueOf(_contentEquals_4).booleanValue();
+              EClass _eClass_3 = a_3.eClass();
+              String _name_7 = _eClass_3.getName();
+              boolean _contentEquals_3 = _name_7.contentEquals("ImageAttribute");
+              boolean _booleanValue_2 = Boolean.valueOf(_contentEquals_3).booleanValue();
               if (_booleanValue_2) {
                 _builder.append("\t");
-                _builder.append("public static String get");
-                String _name_9 = e_4.getName();
-                String _firstUpper = StringExtensions.toFirstUpper(_name_9);
+                _builder.append("//public static String get");
+                String _name_8 = e_3.getName();
+                String _firstUpper = StringExtensions.toFirstUpper(_name_8);
                 _builder.append(_firstUpper, "	");
                 _builder.append("ImagesDirectory() {");
                 _builder.newLineIfNotEmpty();
                 _builder.append("\t");
-                _builder.append("\t");
-                _builder.append("return _CONFIG_WWW_");
-                String _name_10 = e_4.getName();
-                String _upperCase_3 = _name_10.toUpperCase();
-                _builder.append(_upperCase_3, "		");
+                _builder.append("//\treturn _CONFIG_WWW_");
+                String _name_9 = e_3.getName();
+                String _upperCase_4 = _name_9.toUpperCase();
+                _builder.append(_upperCase_4, "	");
                 _builder.append("_IMAGES;");
                 _builder.newLineIfNotEmpty();
                 _builder.append("\t");
-                _builder.append("}");
+                _builder.append("//}");
                 _builder.newLine();
               }
             }
@@ -1876,26 +1856,26 @@ public class ServerGeneratorLanguageGenerator implements IGenerator {
     _builder.append("sb.append(\"\\tWWW HOSTNAME: \" + _CONFIG_WWW_HOSTNAME + \"\\n\");");
     _builder.newLine();
     {
-      EList<Entity> _entitys_5 = d.getEntitys();
-      for(final Entity e_5 : _entitys_5) {
+      EList<Entity> _entitys_4 = d.getEntitys();
+      for(final Entity e_4 : _entitys_4) {
         {
-          EList<Attribute> _attributes_5 = e_5.getAttributes();
-          for(final Attribute a_5 : _attributes_5) {
+          EList<Attribute> _attributes_4 = e_4.getAttributes();
+          for(final Attribute a_4 : _attributes_4) {
             {
-              EClass _eClass_5 = a_5.eClass();
-              String _name_11 = _eClass_5.getName();
-              boolean _contentEquals_5 = _name_11.contentEquals("ImageAttribute");
-              boolean _booleanValue_3 = Boolean.valueOf(_contentEquals_5).booleanValue();
+              EClass _eClass_4 = a_4.eClass();
+              String _name_10 = _eClass_4.getName();
+              boolean _contentEquals_4 = _name_10.contentEquals("ImageAttribute");
+              boolean _booleanValue_3 = Boolean.valueOf(_contentEquals_4).booleanValue();
               if (_booleanValue_3) {
                 _builder.append("\t\t\t");
                 _builder.append("sb.append(\"\\tWWW ");
-                String _name_12 = e_5.getName();
-                String _upperCase_4 = _name_12.toUpperCase();
-                _builder.append(_upperCase_4, "			");
-                _builder.append(" IMAGES: \" + _CONFIG_WWW_");
-                String _name_13 = e_5.getName();
-                String _upperCase_5 = _name_13.toUpperCase();
+                String _name_11 = e_4.getName();
+                String _upperCase_5 = _name_11.toUpperCase();
                 _builder.append(_upperCase_5, "			");
+                _builder.append(" IMAGES: \" + _CONFIG_WWW_");
+                String _name_12 = e_4.getName();
+                String _upperCase_6 = _name_12.toUpperCase();
+                _builder.append(_upperCase_6, "			");
                 _builder.append("_IMAGES + \"\\n\");");
                 _builder.newLineIfNotEmpty();
               }
