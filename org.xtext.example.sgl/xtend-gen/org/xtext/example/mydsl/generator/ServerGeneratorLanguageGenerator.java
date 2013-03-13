@@ -306,9 +306,9 @@ public class ServerGeneratorLanguageGenerator implements IGenerator {
             _builder.append("sgl.www.rootdir=");
             String _name_1 = c.getName();
             _builder.append(_name_1, "");
-            _builder.newLineIfNotEmpty();
           }
         }
+        _builder.newLineIfNotEmpty();
         {
           EClass _eClass_1 = c.eClass();
           String _name_2 = _eClass_1.getName();
@@ -317,9 +317,9 @@ public class ServerGeneratorLanguageGenerator implements IGenerator {
             _builder.append("sgl.www.hostname=");
             String _name_3 = c.getName();
             _builder.append(_name_3, "");
-            _builder.newLineIfNotEmpty();
           }
         }
+        _builder.newLineIfNotEmpty();
         {
           EClass _eClass_2 = c.eClass();
           String _name_4 = _eClass_2.getName();
@@ -328,9 +328,9 @@ public class ServerGeneratorLanguageGenerator implements IGenerator {
             _builder.append("sgl.www.port=");
             String _name_5 = c.getName();
             _builder.append(_name_5, "");
-            _builder.newLineIfNotEmpty();
           }
         }
+        _builder.newLineIfNotEmpty();
         {
           EClass _eClass_3 = c.eClass();
           String _name_6 = _eClass_3.getName();
@@ -339,9 +339,9 @@ public class ServerGeneratorLanguageGenerator implements IGenerator {
             _builder.append("sgl.www.log=");
             String _name_7 = c.getName();
             _builder.append(_name_7, "");
-            _builder.newLineIfNotEmpty();
           }
         }
+        _builder.newLineIfNotEmpty();
         {
           EClass _eClass_4 = c.eClass();
           String _name_8 = _eClass_4.getName();
@@ -350,9 +350,9 @@ public class ServerGeneratorLanguageGenerator implements IGenerator {
             _builder.append("sgl.www.sqlitedb=");
             String _name_9 = c.getName();
             _builder.append(_name_9, "");
-            _builder.newLineIfNotEmpty();
           }
         }
+        _builder.newLineIfNotEmpty();
         _builder.newLine();
         {
           EClass _eClass_5 = c.eClass();
@@ -362,11 +362,9 @@ public class ServerGeneratorLanguageGenerator implements IGenerator {
             _builder.append("sgl.www.sales_images=");
             String _name_11 = c.getName();
             _builder.append(_name_11, "");
-            _builder.newLineIfNotEmpty();
           }
         }
-        _builder.newLine();
-        _builder.newLine();
+        _builder.newLineIfNotEmpty();
       }
     }
     return _builder;
@@ -1015,14 +1013,173 @@ public class ServerGeneratorLanguageGenerator implements IGenerator {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("package com.pallyup.sgl.server.resource;");
     _builder.newLine();
+    _builder.newLine();
+    _builder.append("import java.util.logging.Level;");
+    _builder.newLine();
+    _builder.append("import java.util.logging.Logger;");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("import org.restlet.data.Status;");
+    _builder.newLine();
+    _builder.append("import org.restlet.resource.Get;");
+    _builder.newLine();
     _builder.append("import org.restlet.resource.ServerResource;");
     _builder.newLine();
-    _builder.append("public class ");
+    _builder.newLine();
+    _builder.append("import com.pallyup.sgl.core.entity.");
     String _name = e.getName();
     String _firstUpper = StringExtensions.toFirstUpper(_name);
     _builder.append(_firstUpper, "");
-    _builder.append("sResource extends ServerResource {}");
+    _builder.append(".");
+    String _name_1 = e.getName();
+    String _firstUpper_1 = StringExtensions.toFirstUpper(_name_1);
+    _builder.append(_firstUpper_1, "");
+    _builder.append("s;");
     _builder.newLineIfNotEmpty();
+    _builder.append("import com.pallyup.sgl.core.entity.dao.");
+    String _name_2 = e.getName();
+    String _firstUpper_2 = StringExtensions.toFirstUpper(_name_2);
+    _builder.append(_firstUpper_2, "");
+    _builder.append("Dao;");
+    _builder.newLineIfNotEmpty();
+    _builder.append("import com.pallyup.sgl.core.entity.dao.SGLDaoException;");
+    _builder.newLine();
+    _builder.append("import com.pallyup.sgl.server.core.Result;");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("public class ");
+    String _name_3 = e.getName();
+    String _firstUpper_3 = StringExtensions.toFirstUpper(_name_3);
+    _builder.append(_firstUpper_3, "");
+    _builder.append("sResource extends ServerResource {");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("private static Logger LOGGER = Logger.getLogger(");
+    String _name_4 = e.getName();
+    String _firstUpper_4 = StringExtensions.toFirstUpper(_name_4);
+    _builder.append(_firstUpper_4, "	");
+    _builder.append("sResource.class.getSimpleName());");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("public static final String ENDPOINT = \"/");
+    String _name_5 = e.getName();
+    _builder.append(_name_5, "	");
+    _builder.append("s\";");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("@Get");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("public Object get");
+    String _name_6 = e.getName();
+    String _firstUpper_5 = StringExtensions.toFirstUpper(_name_6);
+    _builder.append(_firstUpper_5, "	");
+    _builder.append("s() {");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t");
+    _builder.append("Result result = new Result();");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("try {");
+    _builder.newLine();
+    _builder.append("\t\t\t\t");
+    _builder.append("LOGGER.log(Level.INFO, \"Processing get");
+    String _name_7 = e.getName();
+    String _firstUpper_6 = StringExtensions.toFirstUpper(_name_7);
+    _builder.append(_firstUpper_6, "				");
+    _builder.append("s\");");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t\t\t");
+    _builder.newLine();
+    _builder.append("\t\t\t\t");
+    String _name_8 = e.getName();
+    String _firstUpper_7 = StringExtensions.toFirstUpper(_name_8);
+    _builder.append(_firstUpper_7, "				");
+    _builder.append("s ");
+    String _name_9 = e.getName();
+    _builder.append(_name_9, "				");
+    _builder.append("s = ");
+    String _name_10 = e.getName();
+    String _firstUpper_8 = StringExtensions.toFirstUpper(_name_10);
+    _builder.append(_firstUpper_8, "				");
+    _builder.append("Dao.get");
+    String _name_11 = e.getName();
+    String _firstUpper_9 = StringExtensions.toFirstUpper(_name_11);
+    _builder.append(_firstUpper_9, "				");
+    _builder.append("s();");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t\t\t");
+    _builder.newLine();
+    _builder.append("\t\t\t\t");
+    _builder.append("result.setStatus(Result.Status.OK);");
+    _builder.newLine();
+    _builder.append("\t\t\t\t");
+    _builder.newLine();
+    _builder.append("\t\t\t\t");
+    _builder.append("result.setData(");
+    String _name_12 = e.getName();
+    _builder.append(_name_12, "				");
+    _builder.append("s);");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t\t\t");
+    _builder.newLine();
+    _builder.append("\t\t\t\t");
+    _builder.append("getResponse().setStatus(Status.SUCCESS_OK);");
+    _builder.newLine();
+    _builder.append("\t\t\t\t");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("} catch(SGLDaoException e){");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("LOGGER.log(Level.SEVERE, \"A problem occured when processing get");
+    String _name_13 = e.getName();
+    String _firstUpper_10 = StringExtensions.toFirstUpper(_name_13);
+    _builder.append(_firstUpper_10, "			");
+    _builder.append("s\");");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t\t");
+    _builder.append("result.setError(\"The server encountered a problem. Try again later.\", Status.SERVER_ERROR_INTERNAL.getCode());");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("getResponse().setStatus(Status.SERVER_ERROR_INTERNAL);");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("} catch (Exception e){");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("LOGGER.log(Level.SEVERE, \"A problem occured when processing get");
+    String _name_14 = e.getName();
+    String _firstUpper_11 = StringExtensions.toFirstUpper(_name_14);
+    _builder.append(_firstUpper_11, "			");
+    _builder.append("s\");");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t\t");
+    _builder.append("result.setError(\"The server encountered a problem. Try again later.\", Status.SERVER_ERROR_INTERNAL.getCode());");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("getResponse().setStatus(Status.SERVER_ERROR_INTERNAL);");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("} ");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("return result;");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("}");
+    _builder.newLine();
+    _builder.newLine();
     return _builder;
   }
   

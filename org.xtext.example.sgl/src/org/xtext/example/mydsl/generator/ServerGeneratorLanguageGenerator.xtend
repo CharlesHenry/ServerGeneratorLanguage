@@ -9,7 +9,6 @@ import org.eclipse.xtext.generator.IFileSystemAccess
 import org.xtext.example.mydsl.serverGeneratorLanguage.Entity
 import org.xtext.example.mydsl.serverGeneratorLanguage.Server
 import org.xtext.example.mydsl.serverGeneratorLanguage.DomainModel
-import org.xtext.example.mydsl.serverGeneratorLanguage.Attribute
 
 /**
  * Generates code from your model files on save.
@@ -101,27 +100,13 @@ class ServerGeneratorLanguageGenerator implements IGenerator {
     #jetty or jse
     sgl.www.server=jetty
     «FOR c:s.configs»
-    	«IF c.eClass.name.contentEquals('rootConfig')»
-    	sgl.www.rootdir=«c.name»
-    	«ENDIF»
-    	«IF c.eClass.name.contentEquals("hostNameConfig")»
-    	sgl.www.hostname=«c.name»
-    	«ENDIF»
-    	«IF c.eClass.name.contentEquals('portConfig')»
-    	sgl.www.port=«c.name»
-    	«ENDIF»
-    	«IF c.eClass.name.contentEquals('logConfig')»
-    	sgl.www.log=«c.name»
-    	«ENDIF»
-    	«IF c.eClass.name.contentEquals('sqldbConfig')»
-    	sgl.www.sqlitedb=«c.name»
-    	«ENDIF»
+    	«IF c.eClass.name.contentEquals('rootConfig')»sgl.www.rootdir=«c.name»«ENDIF»
+    	«IF c.eClass.name.contentEquals("hostNameConfig")»sgl.www.hostname=«c.name»«ENDIF»
+    	«IF c.eClass.name.contentEquals('portConfig')»sgl.www.port=«c.name»«ENDIF»
+    	«IF c.eClass.name.contentEquals('logConfig')»sgl.www.log=«c.name»«ENDIF»
+    	«IF c.eClass.name.contentEquals('sqldbConfig')»sgl.www.sqlitedb=«c.name»«ENDIF»
     	
-    	«IF c.eClass.name.contentEquals('other')»
-    	sgl.www.sales_images=«c.name»
-    	«ENDIF»
-    	
-    	
+    	«IF c.eClass.name.contentEquals('other')»sgl.www.sales_images=«c.name»«ENDIF»
     «ENDFOR»
 	'''
 	
@@ -274,8 +259,53 @@ class ServerGeneratorLanguageGenerator implements IGenerator {
 
 	def compileEntitysResource(Entity e) '''
 	package com.pallyup.sgl.server.resource;
+
+	import java.util.logging.Level;
+	import java.util.logging.Logger;
+	
+	import org.restlet.data.Status;
+	import org.restlet.resource.Get;
 	import org.restlet.resource.ServerResource;
-	public class «e.name.toFirstUpper»sResource extends ServerResource {}
+	
+	import com.pallyup.sgl.core.entity.«e.name.toFirstUpper».«e.name.toFirstUpper»s;
+	import com.pallyup.sgl.core.entity.dao.«e.name.toFirstUpper»Dao;
+	import com.pallyup.sgl.core.entity.dao.SGLDaoException;
+	import com.pallyup.sgl.server.core.Result;
+	
+	public class «e.name.toFirstUpper»sResource extends ServerResource {
+		
+		private static Logger LOGGER = Logger.getLogger(«e.name.toFirstUpper»sResource.class.getSimpleName());
+		
+		public static final String ENDPOINT = "/«e.name»s";
+		
+		@Get
+		public Object get«e.name.toFirstUpper»s() {
+			Result result = new Result();
+			
+			try {
+					LOGGER.log(Level.INFO, "Processing get«e.name.toFirstUpper»s");
+					
+					«e.name.toFirstUpper»s «e.name»s = «e.name.toFirstUpper»Dao.get«e.name.toFirstUpper»s();
+					
+					result.setStatus(Result.Status.OK);
+					
+					result.setData(«e.name»s);
+					
+					getResponse().setStatus(Status.SUCCESS_OK);
+					
+			} catch(SGLDaoException e){
+				LOGGER.log(Level.SEVERE, "A problem occured when processing get«e.name.toFirstUpper»s");
+				result.setError("The server encountered a problem. Try again later.", Status.SERVER_ERROR_INTERNAL.getCode());
+				getResponse().setStatus(Status.SERVER_ERROR_INTERNAL);
+			} catch (Exception e){
+				LOGGER.log(Level.SEVERE, "A problem occured when processing get«e.name.toFirstUpper»s");
+				result.setError("The server encountered a problem. Try again later.", Status.SERVER_ERROR_INTERNAL.getCode());
+				getResponse().setStatus(Status.SERVER_ERROR_INTERNAL);
+			} 
+			return result;
+		}
+	}
+
 	'''
 
 	def returnType(String inp) {
