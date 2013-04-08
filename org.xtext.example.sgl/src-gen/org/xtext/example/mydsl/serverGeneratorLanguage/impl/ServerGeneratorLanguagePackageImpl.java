@@ -13,11 +13,6 @@ import org.xtext.example.mydsl.serverGeneratorLanguage.Attribute;
 import org.xtext.example.mydsl.serverGeneratorLanguage.Config;
 import org.xtext.example.mydsl.serverGeneratorLanguage.DomainModel;
 import org.xtext.example.mydsl.serverGeneratorLanguage.Entity;
-import org.xtext.example.mydsl.serverGeneratorLanguage.Gui;
-import org.xtext.example.mydsl.serverGeneratorLanguage.GuiButton;
-import org.xtext.example.mydsl.serverGeneratorLanguage.GuiFeature;
-import org.xtext.example.mydsl.serverGeneratorLanguage.GuiInput;
-import org.xtext.example.mydsl.serverGeneratorLanguage.GuiLabel;
 import org.xtext.example.mydsl.serverGeneratorLanguage.ImageAttribute;
 import org.xtext.example.mydsl.serverGeneratorLanguage.Model;
 import org.xtext.example.mydsl.serverGeneratorLanguage.NumberAttribute;
@@ -160,41 +155,6 @@ public class ServerGeneratorLanguagePackageImpl extends EPackageImpl implements 
    * @generated
    */
   private EClass relationshipEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass guiEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass guiFeatureEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass guiLabelEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass guiButtonEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass guiInputEClass = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -544,146 +504,6 @@ public class ServerGeneratorLanguagePackageImpl extends EPackageImpl implements 
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getGui()
-  {
-    return guiEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getGui_Server()
-  {
-    return (EReference)guiEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getGui_Layout()
-  {
-    return (EAttribute)guiEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getGui_GuiFeatures()
-  {
-    return (EReference)guiEClass.getEStructuralFeatures().get(2);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getGuiFeature()
-  {
-    return guiFeatureEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getGuiFeature_Name()
-  {
-    return (EAttribute)guiFeatureEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getGuiLabel()
-  {
-    return guiLabelEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getGuiLabel_Text()
-  {
-    return (EAttribute)guiLabelEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getGuiLabel_Element()
-  {
-    return (EReference)guiLabelEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getGuiButton()
-  {
-    return guiButtonEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getGuiButton_Text()
-  {
-    return (EAttribute)guiButtonEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getGuiButton_Func()
-  {
-    return (EAttribute)guiButtonEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getGuiInput()
-  {
-    return guiInputEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getGuiInput_InputType()
-  {
-    return (EAttribute)guiInputEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public ServerGeneratorLanguageFactory getServerGeneratorLanguageFactory()
   {
     return (ServerGeneratorLanguageFactory)getEFactoryInstance();
@@ -753,25 +573,6 @@ public class ServerGeneratorLanguagePackageImpl extends EPackageImpl implements 
     relationshipEClass = createEClass(RELATIONSHIP);
     createEReference(relationshipEClass, RELATIONSHIP__NAME);
     createEReference(relationshipEClass, RELATIONSHIP__REF_NAME);
-
-    guiEClass = createEClass(GUI);
-    createEReference(guiEClass, GUI__SERVER);
-    createEAttribute(guiEClass, GUI__LAYOUT);
-    createEReference(guiEClass, GUI__GUI_FEATURES);
-
-    guiFeatureEClass = createEClass(GUI_FEATURE);
-    createEAttribute(guiFeatureEClass, GUI_FEATURE__NAME);
-
-    guiLabelEClass = createEClass(GUI_LABEL);
-    createEAttribute(guiLabelEClass, GUI_LABEL__TEXT);
-    createEReference(guiLabelEClass, GUI_LABEL__ELEMENT);
-
-    guiButtonEClass = createEClass(GUI_BUTTON);
-    createEAttribute(guiButtonEClass, GUI_BUTTON__TEXT);
-    createEAttribute(guiButtonEClass, GUI_BUTTON__FUNC);
-
-    guiInputEClass = createEClass(GUI_INPUT);
-    createEAttribute(guiInputEClass, GUI_INPUT__INPUT_TYPE);
   }
 
   /**
@@ -814,10 +615,6 @@ public class ServerGeneratorLanguagePackageImpl extends EPackageImpl implements 
     stringAttributeEClass.getESuperTypes().add(this.getAttribute());
     numberAttributeEClass.getESuperTypes().add(this.getAttribute());
     imageAttributeEClass.getESuperTypes().add(this.getAttribute());
-    guiEClass.getESuperTypes().add(this.getType());
-    guiLabelEClass.getESuperTypes().add(this.getGuiFeature());
-    guiButtonEClass.getESuperTypes().add(this.getGuiFeature());
-    guiInputEClass.getESuperTypes().add(this.getGuiFeature());
 
     // Initialize classes and features; add operations and parameters
     initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -864,25 +661,6 @@ public class ServerGeneratorLanguagePackageImpl extends EPackageImpl implements 
     initEClass(relationshipEClass, Relationship.class, "Relationship", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getRelationship_Name(), this.getAttribute(), null, "name", null, 0, 1, Relationship.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getRelationship_RefName(), this.getAttribute(), null, "refName", null, 0, 1, Relationship.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(guiEClass, Gui.class, "Gui", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getGui_Server(), this.getServer(), null, "server", null, 0, 1, Gui.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getGui_Layout(), ecorePackage.getEInt(), "layout", null, 0, 1, Gui.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getGui_GuiFeatures(), this.getGuiFeature(), null, "GuiFeatures", null, 0, -1, Gui.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(guiFeatureEClass, GuiFeature.class, "GuiFeature", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getGuiFeature_Name(), ecorePackage.getEString(), "name", null, 0, 1, GuiFeature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(guiLabelEClass, GuiLabel.class, "GuiLabel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getGuiLabel_Text(), ecorePackage.getEString(), "text", null, 0, 1, GuiLabel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getGuiLabel_Element(), this.getAttribute(), null, "element", null, 0, 1, GuiLabel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(guiButtonEClass, GuiButton.class, "GuiButton", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getGuiButton_Text(), ecorePackage.getEString(), "text", null, 0, 1, GuiButton.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getGuiButton_Func(), ecorePackage.getEString(), "func", null, 0, 1, GuiButton.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(guiInputEClass, GuiInput.class, "GuiInput", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getGuiInput_InputType(), ecorePackage.getEString(), "inputType", null, 0, 1, GuiInput.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);

@@ -81,11 +81,6 @@ public class ServerGeneratorLanguageFactoryImpl extends EFactoryImpl implements 
       case ServerGeneratorLanguagePackage.NUMBER_ATTRIBUTE: return createNumberAttribute();
       case ServerGeneratorLanguagePackage.IMAGE_ATTRIBUTE: return createImageAttribute();
       case ServerGeneratorLanguagePackage.RELATIONSHIP: return createRelationship();
-      case ServerGeneratorLanguagePackage.GUI: return createGui();
-      case ServerGeneratorLanguagePackage.GUI_FEATURE: return createGuiFeature();
-      case ServerGeneratorLanguagePackage.GUI_LABEL: return createGuiLabel();
-      case ServerGeneratorLanguagePackage.GUI_BUTTON: return createGuiButton();
-      case ServerGeneratorLanguagePackage.GUI_INPUT: return createGuiInput();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -276,61 +271,6 @@ public class ServerGeneratorLanguageFactoryImpl extends EFactoryImpl implements 
   {
     RelationshipImpl relationship = new RelationshipImpl();
     return relationship;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Gui createGui()
-  {
-    GuiImpl gui = new GuiImpl();
-    return gui;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public GuiFeature createGuiFeature()
-  {
-    GuiFeatureImpl guiFeature = new GuiFeatureImpl();
-    return guiFeature;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public GuiLabel createGuiLabel()
-  {
-    GuiLabelImpl guiLabel = new GuiLabelImpl();
-    return guiLabel;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public GuiButton createGuiButton()
-  {
-    GuiButtonImpl guiButton = new GuiButtonImpl();
-    return guiButton;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public GuiInput createGuiInput()
-  {
-    GuiInputImpl guiInput = new GuiInputImpl();
-    return guiInput;
   }
 
   /**

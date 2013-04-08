@@ -44,24 +44,5 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ServerGeneratorLanguage.ecore#//Relationship/name"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ServerGeneratorLanguage.ecore#//Relationship/refName"/>
     </genClasses>
-    <genClasses ecoreClass="ServerGeneratorLanguage.ecore#//Gui">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ServerGeneratorLanguage.ecore#//Gui/server"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ServerGeneratorLanguage.ecore#//Gui/layout"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ServerGeneratorLanguage.ecore#//Gui/GuiFeatures"/>
-    </genClasses>
-    <genClasses ecoreClass="ServerGeneratorLanguage.ecore#//GuiFeature">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ServerGeneratorLanguage.ecore#//GuiFeature/name"/>
-    </genClasses>
-    <genClasses ecoreClass="ServerGeneratorLanguage.ecore#//GuiLabel">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ServerGeneratorLanguage.ecore#//GuiLabel/text"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ServerGeneratorLanguage.ecore#//GuiLabel/element"/>
-    </genClasses>
-    <genClasses ecoreClass="ServerGeneratorLanguage.ecore#//GuiButton">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ServerGeneratorLanguage.ecore#//GuiButton/text"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ServerGeneratorLanguage.ecore#//GuiButton/func"/>
-    </genClasses>
-    <genClasses ecoreClass="ServerGeneratorLanguage.ecore#//GuiInput">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ServerGeneratorLanguage.ecore#//GuiInput/inputType"/>
-    </genClasses>
   </genPackages>
 </genmodel:GenModel>
