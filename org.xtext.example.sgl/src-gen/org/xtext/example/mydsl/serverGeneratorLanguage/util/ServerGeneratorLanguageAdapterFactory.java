@@ -160,31 +160,6 @@ public class ServerGeneratorLanguageAdapterFactory extends AdapterFactoryImpl
         return createRelationshipAdapter();
       }
       @Override
-      public Adapter caseGui(Gui object)
-      {
-        return createGuiAdapter();
-      }
-      @Override
-      public Adapter caseGuiFeature(GuiFeature object)
-      {
-        return createGuiFeatureAdapter();
-      }
-      @Override
-      public Adapter caseGuiLabel(GuiLabel object)
-      {
-        return createGuiLabelAdapter();
-      }
-      @Override
-      public Adapter caseGuiButton(GuiButton object)
-      {
-        return createGuiButtonAdapter();
-      }
-      @Override
-      public Adapter caseGuiInput(GuiInput object)
-      {
-        return createGuiInputAdapter();
-      }
-      @Override
       public Adapter defaultCase(EObject object)
       {
         return createEObjectAdapter();
@@ -457,81 +432,6 @@ public class ServerGeneratorLanguageAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createRelationshipAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.serverGeneratorLanguage.Gui <em>Gui</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.xtext.example.mydsl.serverGeneratorLanguage.Gui
-   * @generated
-   */
-  public Adapter createGuiAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.serverGeneratorLanguage.GuiFeature <em>Gui Feature</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.xtext.example.mydsl.serverGeneratorLanguage.GuiFeature
-   * @generated
-   */
-  public Adapter createGuiFeatureAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.serverGeneratorLanguage.GuiLabel <em>Gui Label</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.xtext.example.mydsl.serverGeneratorLanguage.GuiLabel
-   * @generated
-   */
-  public Adapter createGuiLabelAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.serverGeneratorLanguage.GuiButton <em>Gui Button</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.xtext.example.mydsl.serverGeneratorLanguage.GuiButton
-   * @generated
-   */
-  public Adapter createGuiButtonAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.serverGeneratorLanguage.GuiInput <em>Gui Input</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.xtext.example.mydsl.serverGeneratorLanguage.GuiInput
-   * @generated
-   */
-  public Adapter createGuiInputAdapter()
   {
     return null;
   }

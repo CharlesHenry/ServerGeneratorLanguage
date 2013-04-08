@@ -6,7 +6,7 @@ Model:
   (types+=Type)*;
 
 Type:
-  Server | DomainModel | Gui;
+  Server | DomainModel;
 
 Server:
 	"SERVER" name=ID "{"
@@ -68,32 +68,3 @@ QualifiedName:
     
 Relationship:
 	name=[Attribute|QualifiedName] "->" refName=[Attribute|QualifiedName];
-
-Gui:
-	"GUI" name=ID "SERVER" server=[Server|ID] "LAYOUT" layout=INT "{"
-    (GuiFeatures+=GuiFeature)*
-  "}";
-
-GuiFeature:
-	GuiLabel | GuiButton | GuiInput;
-
-GuiLabel:
-	"LABEL" name=ID "TEXT" text=STRING "DATA" element=[Attribute|QualifiedName];
-
-GuiButton:
-	"BUTTON" name=ID "TEXT" text=STRING "FUNCTION" func=STRING;
-
-GuiInput:
-	"INPUT" name=ID "TYPE" "(" inputType=InputType ")";
-
-InputType:
-	StringInput | IntegerInput | IdInput;
-
-StringInput:
-	"string";
-
-IntegerInput:
-	"int";
-
-IdInput:
-	"id";
