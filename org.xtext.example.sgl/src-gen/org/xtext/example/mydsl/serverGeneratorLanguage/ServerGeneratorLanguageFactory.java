@@ -176,51 +176,6 @@ public interface ServerGeneratorLanguageFactory extends EFactory
   Relationship createRelationship();
 
   /**
-   * Returns a new object of class '<em>Gui</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Gui</em>'.
-   * @generated
-   */
-  Gui createGui();
-
-  /**
-   * Returns a new object of class '<em>Gui Feature</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Gui Feature</em>'.
-   * @generated
-   */
-  GuiFeature createGuiFeature();
-
-  /**
-   * Returns a new object of class '<em>Gui Label</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Gui Label</em>'.
-   * @generated
-   */
-  GuiLabel createGuiLabel();
-
-  /**
-   * Returns a new object of class '<em>Gui Button</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Gui Button</em>'.
-   * @generated
-   */
-  GuiButton createGuiButton();
-
-  /**
-   * Returns a new object of class '<em>Gui Input</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Gui Input</em>'.
-   * @generated
-   */
-  GuiInput createGuiInput();
-
-  /**
    * Returns the package supported by this factory.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
