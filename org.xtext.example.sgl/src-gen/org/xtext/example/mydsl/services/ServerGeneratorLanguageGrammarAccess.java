@@ -40,13 +40,14 @@ public class ServerGeneratorLanguageGrammarAccess extends AbstractGrammarElement
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final RuleCall cServerParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cDomainModelParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cGuiParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
 		
 		//Type:
 		//
-		//	Server | DomainModel;
+		//	Server | DomainModel | Gui;
 		public ParserRule getRule() { return rule; }
 
-		//Server | DomainModel
+		//Server | DomainModel | Gui
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//Server
@@ -54,6 +55,9 @@ public class ServerGeneratorLanguageGrammarAccess extends AbstractGrammarElement
 
 		//DomainModel
 		public RuleCall getDomainModelParserRuleCall_1() { return cDomainModelParserRuleCall_1; }
+
+		//Gui
+		public RuleCall getGuiParserRuleCall_2() { return cGuiParserRuleCall_2; }
 	}
 
 	public class ServerElements extends AbstractParserRuleElementFinder {
@@ -603,6 +607,311 @@ public class ServerGeneratorLanguageGrammarAccess extends AbstractGrammarElement
 		//QualifiedName
 		public RuleCall getRefNameAttributeQualifiedNameParserRuleCall_2_0_1() { return cRefNameAttributeQualifiedNameParserRuleCall_2_0_1; }
 	}
+
+	public class GuiElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Gui");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cGUIKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Keyword cSERVERKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cServerAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final CrossReference cServerServerCrossReference_3_0 = (CrossReference)cServerAssignment_3.eContents().get(0);
+		private final RuleCall cServerServerIDTerminalRuleCall_3_0_1 = (RuleCall)cServerServerCrossReference_3_0.eContents().get(1);
+		private final Keyword cLAYOUTKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Assignment cLayoutAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cLayoutINTTerminalRuleCall_5_0 = (RuleCall)cLayoutAssignment_5.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		private final Assignment cGuiFeaturesAssignment_7 = (Assignment)cGroup.eContents().get(7);
+		private final RuleCall cGuiFeaturesGuiFeatureParserRuleCall_7_0 = (RuleCall)cGuiFeaturesAssignment_7.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_8 = (Keyword)cGroup.eContents().get(8);
+		
+		//Gui:
+		//
+		//	"GUI" name=ID "SERVER" server=[Server] "LAYOUT" layout=INT "{" GuiFeatures+=GuiFeature* "}";
+		public ParserRule getRule() { return rule; }
+
+		//"GUI" name=ID "SERVER" server=[Server] "LAYOUT" layout=INT "{" GuiFeatures+=GuiFeature* "}"
+		public Group getGroup() { return cGroup; }
+
+		//"GUI"
+		public Keyword getGUIKeyword_0() { return cGUIKeyword_0; }
+
+		//name=ID
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+
+		//"SERVER"
+		public Keyword getSERVERKeyword_2() { return cSERVERKeyword_2; }
+
+		//server=[Server]
+		public Assignment getServerAssignment_3() { return cServerAssignment_3; }
+
+		//[Server]
+		public CrossReference getServerServerCrossReference_3_0() { return cServerServerCrossReference_3_0; }
+
+		//ID
+		public RuleCall getServerServerIDTerminalRuleCall_3_0_1() { return cServerServerIDTerminalRuleCall_3_0_1; }
+
+		//"LAYOUT"
+		public Keyword getLAYOUTKeyword_4() { return cLAYOUTKeyword_4; }
+
+		//layout=INT
+		public Assignment getLayoutAssignment_5() { return cLayoutAssignment_5; }
+
+		//INT
+		public RuleCall getLayoutINTTerminalRuleCall_5_0() { return cLayoutINTTerminalRuleCall_5_0; }
+
+		//"{"
+		public Keyword getLeftCurlyBracketKeyword_6() { return cLeftCurlyBracketKeyword_6; }
+
+		//GuiFeatures+=GuiFeature*
+		public Assignment getGuiFeaturesAssignment_7() { return cGuiFeaturesAssignment_7; }
+
+		//GuiFeature
+		public RuleCall getGuiFeaturesGuiFeatureParserRuleCall_7_0() { return cGuiFeaturesGuiFeatureParserRuleCall_7_0; }
+
+		//"}"
+		public Keyword getRightCurlyBracketKeyword_8() { return cRightCurlyBracketKeyword_8; }
+	}
+
+	public class GuiFeatureElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "GuiFeature");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cGuiLabelParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cGuiButtonParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cGuiInputParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		
+		//GuiFeature:
+		//
+		//	GuiLabel | GuiButton | GuiInput;
+		public ParserRule getRule() { return rule; }
+
+		//GuiLabel | GuiButton | GuiInput
+		public Alternatives getAlternatives() { return cAlternatives; }
+
+		//GuiLabel
+		public RuleCall getGuiLabelParserRuleCall_0() { return cGuiLabelParserRuleCall_0; }
+
+		//GuiButton
+		public RuleCall getGuiButtonParserRuleCall_1() { return cGuiButtonParserRuleCall_1; }
+
+		//GuiInput
+		public RuleCall getGuiInputParserRuleCall_2() { return cGuiInputParserRuleCall_2; }
+	}
+
+	public class GuiLabelElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "GuiLabel");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cLABELKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Keyword cTEXTKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cTextAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cTextSTRINGTerminalRuleCall_3_0 = (RuleCall)cTextAssignment_3.eContents().get(0);
+		private final Keyword cDATAKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Assignment cElementAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final CrossReference cElementAttributeCrossReference_5_0 = (CrossReference)cElementAssignment_5.eContents().get(0);
+		private final RuleCall cElementAttributeQualifiedNameParserRuleCall_5_0_1 = (RuleCall)cElementAttributeCrossReference_5_0.eContents().get(1);
+		
+		//GuiLabel:
+		//
+		//	"LABEL" name=ID "TEXT" text=STRING "DATA" element=[Attribute|QualifiedName];
+		public ParserRule getRule() { return rule; }
+
+		//"LABEL" name=ID "TEXT" text=STRING "DATA" element=[Attribute|QualifiedName]
+		public Group getGroup() { return cGroup; }
+
+		//"LABEL"
+		public Keyword getLABELKeyword_0() { return cLABELKeyword_0; }
+
+		//name=ID
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+
+		//"TEXT"
+		public Keyword getTEXTKeyword_2() { return cTEXTKeyword_2; }
+
+		//text=STRING
+		public Assignment getTextAssignment_3() { return cTextAssignment_3; }
+
+		//STRING
+		public RuleCall getTextSTRINGTerminalRuleCall_3_0() { return cTextSTRINGTerminalRuleCall_3_0; }
+
+		//"DATA"
+		public Keyword getDATAKeyword_4() { return cDATAKeyword_4; }
+
+		//element=[Attribute|QualifiedName]
+		public Assignment getElementAssignment_5() { return cElementAssignment_5; }
+
+		//[Attribute|QualifiedName]
+		public CrossReference getElementAttributeCrossReference_5_0() { return cElementAttributeCrossReference_5_0; }
+
+		//QualifiedName
+		public RuleCall getElementAttributeQualifiedNameParserRuleCall_5_0_1() { return cElementAttributeQualifiedNameParserRuleCall_5_0_1; }
+	}
+
+	public class GuiButtonElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "GuiButton");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cBUTTONKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Keyword cTEXTKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cTextAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cTextSTRINGTerminalRuleCall_3_0 = (RuleCall)cTextAssignment_3.eContents().get(0);
+		private final Keyword cFUNCTIONKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Assignment cFuncAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cFuncSTRINGTerminalRuleCall_5_0 = (RuleCall)cFuncAssignment_5.eContents().get(0);
+		
+		//GuiButton:
+		//
+		//	"BUTTON" name=ID "TEXT" text=STRING "FUNCTION" func=STRING;
+		public ParserRule getRule() { return rule; }
+
+		//"BUTTON" name=ID "TEXT" text=STRING "FUNCTION" func=STRING
+		public Group getGroup() { return cGroup; }
+
+		//"BUTTON"
+		public Keyword getBUTTONKeyword_0() { return cBUTTONKeyword_0; }
+
+		//name=ID
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+
+		//"TEXT"
+		public Keyword getTEXTKeyword_2() { return cTEXTKeyword_2; }
+
+		//text=STRING
+		public Assignment getTextAssignment_3() { return cTextAssignment_3; }
+
+		//STRING
+		public RuleCall getTextSTRINGTerminalRuleCall_3_0() { return cTextSTRINGTerminalRuleCall_3_0; }
+
+		//"FUNCTION"
+		public Keyword getFUNCTIONKeyword_4() { return cFUNCTIONKeyword_4; }
+
+		//func=STRING
+		public Assignment getFuncAssignment_5() { return cFuncAssignment_5; }
+
+		//STRING
+		public RuleCall getFuncSTRINGTerminalRuleCall_5_0() { return cFuncSTRINGTerminalRuleCall_5_0; }
+	}
+
+	public class GuiInputElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "GuiInput");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cINPUTKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Keyword cTYPEKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Keyword cLeftParenthesisKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cInputTypeAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cInputTypeInputTypeParserRuleCall_4_0 = (RuleCall)cInputTypeAssignment_4.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		
+		//GuiInput:
+		//
+		//	"INPUT" name=ID "TYPE" "(" inputType=InputType ")";
+		public ParserRule getRule() { return rule; }
+
+		//"INPUT" name=ID "TYPE" "(" inputType=InputType ")"
+		public Group getGroup() { return cGroup; }
+
+		//"INPUT"
+		public Keyword getINPUTKeyword_0() { return cINPUTKeyword_0; }
+
+		//name=ID
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+
+		//"TYPE"
+		public Keyword getTYPEKeyword_2() { return cTYPEKeyword_2; }
+
+		//"("
+		public Keyword getLeftParenthesisKeyword_3() { return cLeftParenthesisKeyword_3; }
+
+		//inputType=InputType
+		public Assignment getInputTypeAssignment_4() { return cInputTypeAssignment_4; }
+
+		//InputType
+		public RuleCall getInputTypeInputTypeParserRuleCall_4_0() { return cInputTypeInputTypeParserRuleCall_4_0; }
+
+		//")"
+		public Keyword getRightParenthesisKeyword_5() { return cRightParenthesisKeyword_5; }
+	}
+
+	public class InputTypeElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "InputType");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cStringInputParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cIntegerInputParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cIdInputParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		
+		//InputType:
+		//
+		//	StringInput | IntegerInput | IdInput;
+		public ParserRule getRule() { return rule; }
+
+		//StringInput | IntegerInput | IdInput
+		public Alternatives getAlternatives() { return cAlternatives; }
+
+		//StringInput
+		public RuleCall getStringInputParserRuleCall_0() { return cStringInputParserRuleCall_0; }
+
+		//IntegerInput
+		public RuleCall getIntegerInputParserRuleCall_1() { return cIntegerInputParserRuleCall_1; }
+
+		//IdInput
+		public RuleCall getIdInputParserRuleCall_2() { return cIdInputParserRuleCall_2; }
+	}
+
+	public class StringInputElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "StringInput");
+		private final Keyword cStringKeyword = (Keyword)rule.eContents().get(1);
+		
+		//StringInput:
+		//
+		//	"string";
+		public ParserRule getRule() { return rule; }
+
+		//"string"
+		public Keyword getStringKeyword() { return cStringKeyword; }
+	}
+
+	public class IntegerInputElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "IntegerInput");
+		private final Keyword cIntKeyword = (Keyword)rule.eContents().get(1);
+		
+		//IntegerInput:
+		//
+		//	"int";
+		public ParserRule getRule() { return rule; }
+
+		//"int"
+		public Keyword getIntKeyword() { return cIntKeyword; }
+	}
+
+	public class IdInputElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "IdInput");
+		private final Keyword cIdKeyword = (Keyword)rule.eContents().get(1);
+		
+		//IdInput:
+		//
+		//	"id";
+		public ParserRule getRule() { return rule; }
+
+		//"id"
+		public Keyword getIdKeyword() { return cIdKeyword; }
+	}
 	
 	
 	private ModelElements pModel;
@@ -623,6 +932,15 @@ public class ServerGeneratorLanguageGrammarAccess extends AbstractGrammarElement
 	private ImageAttributeElements pImageAttribute;
 	private QualifiedNameElements pQualifiedName;
 	private RelationshipElements pRelationship;
+	private GuiElements pGui;
+	private GuiFeatureElements pGuiFeature;
+	private GuiLabelElements pGuiLabel;
+	private GuiButtonElements pGuiButton;
+	private GuiInputElements pGuiInput;
+	private InputTypeElements pInputType;
+	private StringInputElements pStringInput;
+	private IntegerInputElements pIntegerInput;
+	private IdInputElements pIdInput;
 	
 	private final Grammar grammar;
 
@@ -675,7 +993,7 @@ public class ServerGeneratorLanguageGrammarAccess extends AbstractGrammarElement
 
 	//Type:
 	//
-	//	Server | DomainModel;
+	//	Server | DomainModel | Gui;
 	public TypeElements getTypeAccess() {
 		return (pType != null) ? pType : (pType = new TypeElements());
 	}
@@ -860,6 +1178,105 @@ public class ServerGeneratorLanguageGrammarAccess extends AbstractGrammarElement
 	
 	public ParserRule getRelationshipRule() {
 		return getRelationshipAccess().getRule();
+	}
+
+	//Gui:
+	//
+	//	"GUI" name=ID "SERVER" server=[Server] "LAYOUT" layout=INT "{" GuiFeatures+=GuiFeature* "}";
+	public GuiElements getGuiAccess() {
+		return (pGui != null) ? pGui : (pGui = new GuiElements());
+	}
+	
+	public ParserRule getGuiRule() {
+		return getGuiAccess().getRule();
+	}
+
+	//GuiFeature:
+	//
+	//	GuiLabel | GuiButton | GuiInput;
+	public GuiFeatureElements getGuiFeatureAccess() {
+		return (pGuiFeature != null) ? pGuiFeature : (pGuiFeature = new GuiFeatureElements());
+	}
+	
+	public ParserRule getGuiFeatureRule() {
+		return getGuiFeatureAccess().getRule();
+	}
+
+	//GuiLabel:
+	//
+	//	"LABEL" name=ID "TEXT" text=STRING "DATA" element=[Attribute|QualifiedName];
+	public GuiLabelElements getGuiLabelAccess() {
+		return (pGuiLabel != null) ? pGuiLabel : (pGuiLabel = new GuiLabelElements());
+	}
+	
+	public ParserRule getGuiLabelRule() {
+		return getGuiLabelAccess().getRule();
+	}
+
+	//GuiButton:
+	//
+	//	"BUTTON" name=ID "TEXT" text=STRING "FUNCTION" func=STRING;
+	public GuiButtonElements getGuiButtonAccess() {
+		return (pGuiButton != null) ? pGuiButton : (pGuiButton = new GuiButtonElements());
+	}
+	
+	public ParserRule getGuiButtonRule() {
+		return getGuiButtonAccess().getRule();
+	}
+
+	//GuiInput:
+	//
+	//	"INPUT" name=ID "TYPE" "(" inputType=InputType ")";
+	public GuiInputElements getGuiInputAccess() {
+		return (pGuiInput != null) ? pGuiInput : (pGuiInput = new GuiInputElements());
+	}
+	
+	public ParserRule getGuiInputRule() {
+		return getGuiInputAccess().getRule();
+	}
+
+	//InputType:
+	//
+	//	StringInput | IntegerInput | IdInput;
+	public InputTypeElements getInputTypeAccess() {
+		return (pInputType != null) ? pInputType : (pInputType = new InputTypeElements());
+	}
+	
+	public ParserRule getInputTypeRule() {
+		return getInputTypeAccess().getRule();
+	}
+
+	//StringInput:
+	//
+	//	"string";
+	public StringInputElements getStringInputAccess() {
+		return (pStringInput != null) ? pStringInput : (pStringInput = new StringInputElements());
+	}
+	
+	public ParserRule getStringInputRule() {
+		return getStringInputAccess().getRule();
+	}
+
+	//IntegerInput:
+	//
+	//	"int";
+	public IntegerInputElements getIntegerInputAccess() {
+		return (pIntegerInput != null) ? pIntegerInput : (pIntegerInput = new IntegerInputElements());
+	}
+	
+	public ParserRule getIntegerInputRule() {
+		return getIntegerInputAccess().getRule();
+	}
+
+	//IdInput:
+	//
+	//	"id";
+	public IdInputElements getIdInputAccess() {
+		return (pIdInput != null) ? pIdInput : (pIdInput = new IdInputElements());
+	}
+	
+	public ParserRule getIdInputRule() {
+		return getIdInputAccess().getRule();
 	}
 
 	//terminal ID:

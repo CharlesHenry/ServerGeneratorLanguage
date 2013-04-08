@@ -202,6 +202,45 @@ public class ServerGeneratorLanguageSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case ServerGeneratorLanguagePackage.GUI:
+      {
+        Gui gui = (Gui)theEObject;
+        T result = caseGui(gui);
+        if (result == null) result = caseType(gui);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case ServerGeneratorLanguagePackage.GUI_FEATURE:
+      {
+        GuiFeature guiFeature = (GuiFeature)theEObject;
+        T result = caseGuiFeature(guiFeature);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case ServerGeneratorLanguagePackage.GUI_LABEL:
+      {
+        GuiLabel guiLabel = (GuiLabel)theEObject;
+        T result = caseGuiLabel(guiLabel);
+        if (result == null) result = caseGuiFeature(guiLabel);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case ServerGeneratorLanguagePackage.GUI_BUTTON:
+      {
+        GuiButton guiButton = (GuiButton)theEObject;
+        T result = caseGuiButton(guiButton);
+        if (result == null) result = caseGuiFeature(guiButton);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case ServerGeneratorLanguagePackage.GUI_INPUT:
+      {
+        GuiInput guiInput = (GuiInput)theEObject;
+        T result = caseGuiInput(guiInput);
+        if (result == null) result = caseGuiFeature(guiInput);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       default: return defaultCase(theEObject);
     }
   }
@@ -474,6 +513,86 @@ public class ServerGeneratorLanguageSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseRelationship(Relationship object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Gui</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Gui</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseGui(Gui object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Gui Feature</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Gui Feature</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseGuiFeature(GuiFeature object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Gui Label</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Gui Label</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseGuiLabel(GuiLabel object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Gui Button</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Gui Button</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseGuiButton(GuiButton object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Gui Input</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Gui Input</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseGuiInput(GuiInput object)
   {
     return null;
   }

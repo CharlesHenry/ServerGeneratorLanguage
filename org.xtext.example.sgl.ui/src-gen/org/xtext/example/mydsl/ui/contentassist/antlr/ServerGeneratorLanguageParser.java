@@ -40,6 +40,8 @@ public class ServerGeneratorLanguageParser extends AbstractContentAssistParser {
 					put(grammarAccess.getTypeAccess().getAlternatives(), "rule__Type__Alternatives");
 					put(grammarAccess.getConfigAccess().getAlternatives(), "rule__Config__Alternatives");
 					put(grammarAccess.getAttributeAccess().getAlternatives(), "rule__Attribute__Alternatives");
+					put(grammarAccess.getGuiFeatureAccess().getAlternatives(), "rule__GuiFeature__Alternatives");
+					put(grammarAccess.getInputTypeAccess().getAlternatives(), "rule__InputType__Alternatives");
 					put(grammarAccess.getServerAccess().getGroup(), "rule__Server__Group__0");
 					put(grammarAccess.getRootConfigAccess().getGroup(), "rule__RootConfig__Group__0");
 					put(grammarAccess.getHostNameConfigAccess().getGroup(), "rule__HostNameConfig__Group__0");
@@ -55,6 +57,10 @@ public class ServerGeneratorLanguageParser extends AbstractContentAssistParser {
 					put(grammarAccess.getQualifiedNameAccess().getGroup(), "rule__QualifiedName__Group__0");
 					put(grammarAccess.getQualifiedNameAccess().getGroup_1(), "rule__QualifiedName__Group_1__0");
 					put(grammarAccess.getRelationshipAccess().getGroup(), "rule__Relationship__Group__0");
+					put(grammarAccess.getGuiAccess().getGroup(), "rule__Gui__Group__0");
+					put(grammarAccess.getGuiLabelAccess().getGroup(), "rule__GuiLabel__Group__0");
+					put(grammarAccess.getGuiButtonAccess().getGroup(), "rule__GuiButton__Group__0");
+					put(grammarAccess.getGuiInputAccess().getGroup(), "rule__GuiInput__Group__0");
 					put(grammarAccess.getModelAccess().getTypesAssignment(), "rule__Model__TypesAssignment");
 					put(grammarAccess.getServerAccess().getNameAssignment_1(), "rule__Server__NameAssignment_1");
 					put(grammarAccess.getServerAccess().getConfigsAssignment_5(), "rule__Server__ConfigsAssignment_5");
@@ -74,6 +80,18 @@ public class ServerGeneratorLanguageParser extends AbstractContentAssistParser {
 					put(grammarAccess.getImageAttributeAccess().getNameAssignment_1(), "rule__ImageAttribute__NameAssignment_1");
 					put(grammarAccess.getRelationshipAccess().getNameAssignment_0(), "rule__Relationship__NameAssignment_0");
 					put(grammarAccess.getRelationshipAccess().getRefNameAssignment_2(), "rule__Relationship__RefNameAssignment_2");
+					put(grammarAccess.getGuiAccess().getNameAssignment_1(), "rule__Gui__NameAssignment_1");
+					put(grammarAccess.getGuiAccess().getServerAssignment_3(), "rule__Gui__ServerAssignment_3");
+					put(grammarAccess.getGuiAccess().getLayoutAssignment_5(), "rule__Gui__LayoutAssignment_5");
+					put(grammarAccess.getGuiAccess().getGuiFeaturesAssignment_7(), "rule__Gui__GuiFeaturesAssignment_7");
+					put(grammarAccess.getGuiLabelAccess().getNameAssignment_1(), "rule__GuiLabel__NameAssignment_1");
+					put(grammarAccess.getGuiLabelAccess().getTextAssignment_3(), "rule__GuiLabel__TextAssignment_3");
+					put(grammarAccess.getGuiLabelAccess().getElementAssignment_5(), "rule__GuiLabel__ElementAssignment_5");
+					put(grammarAccess.getGuiButtonAccess().getNameAssignment_1(), "rule__GuiButton__NameAssignment_1");
+					put(grammarAccess.getGuiButtonAccess().getTextAssignment_3(), "rule__GuiButton__TextAssignment_3");
+					put(grammarAccess.getGuiButtonAccess().getFuncAssignment_5(), "rule__GuiButton__FuncAssignment_5");
+					put(grammarAccess.getGuiInputAccess().getNameAssignment_1(), "rule__GuiInput__NameAssignment_1");
+					put(grammarAccess.getGuiInputAccess().getInputTypeAssignment_4(), "rule__GuiInput__InputTypeAssignment_4");
 				}
 			};
 		}
