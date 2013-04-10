@@ -105,8 +105,7 @@ class ServerGeneratorLanguageGenerator implements IGenerator {
     	«IF c.eClass.name.contentEquals('portConfig')»sgl.www.port=«c.name»«ENDIF»
     	«IF c.eClass.name.contentEquals('logConfig')»sgl.www.log=«c.name»«ENDIF»
     	«IF c.eClass.name.contentEquals('sqldbConfig')»sgl.www.sqlitedb=«c.name»«ENDIF»
-    	
-    	«IF c.eClass.name.contentEquals('other')»sgl.www.sales_images=«c.name»«ENDIF»
+    	«IF c.eClass.name.contentEquals('resourceConfig')»sgl.www.<table_name>s_images=«c.name»«ENDIF»
     «ENDFOR»
 	'''
 	
@@ -674,7 +673,6 @@ class ServerGeneratorLanguageGenerator implements IGenerator {
 	
 			if (_CONFIG_WWW_ROOT_DIR_URI == null || _CONFIG_WWW_LOG == null
 					|| _CONFIG_WWW_SQLITE_DB == null
-					|| _CONFIG_WWW_LOT_IMAGES == null
 					|| _CONFIG_WWW_HOSTNAME == null
 			«FOR e:d.entitys»
 				«FOR a:e.attributes»

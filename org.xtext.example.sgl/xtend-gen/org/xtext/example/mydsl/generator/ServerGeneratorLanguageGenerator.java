@@ -353,13 +353,12 @@ public class ServerGeneratorLanguageGenerator implements IGenerator {
           }
         }
         _builder.newLineIfNotEmpty();
-        _builder.newLine();
         {
           EClass _eClass_5 = c.eClass();
           String _name_10 = _eClass_5.getName();
-          boolean _contentEquals_5 = _name_10.contentEquals("other");
+          boolean _contentEquals_5 = _name_10.contentEquals("resourceConfig");
           if (_contentEquals_5) {
-            _builder.append("sgl.www.sales_images=");
+            _builder.append("sgl.www.<table_name>s_images=");
             String _name_11 = c.getName();
             _builder.append(_name_11, "");
           }
@@ -2568,9 +2567,6 @@ public class ServerGeneratorLanguageGenerator implements IGenerator {
     _builder.newLine();
     _builder.append("\t\t\t\t");
     _builder.append("|| _CONFIG_WWW_SQLITE_DB == null");
-    _builder.newLine();
-    _builder.append("\t\t\t\t");
-    _builder.append("|| _CONFIG_WWW_LOT_IMAGES == null");
     _builder.newLine();
     _builder.append("\t\t\t\t");
     _builder.append("|| _CONFIG_WWW_HOSTNAME == null");
