@@ -2469,8 +2469,8 @@ rule__RootConfig__NameAssignment_2
     }
 :
 (
-{ before(grammarAccess.getRootConfigAccess().getNameIDTerminalRuleCall_2_0()); }
-	RULE_ID{ after(grammarAccess.getRootConfigAccess().getNameIDTerminalRuleCall_2_0()); }
+{ before(grammarAccess.getRootConfigAccess().getNameCONFIGIDTerminalRuleCall_2_0()); }
+	RULE_CONFIGID{ after(grammarAccess.getRootConfigAccess().getNameCONFIGIDTerminalRuleCall_2_0()); }
 )
 
 ;
@@ -2484,8 +2484,8 @@ rule__HostNameConfig__NameAssignment_2
     }
 :
 (
-{ before(grammarAccess.getHostNameConfigAccess().getNameIDTerminalRuleCall_2_0()); }
-	RULE_ID{ after(grammarAccess.getHostNameConfigAccess().getNameIDTerminalRuleCall_2_0()); }
+{ before(grammarAccess.getHostNameConfigAccess().getNameIPTerminalRuleCall_2_0()); }
+	RULE_IP{ after(grammarAccess.getHostNameConfigAccess().getNameIPTerminalRuleCall_2_0()); }
 )
 
 ;
@@ -2499,8 +2499,8 @@ rule__PortConfig__NameAssignment_2
     }
 :
 (
-{ before(grammarAccess.getPortConfigAccess().getNameIDTerminalRuleCall_2_0()); }
-	RULE_ID{ after(grammarAccess.getPortConfigAccess().getNameIDTerminalRuleCall_2_0()); }
+{ before(grammarAccess.getPortConfigAccess().getNameMYINTTerminalRuleCall_2_0()); }
+	RULE_MYINT{ after(grammarAccess.getPortConfigAccess().getNameMYINTTerminalRuleCall_2_0()); }
 )
 
 ;
@@ -2514,8 +2514,8 @@ rule__LogConfig__NameAssignment_2
     }
 :
 (
-{ before(grammarAccess.getLogConfigAccess().getNameIDTerminalRuleCall_2_0()); }
-	RULE_ID{ after(grammarAccess.getLogConfigAccess().getNameIDTerminalRuleCall_2_0()); }
+{ before(grammarAccess.getLogConfigAccess().getNameCONFIGIDTerminalRuleCall_2_0()); }
+	RULE_CONFIGID{ after(grammarAccess.getLogConfigAccess().getNameCONFIGIDTerminalRuleCall_2_0()); }
 )
 
 ;
@@ -2529,8 +2529,8 @@ rule__SqldbConfig__NameAssignment_2
     }
 :
 (
-{ before(grammarAccess.getSqldbConfigAccess().getNameIDTerminalRuleCall_2_0()); }
-	RULE_ID{ after(grammarAccess.getSqldbConfigAccess().getNameIDTerminalRuleCall_2_0()); }
+{ before(grammarAccess.getSqldbConfigAccess().getNameCONFIGIDTerminalRuleCall_2_0()); }
+	RULE_CONFIGID{ after(grammarAccess.getSqldbConfigAccess().getNameCONFIGIDTerminalRuleCall_2_0()); }
 )
 
 ;
@@ -2544,8 +2544,8 @@ rule__ResourceConfig__NameAssignment_2
     }
 :
 (
-{ before(grammarAccess.getResourceConfigAccess().getNameIDTerminalRuleCall_2_0()); }
-	RULE_ID{ after(grammarAccess.getResourceConfigAccess().getNameIDTerminalRuleCall_2_0()); }
+{ before(grammarAccess.getResourceConfigAccess().getNameCONFIGIDTerminalRuleCall_2_0()); }
+	RULE_CONFIGID{ after(grammarAccess.getResourceConfigAccess().getNameCONFIGIDTerminalRuleCall_2_0()); }
 )
 
 ;
@@ -2711,6 +2711,12 @@ finally {
 	restoreStackSize(stackSize);
 }
 
+
+RULE_MYINT : '"' RULE_INT '"';
+
+RULE_IP : '"' RULE_INT '.' RULE_INT '.' RULE_INT '.' RULE_INT '"';
+
+RULE_CONFIGID : '"' ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9'|'/'|'.'|':'|'-')* '"';
 
 RULE_ID : '^'? ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
 

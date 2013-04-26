@@ -22,33 +22,36 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalServerGeneratorLanguageParser extends AbstractInternalContentAssistParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_INT", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'SERVER'", "'{'", "'CONFIG'", "'}'", "'ROOTDIR'", "'='", "'HOSTNAME'", "'PORT'", "'LOG'", "'SQLDB'", "'RESOURCE'", "'DOMAINMODEL'", "'ENTITYS'", "'ENTITY_RELATIONSHIP'", "'STRING'", "'NUMBER'", "'IMAGE'", "'.'", "'->'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_CONFIGID", "RULE_IP", "RULE_MYINT", "RULE_INT", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'SERVER'", "'{'", "'CONFIG'", "'}'", "'ROOTDIR'", "'='", "'HOSTNAME'", "'PORT'", "'LOG'", "'SQLDB'", "'RESOURCE'", "'DOMAINMODEL'", "'ENTITYS'", "'ENTITY_RELATIONSHIP'", "'STRING'", "'NUMBER'", "'IMAGE'", "'.'", "'->'"
     };
-    public static final int RULE_ML_COMMENT=7;
+    public static final int RULE_ML_COMMENT=10;
     public static final int RULE_ID=4;
-    public static final int T__12=12;
     public static final int T__28=28;
     public static final int T__23=23;
     public static final int T__20=20;
-    public static final int T__13=13;
-    public static final int RULE_STRING=6;
+    public static final int RULE_STRING=9;
     public static final int T__21=21;
     public static final int T__19=19;
     public static final int T__14=14;
-    public static final int T__11=11;
     public static final int T__22=22;
     public static final int T__29=29;
-    public static final int RULE_WS=9;
+    public static final int T__30=30;
+    public static final int RULE_CONFIGID=5;
+    public static final int RULE_WS=12;
     public static final int T__17=17;
-    public static final int RULE_INT=5;
+    public static final int T__31=31;
+    public static final int RULE_INT=8;
     public static final int EOF=-1;
     public static final int T__27=27;
+    public static final int T__32=32;
     public static final int T__16=16;
     public static final int T__24=24;
-    public static final int RULE_ANY_OTHER=10;
+    public static final int RULE_ANY_OTHER=13;
     public static final int T__26=26;
     public static final int T__25=25;
-    public static final int RULE_SL_COMMENT=8;
+    public static final int RULE_IP=6;
+    public static final int RULE_SL_COMMENT=11;
+    public static final int RULE_MYINT=7;
     public static final int T__18=18;
     public static final int T__15=15;
 
@@ -139,7 +142,7 @@ public class InternalServerGeneratorLanguageParser extends AbstractInternalConte
                 int alt1=2;
                 int LA1_0 = input.LA(1);
 
-                if ( (LA1_0==11||LA1_0==22) ) {
+                if ( (LA1_0==14||LA1_0==25) ) {
                     alt1=1;
                 }
 
@@ -1504,10 +1507,10 @@ public class InternalServerGeneratorLanguageParser extends AbstractInternalConte
             int alt2=2;
             int LA2_0 = input.LA(1);
 
-            if ( (LA2_0==11) ) {
+            if ( (LA2_0==14) ) {
                 alt2=1;
             }
-            else if ( (LA2_0==22) ) {
+            else if ( (LA2_0==25) ) {
                 alt2=2;
             }
             else {
@@ -1582,32 +1585,32 @@ public class InternalServerGeneratorLanguageParser extends AbstractInternalConte
             // ../org.xtext.example.sgl.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalServerGeneratorLanguage.g:590:1: ( ( rulerootConfig ) | ( rulehostNameConfig ) | ( ruleportConfig ) | ( rulelogConfig ) | ( rulesqldbConfig ) | ( ruleresourceConfig ) )
             int alt3=6;
             switch ( input.LA(1) ) {
-            case 15:
+            case 18:
                 {
                 alt3=1;
                 }
                 break;
-            case 17:
+            case 20:
                 {
                 alt3=2;
                 }
                 break;
-            case 18:
+            case 21:
                 {
                 alt3=3;
                 }
                 break;
-            case 19:
+            case 22:
                 {
                 alt3=4;
                 }
                 break;
-            case 20:
+            case 23:
                 {
                 alt3=5;
                 }
                 break;
-            case 21:
+            case 24:
                 {
                 alt3=6;
                 }
@@ -1761,17 +1764,17 @@ public class InternalServerGeneratorLanguageParser extends AbstractInternalConte
             // ../org.xtext.example.sgl.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalServerGeneratorLanguage.g:636:1: ( ( ruleStringAttribute ) | ( ruleNumberAttribute ) | ( ruleImageAttribute ) )
             int alt4=3;
             switch ( input.LA(1) ) {
-            case 25:
+            case 28:
                 {
                 alt4=1;
                 }
                 break;
-            case 26:
+            case 29:
                 {
                 alt4=2;
                 }
                 break;
-            case 27:
+            case 30:
                 {
                 alt4=3;
                 }
@@ -1910,7 +1913,7 @@ public class InternalServerGeneratorLanguageParser extends AbstractInternalConte
             // ../org.xtext.example.sgl.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalServerGeneratorLanguage.g:680:1: 'SERVER'
             {
              before(grammarAccess.getServerAccess().getSERVERKeyword_0()); 
-            match(input,11,FOLLOW_11_in_rule__Server__Group__0__Impl1412); 
+            match(input,14,FOLLOW_14_in_rule__Server__Group__0__Impl1412); 
              after(grammarAccess.getServerAccess().getSERVERKeyword_0()); 
 
             }
@@ -2070,7 +2073,7 @@ public class InternalServerGeneratorLanguageParser extends AbstractInternalConte
             // ../org.xtext.example.sgl.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalServerGeneratorLanguage.g:740:1: '{'
             {
              before(grammarAccess.getServerAccess().getLeftCurlyBracketKeyword_2()); 
-            match(input,12,FOLLOW_12_in_rule__Server__Group__2__Impl1534); 
+            match(input,15,FOLLOW_15_in_rule__Server__Group__2__Impl1534); 
              after(grammarAccess.getServerAccess().getLeftCurlyBracketKeyword_2()); 
 
             }
@@ -2145,7 +2148,7 @@ public class InternalServerGeneratorLanguageParser extends AbstractInternalConte
             // ../org.xtext.example.sgl.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalServerGeneratorLanguage.g:771:1: 'CONFIG'
             {
              before(grammarAccess.getServerAccess().getCONFIGKeyword_3()); 
-            match(input,13,FOLLOW_13_in_rule__Server__Group__3__Impl1596); 
+            match(input,16,FOLLOW_16_in_rule__Server__Group__3__Impl1596); 
              after(grammarAccess.getServerAccess().getCONFIGKeyword_3()); 
 
             }
@@ -2220,7 +2223,7 @@ public class InternalServerGeneratorLanguageParser extends AbstractInternalConte
             // ../org.xtext.example.sgl.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalServerGeneratorLanguage.g:802:1: '{'
             {
              before(grammarAccess.getServerAccess().getLeftCurlyBracketKeyword_4()); 
-            match(input,12,FOLLOW_12_in_rule__Server__Group__4__Impl1658); 
+            match(input,15,FOLLOW_15_in_rule__Server__Group__4__Impl1658); 
              after(grammarAccess.getServerAccess().getLeftCurlyBracketKeyword_4()); 
 
             }
@@ -2301,7 +2304,7 @@ public class InternalServerGeneratorLanguageParser extends AbstractInternalConte
                 int alt5=2;
                 int LA5_0 = input.LA(1);
 
-                if ( (LA5_0==15||(LA5_0>=17 && LA5_0<=21)) ) {
+                if ( (LA5_0==18||(LA5_0>=20 && LA5_0<=24)) ) {
                     alt5=1;
                 }
 
@@ -2398,7 +2401,7 @@ public class InternalServerGeneratorLanguageParser extends AbstractInternalConte
             // ../org.xtext.example.sgl.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalServerGeneratorLanguage.g:862:1: '}'
             {
              before(grammarAccess.getServerAccess().getRightCurlyBracketKeyword_6()); 
-            match(input,14,FOLLOW_14_in_rule__Server__Group__6__Impl1781); 
+            match(input,17,FOLLOW_17_in_rule__Server__Group__6__Impl1781); 
              after(grammarAccess.getServerAccess().getRightCurlyBracketKeyword_6()); 
 
             }
@@ -2468,7 +2471,7 @@ public class InternalServerGeneratorLanguageParser extends AbstractInternalConte
             // ../org.xtext.example.sgl.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalServerGeneratorLanguage.g:892:1: '}'
             {
              before(grammarAccess.getServerAccess().getRightCurlyBracketKeyword_7()); 
-            match(input,14,FOLLOW_14_in_rule__Server__Group__7__Impl1840); 
+            match(input,17,FOLLOW_17_in_rule__Server__Group__7__Impl1840); 
              after(grammarAccess.getServerAccess().getRightCurlyBracketKeyword_7()); 
 
             }
@@ -2543,7 +2546,7 @@ public class InternalServerGeneratorLanguageParser extends AbstractInternalConte
             // ../org.xtext.example.sgl.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalServerGeneratorLanguage.g:939:1: 'ROOTDIR'
             {
              before(grammarAccess.getRootConfigAccess().getROOTDIRKeyword_0()); 
-            match(input,15,FOLLOW_15_in_rule__RootConfig__Group__0__Impl1918); 
+            match(input,18,FOLLOW_18_in_rule__RootConfig__Group__0__Impl1918); 
              after(grammarAccess.getRootConfigAccess().getROOTDIRKeyword_0()); 
 
             }
@@ -2618,7 +2621,7 @@ public class InternalServerGeneratorLanguageParser extends AbstractInternalConte
             // ../org.xtext.example.sgl.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalServerGeneratorLanguage.g:970:1: '='
             {
              before(grammarAccess.getRootConfigAccess().getEqualsSignKeyword_1()); 
-            match(input,16,FOLLOW_16_in_rule__RootConfig__Group__1__Impl1980); 
+            match(input,19,FOLLOW_19_in_rule__RootConfig__Group__1__Impl1980); 
              after(grammarAccess.getRootConfigAccess().getEqualsSignKeyword_1()); 
 
             }
@@ -2773,7 +2776,7 @@ public class InternalServerGeneratorLanguageParser extends AbstractInternalConte
             // ../org.xtext.example.sgl.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalServerGeneratorLanguage.g:1035:1: 'HOSTNAME'
             {
              before(grammarAccess.getHostNameConfigAccess().getHOSTNAMEKeyword_0()); 
-            match(input,17,FOLLOW_17_in_rule__HostNameConfig__Group__0__Impl2105); 
+            match(input,20,FOLLOW_20_in_rule__HostNameConfig__Group__0__Impl2105); 
              after(grammarAccess.getHostNameConfigAccess().getHOSTNAMEKeyword_0()); 
 
             }
@@ -2848,7 +2851,7 @@ public class InternalServerGeneratorLanguageParser extends AbstractInternalConte
             // ../org.xtext.example.sgl.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalServerGeneratorLanguage.g:1066:1: '='
             {
              before(grammarAccess.getHostNameConfigAccess().getEqualsSignKeyword_1()); 
-            match(input,16,FOLLOW_16_in_rule__HostNameConfig__Group__1__Impl2167); 
+            match(input,19,FOLLOW_19_in_rule__HostNameConfig__Group__1__Impl2167); 
              after(grammarAccess.getHostNameConfigAccess().getEqualsSignKeyword_1()); 
 
             }
@@ -3003,7 +3006,7 @@ public class InternalServerGeneratorLanguageParser extends AbstractInternalConte
             // ../org.xtext.example.sgl.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalServerGeneratorLanguage.g:1131:1: 'PORT'
             {
              before(grammarAccess.getPortConfigAccess().getPORTKeyword_0()); 
-            match(input,18,FOLLOW_18_in_rule__PortConfig__Group__0__Impl2292); 
+            match(input,21,FOLLOW_21_in_rule__PortConfig__Group__0__Impl2292); 
              after(grammarAccess.getPortConfigAccess().getPORTKeyword_0()); 
 
             }
@@ -3078,7 +3081,7 @@ public class InternalServerGeneratorLanguageParser extends AbstractInternalConte
             // ../org.xtext.example.sgl.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalServerGeneratorLanguage.g:1162:1: '='
             {
              before(grammarAccess.getPortConfigAccess().getEqualsSignKeyword_1()); 
-            match(input,16,FOLLOW_16_in_rule__PortConfig__Group__1__Impl2354); 
+            match(input,19,FOLLOW_19_in_rule__PortConfig__Group__1__Impl2354); 
              after(grammarAccess.getPortConfigAccess().getEqualsSignKeyword_1()); 
 
             }
@@ -3233,7 +3236,7 @@ public class InternalServerGeneratorLanguageParser extends AbstractInternalConte
             // ../org.xtext.example.sgl.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalServerGeneratorLanguage.g:1227:1: 'LOG'
             {
              before(grammarAccess.getLogConfigAccess().getLOGKeyword_0()); 
-            match(input,19,FOLLOW_19_in_rule__LogConfig__Group__0__Impl2479); 
+            match(input,22,FOLLOW_22_in_rule__LogConfig__Group__0__Impl2479); 
              after(grammarAccess.getLogConfigAccess().getLOGKeyword_0()); 
 
             }
@@ -3308,7 +3311,7 @@ public class InternalServerGeneratorLanguageParser extends AbstractInternalConte
             // ../org.xtext.example.sgl.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalServerGeneratorLanguage.g:1258:1: '='
             {
              before(grammarAccess.getLogConfigAccess().getEqualsSignKeyword_1()); 
-            match(input,16,FOLLOW_16_in_rule__LogConfig__Group__1__Impl2541); 
+            match(input,19,FOLLOW_19_in_rule__LogConfig__Group__1__Impl2541); 
              after(grammarAccess.getLogConfigAccess().getEqualsSignKeyword_1()); 
 
             }
@@ -3463,7 +3466,7 @@ public class InternalServerGeneratorLanguageParser extends AbstractInternalConte
             // ../org.xtext.example.sgl.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalServerGeneratorLanguage.g:1323:1: 'SQLDB'
             {
              before(grammarAccess.getSqldbConfigAccess().getSQLDBKeyword_0()); 
-            match(input,20,FOLLOW_20_in_rule__SqldbConfig__Group__0__Impl2666); 
+            match(input,23,FOLLOW_23_in_rule__SqldbConfig__Group__0__Impl2666); 
              after(grammarAccess.getSqldbConfigAccess().getSQLDBKeyword_0()); 
 
             }
@@ -3538,7 +3541,7 @@ public class InternalServerGeneratorLanguageParser extends AbstractInternalConte
             // ../org.xtext.example.sgl.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalServerGeneratorLanguage.g:1354:1: '='
             {
              before(grammarAccess.getSqldbConfigAccess().getEqualsSignKeyword_1()); 
-            match(input,16,FOLLOW_16_in_rule__SqldbConfig__Group__1__Impl2728); 
+            match(input,19,FOLLOW_19_in_rule__SqldbConfig__Group__1__Impl2728); 
              after(grammarAccess.getSqldbConfigAccess().getEqualsSignKeyword_1()); 
 
             }
@@ -3693,7 +3696,7 @@ public class InternalServerGeneratorLanguageParser extends AbstractInternalConte
             // ../org.xtext.example.sgl.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalServerGeneratorLanguage.g:1419:1: 'RESOURCE'
             {
              before(grammarAccess.getResourceConfigAccess().getRESOURCEKeyword_0()); 
-            match(input,21,FOLLOW_21_in_rule__ResourceConfig__Group__0__Impl2853); 
+            match(input,24,FOLLOW_24_in_rule__ResourceConfig__Group__0__Impl2853); 
              after(grammarAccess.getResourceConfigAccess().getRESOURCEKeyword_0()); 
 
             }
@@ -3768,7 +3771,7 @@ public class InternalServerGeneratorLanguageParser extends AbstractInternalConte
             // ../org.xtext.example.sgl.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalServerGeneratorLanguage.g:1450:1: '='
             {
              before(grammarAccess.getResourceConfigAccess().getEqualsSignKeyword_1()); 
-            match(input,16,FOLLOW_16_in_rule__ResourceConfig__Group__1__Impl2915); 
+            match(input,19,FOLLOW_19_in_rule__ResourceConfig__Group__1__Impl2915); 
              after(grammarAccess.getResourceConfigAccess().getEqualsSignKeyword_1()); 
 
             }
@@ -3923,7 +3926,7 @@ public class InternalServerGeneratorLanguageParser extends AbstractInternalConte
             // ../org.xtext.example.sgl.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalServerGeneratorLanguage.g:1515:1: 'DOMAINMODEL'
             {
              before(grammarAccess.getDomainModelAccess().getDOMAINMODELKeyword_0()); 
-            match(input,22,FOLLOW_22_in_rule__DomainModel__Group__0__Impl3040); 
+            match(input,25,FOLLOW_25_in_rule__DomainModel__Group__0__Impl3040); 
              after(grammarAccess.getDomainModelAccess().getDOMAINMODELKeyword_0()); 
 
             }
@@ -4083,7 +4086,7 @@ public class InternalServerGeneratorLanguageParser extends AbstractInternalConte
             // ../org.xtext.example.sgl.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalServerGeneratorLanguage.g:1575:1: '{'
             {
              before(grammarAccess.getDomainModelAccess().getLeftCurlyBracketKeyword_2()); 
-            match(input,12,FOLLOW_12_in_rule__DomainModel__Group__2__Impl3162); 
+            match(input,15,FOLLOW_15_in_rule__DomainModel__Group__2__Impl3162); 
              after(grammarAccess.getDomainModelAccess().getLeftCurlyBracketKeyword_2()); 
 
             }
@@ -4158,7 +4161,7 @@ public class InternalServerGeneratorLanguageParser extends AbstractInternalConte
             // ../org.xtext.example.sgl.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalServerGeneratorLanguage.g:1606:1: 'ENTITYS'
             {
              before(grammarAccess.getDomainModelAccess().getENTITYSKeyword_3()); 
-            match(input,23,FOLLOW_23_in_rule__DomainModel__Group__3__Impl3224); 
+            match(input,26,FOLLOW_26_in_rule__DomainModel__Group__3__Impl3224); 
              after(grammarAccess.getDomainModelAccess().getENTITYSKeyword_3()); 
 
             }
@@ -4233,7 +4236,7 @@ public class InternalServerGeneratorLanguageParser extends AbstractInternalConte
             // ../org.xtext.example.sgl.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalServerGeneratorLanguage.g:1637:1: '{'
             {
              before(grammarAccess.getDomainModelAccess().getLeftCurlyBracketKeyword_4()); 
-            match(input,12,FOLLOW_12_in_rule__DomainModel__Group__4__Impl3286); 
+            match(input,15,FOLLOW_15_in_rule__DomainModel__Group__4__Impl3286); 
              after(grammarAccess.getDomainModelAccess().getLeftCurlyBracketKeyword_4()); 
 
             }
@@ -4411,7 +4414,7 @@ public class InternalServerGeneratorLanguageParser extends AbstractInternalConte
             // ../org.xtext.example.sgl.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalServerGeneratorLanguage.g:1697:1: '}'
             {
              before(grammarAccess.getDomainModelAccess().getRightCurlyBracketKeyword_6()); 
-            match(input,14,FOLLOW_14_in_rule__DomainModel__Group__6__Impl3409); 
+            match(input,17,FOLLOW_17_in_rule__DomainModel__Group__6__Impl3409); 
              after(grammarAccess.getDomainModelAccess().getRightCurlyBracketKeyword_6()); 
 
             }
@@ -4486,7 +4489,7 @@ public class InternalServerGeneratorLanguageParser extends AbstractInternalConte
             // ../org.xtext.example.sgl.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalServerGeneratorLanguage.g:1728:1: 'ENTITY_RELATIONSHIP'
             {
              before(grammarAccess.getDomainModelAccess().getENTITY_RELATIONSHIPKeyword_7()); 
-            match(input,24,FOLLOW_24_in_rule__DomainModel__Group__7__Impl3471); 
+            match(input,27,FOLLOW_27_in_rule__DomainModel__Group__7__Impl3471); 
              after(grammarAccess.getDomainModelAccess().getENTITY_RELATIONSHIPKeyword_7()); 
 
             }
@@ -4561,7 +4564,7 @@ public class InternalServerGeneratorLanguageParser extends AbstractInternalConte
             // ../org.xtext.example.sgl.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalServerGeneratorLanguage.g:1759:1: '{'
             {
              before(grammarAccess.getDomainModelAccess().getLeftCurlyBracketKeyword_8()); 
-            match(input,12,FOLLOW_12_in_rule__DomainModel__Group__8__Impl3533); 
+            match(input,15,FOLLOW_15_in_rule__DomainModel__Group__8__Impl3533); 
              after(grammarAccess.getDomainModelAccess().getLeftCurlyBracketKeyword_8()); 
 
             }
@@ -4739,7 +4742,7 @@ public class InternalServerGeneratorLanguageParser extends AbstractInternalConte
             // ../org.xtext.example.sgl.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalServerGeneratorLanguage.g:1819:1: '}'
             {
              before(grammarAccess.getDomainModelAccess().getRightCurlyBracketKeyword_10()); 
-            match(input,14,FOLLOW_14_in_rule__DomainModel__Group__10__Impl3656); 
+            match(input,17,FOLLOW_17_in_rule__DomainModel__Group__10__Impl3656); 
              after(grammarAccess.getDomainModelAccess().getRightCurlyBracketKeyword_10()); 
 
             }
@@ -4809,7 +4812,7 @@ public class InternalServerGeneratorLanguageParser extends AbstractInternalConte
             // ../org.xtext.example.sgl.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalServerGeneratorLanguage.g:1849:1: '}'
             {
              before(grammarAccess.getDomainModelAccess().getRightCurlyBracketKeyword_11()); 
-            match(input,14,FOLLOW_14_in_rule__DomainModel__Group__11__Impl3715); 
+            match(input,17,FOLLOW_17_in_rule__DomainModel__Group__11__Impl3715); 
              after(grammarAccess.getDomainModelAccess().getRightCurlyBracketKeyword_11()); 
 
             }
@@ -4969,7 +4972,7 @@ public class InternalServerGeneratorLanguageParser extends AbstractInternalConte
             // ../org.xtext.example.sgl.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalServerGeneratorLanguage.g:1933:1: '{'
             {
              before(grammarAccess.getEntityAccess().getLeftCurlyBracketKeyword_1()); 
-            match(input,12,FOLLOW_12_in_rule__Entity__Group__1__Impl3861); 
+            match(input,15,FOLLOW_15_in_rule__Entity__Group__1__Impl3861); 
              after(grammarAccess.getEntityAccess().getLeftCurlyBracketKeyword_1()); 
 
             }
@@ -5050,7 +5053,7 @@ public class InternalServerGeneratorLanguageParser extends AbstractInternalConte
                 int alt8=2;
                 int LA8_0 = input.LA(1);
 
-                if ( ((LA8_0>=25 && LA8_0<=27)) ) {
+                if ( ((LA8_0>=28 && LA8_0<=30)) ) {
                     alt8=1;
                 }
 
@@ -5142,7 +5145,7 @@ public class InternalServerGeneratorLanguageParser extends AbstractInternalConte
             // ../org.xtext.example.sgl.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalServerGeneratorLanguage.g:1992:1: '}'
             {
              before(grammarAccess.getEntityAccess().getRightCurlyBracketKeyword_3()); 
-            match(input,14,FOLLOW_14_in_rule__Entity__Group__3__Impl3981); 
+            match(input,17,FOLLOW_17_in_rule__Entity__Group__3__Impl3981); 
              after(grammarAccess.getEntityAccess().getRightCurlyBracketKeyword_3()); 
 
             }
@@ -5217,7 +5220,7 @@ public class InternalServerGeneratorLanguageParser extends AbstractInternalConte
             // ../org.xtext.example.sgl.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalServerGeneratorLanguage.g:2031:1: 'STRING'
             {
              before(grammarAccess.getStringAttributeAccess().getSTRINGKeyword_0()); 
-            match(input,25,FOLLOW_25_in_rule__StringAttribute__Group__0__Impl4051); 
+            match(input,28,FOLLOW_28_in_rule__StringAttribute__Group__0__Impl4051); 
              after(grammarAccess.getStringAttributeAccess().getSTRINGKeyword_0()); 
 
             }
@@ -5372,7 +5375,7 @@ public class InternalServerGeneratorLanguageParser extends AbstractInternalConte
             // ../org.xtext.example.sgl.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalServerGeneratorLanguage.g:2094:1: 'NUMBER'
             {
              before(grammarAccess.getNumberAttributeAccess().getNUMBERKeyword_0()); 
-            match(input,26,FOLLOW_26_in_rule__NumberAttribute__Group__0__Impl4174); 
+            match(input,29,FOLLOW_29_in_rule__NumberAttribute__Group__0__Impl4174); 
              after(grammarAccess.getNumberAttributeAccess().getNUMBERKeyword_0()); 
 
             }
@@ -5527,7 +5530,7 @@ public class InternalServerGeneratorLanguageParser extends AbstractInternalConte
             // ../org.xtext.example.sgl.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalServerGeneratorLanguage.g:2157:1: 'IMAGE'
             {
              before(grammarAccess.getImageAttributeAccess().getIMAGEKeyword_0()); 
-            match(input,27,FOLLOW_27_in_rule__ImageAttribute__Group__0__Impl4297); 
+            match(input,30,FOLLOW_30_in_rule__ImageAttribute__Group__0__Impl4297); 
              after(grammarAccess.getImageAttributeAccess().getIMAGEKeyword_0()); 
 
             }
@@ -5758,7 +5761,7 @@ public class InternalServerGeneratorLanguageParser extends AbstractInternalConte
                 int alt9=2;
                 int LA9_0 = input.LA(1);
 
-                if ( (LA9_0==28) ) {
+                if ( (LA9_0==31) ) {
                     alt9=1;
                 }
 
@@ -5855,7 +5858,7 @@ public class InternalServerGeneratorLanguageParser extends AbstractInternalConte
             // ../org.xtext.example.sgl.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalServerGeneratorLanguage.g:2281:1: '.'
             {
              before(grammarAccess.getQualifiedNameAccess().getFullStopKeyword_1_0()); 
-            match(input,28,FOLLOW_28_in_rule__QualifiedName__Group_1__0__Impl4541); 
+            match(input,31,FOLLOW_31_in_rule__QualifiedName__Group_1__0__Impl4541); 
              after(grammarAccess.getQualifiedNameAccess().getFullStopKeyword_1_0()); 
 
             }
@@ -6085,7 +6088,7 @@ public class InternalServerGeneratorLanguageParser extends AbstractInternalConte
             // ../org.xtext.example.sgl.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalServerGeneratorLanguage.g:2373:1: '->'
             {
              before(grammarAccess.getRelationshipAccess().getHyphenMinusGreaterThanSignKeyword_1()); 
-            match(input,29,FOLLOW_29_in_rule__Relationship__Group__1__Impl4723); 
+            match(input,32,FOLLOW_32_in_rule__Relationship__Group__1__Impl4723); 
              after(grammarAccess.getRelationshipAccess().getHyphenMinusGreaterThanSignKeyword_1()); 
 
             }
@@ -6308,21 +6311,21 @@ public class InternalServerGeneratorLanguageParser extends AbstractInternalConte
 
 
     // $ANTLR start "rule__RootConfig__NameAssignment_2"
-    // ../org.xtext.example.sgl.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalServerGeneratorLanguage.g:2466:1: rule__RootConfig__NameAssignment_2 : ( RULE_ID ) ;
+    // ../org.xtext.example.sgl.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalServerGeneratorLanguage.g:2466:1: rule__RootConfig__NameAssignment_2 : ( RULE_CONFIGID ) ;
     public final void rule__RootConfig__NameAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.example.sgl.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalServerGeneratorLanguage.g:2470:1: ( ( RULE_ID ) )
-            // ../org.xtext.example.sgl.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalServerGeneratorLanguage.g:2471:1: ( RULE_ID )
+            // ../org.xtext.example.sgl.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalServerGeneratorLanguage.g:2470:1: ( ( RULE_CONFIGID ) )
+            // ../org.xtext.example.sgl.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalServerGeneratorLanguage.g:2471:1: ( RULE_CONFIGID )
             {
-            // ../org.xtext.example.sgl.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalServerGeneratorLanguage.g:2471:1: ( RULE_ID )
-            // ../org.xtext.example.sgl.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalServerGeneratorLanguage.g:2472:1: RULE_ID
+            // ../org.xtext.example.sgl.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalServerGeneratorLanguage.g:2471:1: ( RULE_CONFIGID )
+            // ../org.xtext.example.sgl.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalServerGeneratorLanguage.g:2472:1: RULE_CONFIGID
             {
-             before(grammarAccess.getRootConfigAccess().getNameIDTerminalRuleCall_2_0()); 
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__RootConfig__NameAssignment_24915); 
-             after(grammarAccess.getRootConfigAccess().getNameIDTerminalRuleCall_2_0()); 
+             before(grammarAccess.getRootConfigAccess().getNameCONFIGIDTerminalRuleCall_2_0()); 
+            match(input,RULE_CONFIGID,FOLLOW_RULE_CONFIGID_in_rule__RootConfig__NameAssignment_24915); 
+             after(grammarAccess.getRootConfigAccess().getNameCONFIGIDTerminalRuleCall_2_0()); 
 
             }
 
@@ -6345,21 +6348,21 @@ public class InternalServerGeneratorLanguageParser extends AbstractInternalConte
 
 
     // $ANTLR start "rule__HostNameConfig__NameAssignment_2"
-    // ../org.xtext.example.sgl.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalServerGeneratorLanguage.g:2481:1: rule__HostNameConfig__NameAssignment_2 : ( RULE_ID ) ;
+    // ../org.xtext.example.sgl.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalServerGeneratorLanguage.g:2481:1: rule__HostNameConfig__NameAssignment_2 : ( RULE_IP ) ;
     public final void rule__HostNameConfig__NameAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.example.sgl.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalServerGeneratorLanguage.g:2485:1: ( ( RULE_ID ) )
-            // ../org.xtext.example.sgl.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalServerGeneratorLanguage.g:2486:1: ( RULE_ID )
+            // ../org.xtext.example.sgl.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalServerGeneratorLanguage.g:2485:1: ( ( RULE_IP ) )
+            // ../org.xtext.example.sgl.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalServerGeneratorLanguage.g:2486:1: ( RULE_IP )
             {
-            // ../org.xtext.example.sgl.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalServerGeneratorLanguage.g:2486:1: ( RULE_ID )
-            // ../org.xtext.example.sgl.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalServerGeneratorLanguage.g:2487:1: RULE_ID
+            // ../org.xtext.example.sgl.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalServerGeneratorLanguage.g:2486:1: ( RULE_IP )
+            // ../org.xtext.example.sgl.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalServerGeneratorLanguage.g:2487:1: RULE_IP
             {
-             before(grammarAccess.getHostNameConfigAccess().getNameIDTerminalRuleCall_2_0()); 
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__HostNameConfig__NameAssignment_24946); 
-             after(grammarAccess.getHostNameConfigAccess().getNameIDTerminalRuleCall_2_0()); 
+             before(grammarAccess.getHostNameConfigAccess().getNameIPTerminalRuleCall_2_0()); 
+            match(input,RULE_IP,FOLLOW_RULE_IP_in_rule__HostNameConfig__NameAssignment_24946); 
+             after(grammarAccess.getHostNameConfigAccess().getNameIPTerminalRuleCall_2_0()); 
 
             }
 
@@ -6382,21 +6385,21 @@ public class InternalServerGeneratorLanguageParser extends AbstractInternalConte
 
 
     // $ANTLR start "rule__PortConfig__NameAssignment_2"
-    // ../org.xtext.example.sgl.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalServerGeneratorLanguage.g:2496:1: rule__PortConfig__NameAssignment_2 : ( RULE_ID ) ;
+    // ../org.xtext.example.sgl.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalServerGeneratorLanguage.g:2496:1: rule__PortConfig__NameAssignment_2 : ( RULE_MYINT ) ;
     public final void rule__PortConfig__NameAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.example.sgl.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalServerGeneratorLanguage.g:2500:1: ( ( RULE_ID ) )
-            // ../org.xtext.example.sgl.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalServerGeneratorLanguage.g:2501:1: ( RULE_ID )
+            // ../org.xtext.example.sgl.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalServerGeneratorLanguage.g:2500:1: ( ( RULE_MYINT ) )
+            // ../org.xtext.example.sgl.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalServerGeneratorLanguage.g:2501:1: ( RULE_MYINT )
             {
-            // ../org.xtext.example.sgl.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalServerGeneratorLanguage.g:2501:1: ( RULE_ID )
-            // ../org.xtext.example.sgl.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalServerGeneratorLanguage.g:2502:1: RULE_ID
+            // ../org.xtext.example.sgl.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalServerGeneratorLanguage.g:2501:1: ( RULE_MYINT )
+            // ../org.xtext.example.sgl.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalServerGeneratorLanguage.g:2502:1: RULE_MYINT
             {
-             before(grammarAccess.getPortConfigAccess().getNameIDTerminalRuleCall_2_0()); 
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__PortConfig__NameAssignment_24977); 
-             after(grammarAccess.getPortConfigAccess().getNameIDTerminalRuleCall_2_0()); 
+             before(grammarAccess.getPortConfigAccess().getNameMYINTTerminalRuleCall_2_0()); 
+            match(input,RULE_MYINT,FOLLOW_RULE_MYINT_in_rule__PortConfig__NameAssignment_24977); 
+             after(grammarAccess.getPortConfigAccess().getNameMYINTTerminalRuleCall_2_0()); 
 
             }
 
@@ -6419,21 +6422,21 @@ public class InternalServerGeneratorLanguageParser extends AbstractInternalConte
 
 
     // $ANTLR start "rule__LogConfig__NameAssignment_2"
-    // ../org.xtext.example.sgl.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalServerGeneratorLanguage.g:2511:1: rule__LogConfig__NameAssignment_2 : ( RULE_ID ) ;
+    // ../org.xtext.example.sgl.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalServerGeneratorLanguage.g:2511:1: rule__LogConfig__NameAssignment_2 : ( RULE_CONFIGID ) ;
     public final void rule__LogConfig__NameAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.example.sgl.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalServerGeneratorLanguage.g:2515:1: ( ( RULE_ID ) )
-            // ../org.xtext.example.sgl.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalServerGeneratorLanguage.g:2516:1: ( RULE_ID )
+            // ../org.xtext.example.sgl.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalServerGeneratorLanguage.g:2515:1: ( ( RULE_CONFIGID ) )
+            // ../org.xtext.example.sgl.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalServerGeneratorLanguage.g:2516:1: ( RULE_CONFIGID )
             {
-            // ../org.xtext.example.sgl.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalServerGeneratorLanguage.g:2516:1: ( RULE_ID )
-            // ../org.xtext.example.sgl.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalServerGeneratorLanguage.g:2517:1: RULE_ID
+            // ../org.xtext.example.sgl.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalServerGeneratorLanguage.g:2516:1: ( RULE_CONFIGID )
+            // ../org.xtext.example.sgl.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalServerGeneratorLanguage.g:2517:1: RULE_CONFIGID
             {
-             before(grammarAccess.getLogConfigAccess().getNameIDTerminalRuleCall_2_0()); 
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__LogConfig__NameAssignment_25008); 
-             after(grammarAccess.getLogConfigAccess().getNameIDTerminalRuleCall_2_0()); 
+             before(grammarAccess.getLogConfigAccess().getNameCONFIGIDTerminalRuleCall_2_0()); 
+            match(input,RULE_CONFIGID,FOLLOW_RULE_CONFIGID_in_rule__LogConfig__NameAssignment_25008); 
+             after(grammarAccess.getLogConfigAccess().getNameCONFIGIDTerminalRuleCall_2_0()); 
 
             }
 
@@ -6456,21 +6459,21 @@ public class InternalServerGeneratorLanguageParser extends AbstractInternalConte
 
 
     // $ANTLR start "rule__SqldbConfig__NameAssignment_2"
-    // ../org.xtext.example.sgl.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalServerGeneratorLanguage.g:2526:1: rule__SqldbConfig__NameAssignment_2 : ( RULE_ID ) ;
+    // ../org.xtext.example.sgl.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalServerGeneratorLanguage.g:2526:1: rule__SqldbConfig__NameAssignment_2 : ( RULE_CONFIGID ) ;
     public final void rule__SqldbConfig__NameAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.example.sgl.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalServerGeneratorLanguage.g:2530:1: ( ( RULE_ID ) )
-            // ../org.xtext.example.sgl.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalServerGeneratorLanguage.g:2531:1: ( RULE_ID )
+            // ../org.xtext.example.sgl.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalServerGeneratorLanguage.g:2530:1: ( ( RULE_CONFIGID ) )
+            // ../org.xtext.example.sgl.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalServerGeneratorLanguage.g:2531:1: ( RULE_CONFIGID )
             {
-            // ../org.xtext.example.sgl.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalServerGeneratorLanguage.g:2531:1: ( RULE_ID )
-            // ../org.xtext.example.sgl.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalServerGeneratorLanguage.g:2532:1: RULE_ID
+            // ../org.xtext.example.sgl.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalServerGeneratorLanguage.g:2531:1: ( RULE_CONFIGID )
+            // ../org.xtext.example.sgl.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalServerGeneratorLanguage.g:2532:1: RULE_CONFIGID
             {
-             before(grammarAccess.getSqldbConfigAccess().getNameIDTerminalRuleCall_2_0()); 
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__SqldbConfig__NameAssignment_25039); 
-             after(grammarAccess.getSqldbConfigAccess().getNameIDTerminalRuleCall_2_0()); 
+             before(grammarAccess.getSqldbConfigAccess().getNameCONFIGIDTerminalRuleCall_2_0()); 
+            match(input,RULE_CONFIGID,FOLLOW_RULE_CONFIGID_in_rule__SqldbConfig__NameAssignment_25039); 
+             after(grammarAccess.getSqldbConfigAccess().getNameCONFIGIDTerminalRuleCall_2_0()); 
 
             }
 
@@ -6493,21 +6496,21 @@ public class InternalServerGeneratorLanguageParser extends AbstractInternalConte
 
 
     // $ANTLR start "rule__ResourceConfig__NameAssignment_2"
-    // ../org.xtext.example.sgl.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalServerGeneratorLanguage.g:2541:1: rule__ResourceConfig__NameAssignment_2 : ( RULE_ID ) ;
+    // ../org.xtext.example.sgl.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalServerGeneratorLanguage.g:2541:1: rule__ResourceConfig__NameAssignment_2 : ( RULE_CONFIGID ) ;
     public final void rule__ResourceConfig__NameAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.example.sgl.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalServerGeneratorLanguage.g:2545:1: ( ( RULE_ID ) )
-            // ../org.xtext.example.sgl.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalServerGeneratorLanguage.g:2546:1: ( RULE_ID )
+            // ../org.xtext.example.sgl.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalServerGeneratorLanguage.g:2545:1: ( ( RULE_CONFIGID ) )
+            // ../org.xtext.example.sgl.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalServerGeneratorLanguage.g:2546:1: ( RULE_CONFIGID )
             {
-            // ../org.xtext.example.sgl.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalServerGeneratorLanguage.g:2546:1: ( RULE_ID )
-            // ../org.xtext.example.sgl.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalServerGeneratorLanguage.g:2547:1: RULE_ID
+            // ../org.xtext.example.sgl.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalServerGeneratorLanguage.g:2546:1: ( RULE_CONFIGID )
+            // ../org.xtext.example.sgl.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalServerGeneratorLanguage.g:2547:1: RULE_CONFIGID
             {
-             before(grammarAccess.getResourceConfigAccess().getNameIDTerminalRuleCall_2_0()); 
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__ResourceConfig__NameAssignment_25070); 
-             after(grammarAccess.getResourceConfigAccess().getNameIDTerminalRuleCall_2_0()); 
+             before(grammarAccess.getResourceConfigAccess().getNameCONFIGIDTerminalRuleCall_2_0()); 
+            match(input,RULE_CONFIGID,FOLLOW_RULE_CONFIGID_in_rule__ResourceConfig__NameAssignment_25070); 
+             after(grammarAccess.getResourceConfigAccess().getNameCONFIGIDTerminalRuleCall_2_0()); 
 
             }
 
@@ -6941,7 +6944,7 @@ public class InternalServerGeneratorLanguageParser extends AbstractInternalConte
 
     public static final BitSet FOLLOW_ruleModel_in_entryRuleModel61 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleModel68 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Model__TypesAssignment_in_ruleModel94 = new BitSet(new long[]{0x0000000000400802L});
+    public static final BitSet FOLLOW_rule__Model__TypesAssignment_in_ruleModel94 = new BitSet(new long[]{0x0000000002004002L});
     public static final BitSet FOLLOW_ruleType_in_entryRuleType122 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleType129 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Type__Alternatives_in_ruleType155 = new BitSet(new long[]{0x0000000000000002L});
@@ -7006,163 +7009,163 @@ public class InternalServerGeneratorLanguageParser extends AbstractInternalConte
     public static final BitSet FOLLOW_ruleImageAttribute_in_rule__Attribute__Alternatives1351 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Server__Group__0__Impl_in_rule__Server__Group__01381 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_rule__Server__Group__1_in_rule__Server__Group__01384 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_11_in_rule__Server__Group__0__Impl1412 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Server__Group__1__Impl_in_rule__Server__Group__11443 = new BitSet(new long[]{0x0000000000001000L});
+    public static final BitSet FOLLOW_14_in_rule__Server__Group__0__Impl1412 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Server__Group__1__Impl_in_rule__Server__Group__11443 = new BitSet(new long[]{0x0000000000008000L});
     public static final BitSet FOLLOW_rule__Server__Group__2_in_rule__Server__Group__11446 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Server__NameAssignment_1_in_rule__Server__Group__1__Impl1473 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Server__Group__2__Impl_in_rule__Server__Group__21503 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_rule__Server__Group__2__Impl_in_rule__Server__Group__21503 = new BitSet(new long[]{0x0000000000010000L});
     public static final BitSet FOLLOW_rule__Server__Group__3_in_rule__Server__Group__21506 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_12_in_rule__Server__Group__2__Impl1534 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Server__Group__3__Impl_in_rule__Server__Group__31565 = new BitSet(new long[]{0x0000000000001000L});
+    public static final BitSet FOLLOW_15_in_rule__Server__Group__2__Impl1534 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Server__Group__3__Impl_in_rule__Server__Group__31565 = new BitSet(new long[]{0x0000000000008000L});
     public static final BitSet FOLLOW_rule__Server__Group__4_in_rule__Server__Group__31568 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_13_in_rule__Server__Group__3__Impl1596 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Server__Group__4__Impl_in_rule__Server__Group__41627 = new BitSet(new long[]{0x00000000003EC000L});
+    public static final BitSet FOLLOW_16_in_rule__Server__Group__3__Impl1596 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Server__Group__4__Impl_in_rule__Server__Group__41627 = new BitSet(new long[]{0x0000000001F60000L});
     public static final BitSet FOLLOW_rule__Server__Group__5_in_rule__Server__Group__41630 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_12_in_rule__Server__Group__4__Impl1658 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Server__Group__5__Impl_in_rule__Server__Group__51689 = new BitSet(new long[]{0x00000000003EC000L});
+    public static final BitSet FOLLOW_15_in_rule__Server__Group__4__Impl1658 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Server__Group__5__Impl_in_rule__Server__Group__51689 = new BitSet(new long[]{0x0000000001F60000L});
     public static final BitSet FOLLOW_rule__Server__Group__6_in_rule__Server__Group__51692 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Server__ConfigsAssignment_5_in_rule__Server__Group__5__Impl1719 = new BitSet(new long[]{0x00000000003E8002L});
-    public static final BitSet FOLLOW_rule__Server__Group__6__Impl_in_rule__Server__Group__61750 = new BitSet(new long[]{0x0000000000004000L});
+    public static final BitSet FOLLOW_rule__Server__ConfigsAssignment_5_in_rule__Server__Group__5__Impl1719 = new BitSet(new long[]{0x0000000001F40002L});
+    public static final BitSet FOLLOW_rule__Server__Group__6__Impl_in_rule__Server__Group__61750 = new BitSet(new long[]{0x0000000000020000L});
     public static final BitSet FOLLOW_rule__Server__Group__7_in_rule__Server__Group__61753 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_14_in_rule__Server__Group__6__Impl1781 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_17_in_rule__Server__Group__6__Impl1781 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Server__Group__7__Impl_in_rule__Server__Group__71812 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_14_in_rule__Server__Group__7__Impl1840 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__RootConfig__Group__0__Impl_in_rule__RootConfig__Group__01887 = new BitSet(new long[]{0x0000000000010000L});
+    public static final BitSet FOLLOW_17_in_rule__Server__Group__7__Impl1840 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__RootConfig__Group__0__Impl_in_rule__RootConfig__Group__01887 = new BitSet(new long[]{0x0000000000080000L});
     public static final BitSet FOLLOW_rule__RootConfig__Group__1_in_rule__RootConfig__Group__01890 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_15_in_rule__RootConfig__Group__0__Impl1918 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__RootConfig__Group__1__Impl_in_rule__RootConfig__Group__11949 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_18_in_rule__RootConfig__Group__0__Impl1918 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__RootConfig__Group__1__Impl_in_rule__RootConfig__Group__11949 = new BitSet(new long[]{0x0000000000000020L});
     public static final BitSet FOLLOW_rule__RootConfig__Group__2_in_rule__RootConfig__Group__11952 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_16_in_rule__RootConfig__Group__1__Impl1980 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_19_in_rule__RootConfig__Group__1__Impl1980 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__RootConfig__Group__2__Impl_in_rule__RootConfig__Group__22011 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__RootConfig__NameAssignment_2_in_rule__RootConfig__Group__2__Impl2038 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__HostNameConfig__Group__0__Impl_in_rule__HostNameConfig__Group__02074 = new BitSet(new long[]{0x0000000000010000L});
+    public static final BitSet FOLLOW_rule__HostNameConfig__Group__0__Impl_in_rule__HostNameConfig__Group__02074 = new BitSet(new long[]{0x0000000000080000L});
     public static final BitSet FOLLOW_rule__HostNameConfig__Group__1_in_rule__HostNameConfig__Group__02077 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_17_in_rule__HostNameConfig__Group__0__Impl2105 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__HostNameConfig__Group__1__Impl_in_rule__HostNameConfig__Group__12136 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_20_in_rule__HostNameConfig__Group__0__Impl2105 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__HostNameConfig__Group__1__Impl_in_rule__HostNameConfig__Group__12136 = new BitSet(new long[]{0x0000000000000040L});
     public static final BitSet FOLLOW_rule__HostNameConfig__Group__2_in_rule__HostNameConfig__Group__12139 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_16_in_rule__HostNameConfig__Group__1__Impl2167 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_19_in_rule__HostNameConfig__Group__1__Impl2167 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__HostNameConfig__Group__2__Impl_in_rule__HostNameConfig__Group__22198 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__HostNameConfig__NameAssignment_2_in_rule__HostNameConfig__Group__2__Impl2225 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__PortConfig__Group__0__Impl_in_rule__PortConfig__Group__02261 = new BitSet(new long[]{0x0000000000010000L});
+    public static final BitSet FOLLOW_rule__PortConfig__Group__0__Impl_in_rule__PortConfig__Group__02261 = new BitSet(new long[]{0x0000000000080000L});
     public static final BitSet FOLLOW_rule__PortConfig__Group__1_in_rule__PortConfig__Group__02264 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_18_in_rule__PortConfig__Group__0__Impl2292 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__PortConfig__Group__1__Impl_in_rule__PortConfig__Group__12323 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_21_in_rule__PortConfig__Group__0__Impl2292 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__PortConfig__Group__1__Impl_in_rule__PortConfig__Group__12323 = new BitSet(new long[]{0x0000000000000080L});
     public static final BitSet FOLLOW_rule__PortConfig__Group__2_in_rule__PortConfig__Group__12326 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_16_in_rule__PortConfig__Group__1__Impl2354 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_19_in_rule__PortConfig__Group__1__Impl2354 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__PortConfig__Group__2__Impl_in_rule__PortConfig__Group__22385 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__PortConfig__NameAssignment_2_in_rule__PortConfig__Group__2__Impl2412 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__LogConfig__Group__0__Impl_in_rule__LogConfig__Group__02448 = new BitSet(new long[]{0x0000000000010000L});
+    public static final BitSet FOLLOW_rule__LogConfig__Group__0__Impl_in_rule__LogConfig__Group__02448 = new BitSet(new long[]{0x0000000000080000L});
     public static final BitSet FOLLOW_rule__LogConfig__Group__1_in_rule__LogConfig__Group__02451 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_19_in_rule__LogConfig__Group__0__Impl2479 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__LogConfig__Group__1__Impl_in_rule__LogConfig__Group__12510 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_22_in_rule__LogConfig__Group__0__Impl2479 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__LogConfig__Group__1__Impl_in_rule__LogConfig__Group__12510 = new BitSet(new long[]{0x0000000000000020L});
     public static final BitSet FOLLOW_rule__LogConfig__Group__2_in_rule__LogConfig__Group__12513 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_16_in_rule__LogConfig__Group__1__Impl2541 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_19_in_rule__LogConfig__Group__1__Impl2541 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__LogConfig__Group__2__Impl_in_rule__LogConfig__Group__22572 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__LogConfig__NameAssignment_2_in_rule__LogConfig__Group__2__Impl2599 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__SqldbConfig__Group__0__Impl_in_rule__SqldbConfig__Group__02635 = new BitSet(new long[]{0x0000000000010000L});
+    public static final BitSet FOLLOW_rule__SqldbConfig__Group__0__Impl_in_rule__SqldbConfig__Group__02635 = new BitSet(new long[]{0x0000000000080000L});
     public static final BitSet FOLLOW_rule__SqldbConfig__Group__1_in_rule__SqldbConfig__Group__02638 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_20_in_rule__SqldbConfig__Group__0__Impl2666 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__SqldbConfig__Group__1__Impl_in_rule__SqldbConfig__Group__12697 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_23_in_rule__SqldbConfig__Group__0__Impl2666 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__SqldbConfig__Group__1__Impl_in_rule__SqldbConfig__Group__12697 = new BitSet(new long[]{0x0000000000000020L});
     public static final BitSet FOLLOW_rule__SqldbConfig__Group__2_in_rule__SqldbConfig__Group__12700 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_16_in_rule__SqldbConfig__Group__1__Impl2728 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_19_in_rule__SqldbConfig__Group__1__Impl2728 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__SqldbConfig__Group__2__Impl_in_rule__SqldbConfig__Group__22759 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__SqldbConfig__NameAssignment_2_in_rule__SqldbConfig__Group__2__Impl2786 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ResourceConfig__Group__0__Impl_in_rule__ResourceConfig__Group__02822 = new BitSet(new long[]{0x0000000000010000L});
+    public static final BitSet FOLLOW_rule__ResourceConfig__Group__0__Impl_in_rule__ResourceConfig__Group__02822 = new BitSet(new long[]{0x0000000000080000L});
     public static final BitSet FOLLOW_rule__ResourceConfig__Group__1_in_rule__ResourceConfig__Group__02825 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_21_in_rule__ResourceConfig__Group__0__Impl2853 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ResourceConfig__Group__1__Impl_in_rule__ResourceConfig__Group__12884 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_24_in_rule__ResourceConfig__Group__0__Impl2853 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ResourceConfig__Group__1__Impl_in_rule__ResourceConfig__Group__12884 = new BitSet(new long[]{0x0000000000000020L});
     public static final BitSet FOLLOW_rule__ResourceConfig__Group__2_in_rule__ResourceConfig__Group__12887 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_16_in_rule__ResourceConfig__Group__1__Impl2915 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_19_in_rule__ResourceConfig__Group__1__Impl2915 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__ResourceConfig__Group__2__Impl_in_rule__ResourceConfig__Group__22946 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__ResourceConfig__NameAssignment_2_in_rule__ResourceConfig__Group__2__Impl2973 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__DomainModel__Group__0__Impl_in_rule__DomainModel__Group__03009 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_rule__DomainModel__Group__1_in_rule__DomainModel__Group__03012 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_22_in_rule__DomainModel__Group__0__Impl3040 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__DomainModel__Group__1__Impl_in_rule__DomainModel__Group__13071 = new BitSet(new long[]{0x0000000000001000L});
+    public static final BitSet FOLLOW_25_in_rule__DomainModel__Group__0__Impl3040 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__DomainModel__Group__1__Impl_in_rule__DomainModel__Group__13071 = new BitSet(new long[]{0x0000000000008000L});
     public static final BitSet FOLLOW_rule__DomainModel__Group__2_in_rule__DomainModel__Group__13074 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__DomainModel__NameAssignment_1_in_rule__DomainModel__Group__1__Impl3101 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__DomainModel__Group__2__Impl_in_rule__DomainModel__Group__23131 = new BitSet(new long[]{0x0000000000800000L});
+    public static final BitSet FOLLOW_rule__DomainModel__Group__2__Impl_in_rule__DomainModel__Group__23131 = new BitSet(new long[]{0x0000000004000000L});
     public static final BitSet FOLLOW_rule__DomainModel__Group__3_in_rule__DomainModel__Group__23134 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_12_in_rule__DomainModel__Group__2__Impl3162 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__DomainModel__Group__3__Impl_in_rule__DomainModel__Group__33193 = new BitSet(new long[]{0x0000000000001000L});
+    public static final BitSet FOLLOW_15_in_rule__DomainModel__Group__2__Impl3162 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__DomainModel__Group__3__Impl_in_rule__DomainModel__Group__33193 = new BitSet(new long[]{0x0000000000008000L});
     public static final BitSet FOLLOW_rule__DomainModel__Group__4_in_rule__DomainModel__Group__33196 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_23_in_rule__DomainModel__Group__3__Impl3224 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__DomainModel__Group__4__Impl_in_rule__DomainModel__Group__43255 = new BitSet(new long[]{0x0000000000004010L});
+    public static final BitSet FOLLOW_26_in_rule__DomainModel__Group__3__Impl3224 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__DomainModel__Group__4__Impl_in_rule__DomainModel__Group__43255 = new BitSet(new long[]{0x0000000000020010L});
     public static final BitSet FOLLOW_rule__DomainModel__Group__5_in_rule__DomainModel__Group__43258 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_12_in_rule__DomainModel__Group__4__Impl3286 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__DomainModel__Group__5__Impl_in_rule__DomainModel__Group__53317 = new BitSet(new long[]{0x0000000000004010L});
+    public static final BitSet FOLLOW_15_in_rule__DomainModel__Group__4__Impl3286 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__DomainModel__Group__5__Impl_in_rule__DomainModel__Group__53317 = new BitSet(new long[]{0x0000000000020010L});
     public static final BitSet FOLLOW_rule__DomainModel__Group__6_in_rule__DomainModel__Group__53320 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__DomainModel__EntitysAssignment_5_in_rule__DomainModel__Group__5__Impl3347 = new BitSet(new long[]{0x0000000000000012L});
-    public static final BitSet FOLLOW_rule__DomainModel__Group__6__Impl_in_rule__DomainModel__Group__63378 = new BitSet(new long[]{0x0000000001000000L});
+    public static final BitSet FOLLOW_rule__DomainModel__Group__6__Impl_in_rule__DomainModel__Group__63378 = new BitSet(new long[]{0x0000000008000000L});
     public static final BitSet FOLLOW_rule__DomainModel__Group__7_in_rule__DomainModel__Group__63381 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_14_in_rule__DomainModel__Group__6__Impl3409 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__DomainModel__Group__7__Impl_in_rule__DomainModel__Group__73440 = new BitSet(new long[]{0x0000000000001000L});
+    public static final BitSet FOLLOW_17_in_rule__DomainModel__Group__6__Impl3409 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__DomainModel__Group__7__Impl_in_rule__DomainModel__Group__73440 = new BitSet(new long[]{0x0000000000008000L});
     public static final BitSet FOLLOW_rule__DomainModel__Group__8_in_rule__DomainModel__Group__73443 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_24_in_rule__DomainModel__Group__7__Impl3471 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__DomainModel__Group__8__Impl_in_rule__DomainModel__Group__83502 = new BitSet(new long[]{0x0000000000004010L});
+    public static final BitSet FOLLOW_27_in_rule__DomainModel__Group__7__Impl3471 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__DomainModel__Group__8__Impl_in_rule__DomainModel__Group__83502 = new BitSet(new long[]{0x0000000000020010L});
     public static final BitSet FOLLOW_rule__DomainModel__Group__9_in_rule__DomainModel__Group__83505 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_12_in_rule__DomainModel__Group__8__Impl3533 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__DomainModel__Group__9__Impl_in_rule__DomainModel__Group__93564 = new BitSet(new long[]{0x0000000000004010L});
+    public static final BitSet FOLLOW_15_in_rule__DomainModel__Group__8__Impl3533 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__DomainModel__Group__9__Impl_in_rule__DomainModel__Group__93564 = new BitSet(new long[]{0x0000000000020010L});
     public static final BitSet FOLLOW_rule__DomainModel__Group__10_in_rule__DomainModel__Group__93567 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__DomainModel__RelationshipsAssignment_9_in_rule__DomainModel__Group__9__Impl3594 = new BitSet(new long[]{0x0000000000000012L});
-    public static final BitSet FOLLOW_rule__DomainModel__Group__10__Impl_in_rule__DomainModel__Group__103625 = new BitSet(new long[]{0x0000000000004000L});
+    public static final BitSet FOLLOW_rule__DomainModel__Group__10__Impl_in_rule__DomainModel__Group__103625 = new BitSet(new long[]{0x0000000000020000L});
     public static final BitSet FOLLOW_rule__DomainModel__Group__11_in_rule__DomainModel__Group__103628 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_14_in_rule__DomainModel__Group__10__Impl3656 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_17_in_rule__DomainModel__Group__10__Impl3656 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__DomainModel__Group__11__Impl_in_rule__DomainModel__Group__113687 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_14_in_rule__DomainModel__Group__11__Impl3715 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Entity__Group__0__Impl_in_rule__Entity__Group__03770 = new BitSet(new long[]{0x0000000000001000L});
+    public static final BitSet FOLLOW_17_in_rule__DomainModel__Group__11__Impl3715 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Entity__Group__0__Impl_in_rule__Entity__Group__03770 = new BitSet(new long[]{0x0000000000008000L});
     public static final BitSet FOLLOW_rule__Entity__Group__1_in_rule__Entity__Group__03773 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Entity__NameAssignment_0_in_rule__Entity__Group__0__Impl3800 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Entity__Group__1__Impl_in_rule__Entity__Group__13830 = new BitSet(new long[]{0x000000000E004000L});
+    public static final BitSet FOLLOW_rule__Entity__Group__1__Impl_in_rule__Entity__Group__13830 = new BitSet(new long[]{0x0000000070020000L});
     public static final BitSet FOLLOW_rule__Entity__Group__2_in_rule__Entity__Group__13833 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_12_in_rule__Entity__Group__1__Impl3861 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Entity__Group__2__Impl_in_rule__Entity__Group__23892 = new BitSet(new long[]{0x000000000E004000L});
+    public static final BitSet FOLLOW_15_in_rule__Entity__Group__1__Impl3861 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Entity__Group__2__Impl_in_rule__Entity__Group__23892 = new BitSet(new long[]{0x0000000070020000L});
     public static final BitSet FOLLOW_rule__Entity__Group__3_in_rule__Entity__Group__23895 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Entity__AttributesAssignment_2_in_rule__Entity__Group__2__Impl3922 = new BitSet(new long[]{0x000000000E000002L});
+    public static final BitSet FOLLOW_rule__Entity__AttributesAssignment_2_in_rule__Entity__Group__2__Impl3922 = new BitSet(new long[]{0x0000000070000002L});
     public static final BitSet FOLLOW_rule__Entity__Group__3__Impl_in_rule__Entity__Group__33953 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_14_in_rule__Entity__Group__3__Impl3981 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_17_in_rule__Entity__Group__3__Impl3981 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__StringAttribute__Group__0__Impl_in_rule__StringAttribute__Group__04020 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_rule__StringAttribute__Group__1_in_rule__StringAttribute__Group__04023 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_25_in_rule__StringAttribute__Group__0__Impl4051 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_28_in_rule__StringAttribute__Group__0__Impl4051 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__StringAttribute__Group__1__Impl_in_rule__StringAttribute__Group__14082 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__StringAttribute__NameAssignment_1_in_rule__StringAttribute__Group__1__Impl4109 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__NumberAttribute__Group__0__Impl_in_rule__NumberAttribute__Group__04143 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_rule__NumberAttribute__Group__1_in_rule__NumberAttribute__Group__04146 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_26_in_rule__NumberAttribute__Group__0__Impl4174 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_29_in_rule__NumberAttribute__Group__0__Impl4174 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__NumberAttribute__Group__1__Impl_in_rule__NumberAttribute__Group__14205 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__NumberAttribute__NameAssignment_1_in_rule__NumberAttribute__Group__1__Impl4232 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__ImageAttribute__Group__0__Impl_in_rule__ImageAttribute__Group__04266 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_rule__ImageAttribute__Group__1_in_rule__ImageAttribute__Group__04269 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_27_in_rule__ImageAttribute__Group__0__Impl4297 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_30_in_rule__ImageAttribute__Group__0__Impl4297 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__ImageAttribute__Group__1__Impl_in_rule__ImageAttribute__Group__14328 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__ImageAttribute__NameAssignment_1_in_rule__ImageAttribute__Group__1__Impl4355 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__QualifiedName__Group__0__Impl_in_rule__QualifiedName__Group__04389 = new BitSet(new long[]{0x0000000010000000L});
+    public static final BitSet FOLLOW_rule__QualifiedName__Group__0__Impl_in_rule__QualifiedName__Group__04389 = new BitSet(new long[]{0x0000000080000000L});
     public static final BitSet FOLLOW_rule__QualifiedName__Group__1_in_rule__QualifiedName__Group__04392 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_ID_in_rule__QualifiedName__Group__0__Impl4419 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__QualifiedName__Group__1__Impl_in_rule__QualifiedName__Group__14448 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__QualifiedName__Group_1__0_in_rule__QualifiedName__Group__1__Impl4475 = new BitSet(new long[]{0x0000000010000002L});
+    public static final BitSet FOLLOW_rule__QualifiedName__Group_1__0_in_rule__QualifiedName__Group__1__Impl4475 = new BitSet(new long[]{0x0000000080000002L});
     public static final BitSet FOLLOW_rule__QualifiedName__Group_1__0__Impl_in_rule__QualifiedName__Group_1__04510 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_rule__QualifiedName__Group_1__1_in_rule__QualifiedName__Group_1__04513 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_28_in_rule__QualifiedName__Group_1__0__Impl4541 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_31_in_rule__QualifiedName__Group_1__0__Impl4541 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__QualifiedName__Group_1__1__Impl_in_rule__QualifiedName__Group_1__14572 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_ID_in_rule__QualifiedName__Group_1__1__Impl4599 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Relationship__Group__0__Impl_in_rule__Relationship__Group__04632 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_rule__Relationship__Group__0__Impl_in_rule__Relationship__Group__04632 = new BitSet(new long[]{0x0000000100000000L});
     public static final BitSet FOLLOW_rule__Relationship__Group__1_in_rule__Relationship__Group__04635 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Relationship__NameAssignment_0_in_rule__Relationship__Group__0__Impl4662 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Relationship__Group__1__Impl_in_rule__Relationship__Group__14692 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_rule__Relationship__Group__2_in_rule__Relationship__Group__14695 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_29_in_rule__Relationship__Group__1__Impl4723 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_32_in_rule__Relationship__Group__1__Impl4723 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Relationship__Group__2__Impl_in_rule__Relationship__Group__24754 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Relationship__RefNameAssignment_2_in_rule__Relationship__Group__2__Impl4781 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleType_in_rule__Model__TypesAssignment4822 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_ID_in_rule__Server__NameAssignment_14853 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleConfig_in_rule__Server__ConfigsAssignment_54884 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__RootConfig__NameAssignment_24915 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__HostNameConfig__NameAssignment_24946 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__PortConfig__NameAssignment_24977 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__LogConfig__NameAssignment_25008 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__SqldbConfig__NameAssignment_25039 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__ResourceConfig__NameAssignment_25070 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_CONFIGID_in_rule__RootConfig__NameAssignment_24915 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_IP_in_rule__HostNameConfig__NameAssignment_24946 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_MYINT_in_rule__PortConfig__NameAssignment_24977 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_CONFIGID_in_rule__LogConfig__NameAssignment_25008 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_CONFIGID_in_rule__SqldbConfig__NameAssignment_25039 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_CONFIGID_in_rule__ResourceConfig__NameAssignment_25070 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_ID_in_rule__DomainModel__NameAssignment_15101 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleEntity_in_rule__DomainModel__EntitysAssignment_55132 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleRelationship_in_rule__DomainModel__RelationshipsAssignment_95163 = new BitSet(new long[]{0x0000000000000002L});

@@ -21,33 +21,36 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalServerGeneratorLanguageParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_INT", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'SERVER'", "'{'", "'CONFIG'", "'}'", "'ROOTDIR'", "'='", "'HOSTNAME'", "'PORT'", "'LOG'", "'SQLDB'", "'RESOURCE'", "'DOMAINMODEL'", "'ENTITYS'", "'ENTITY_RELATIONSHIP'", "'STRING'", "'NUMBER'", "'IMAGE'", "'.'", "'->'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_CONFIGID", "RULE_IP", "RULE_MYINT", "RULE_INT", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'SERVER'", "'{'", "'CONFIG'", "'}'", "'ROOTDIR'", "'='", "'HOSTNAME'", "'PORT'", "'LOG'", "'SQLDB'", "'RESOURCE'", "'DOMAINMODEL'", "'ENTITYS'", "'ENTITY_RELATIONSHIP'", "'STRING'", "'NUMBER'", "'IMAGE'", "'.'", "'->'"
     };
-    public static final int RULE_ML_COMMENT=7;
+    public static final int RULE_ML_COMMENT=10;
     public static final int RULE_ID=4;
-    public static final int T__12=12;
     public static final int T__28=28;
     public static final int T__23=23;
     public static final int T__20=20;
-    public static final int T__13=13;
-    public static final int RULE_STRING=6;
+    public static final int RULE_STRING=9;
     public static final int T__21=21;
     public static final int T__19=19;
     public static final int T__14=14;
-    public static final int T__11=11;
     public static final int T__22=22;
     public static final int T__29=29;
-    public static final int RULE_WS=9;
+    public static final int T__30=30;
+    public static final int RULE_CONFIGID=5;
+    public static final int RULE_WS=12;
     public static final int T__17=17;
-    public static final int RULE_INT=5;
+    public static final int T__31=31;
+    public static final int RULE_INT=8;
     public static final int EOF=-1;
     public static final int T__27=27;
+    public static final int T__32=32;
     public static final int T__16=16;
     public static final int T__24=24;
-    public static final int RULE_ANY_OTHER=10;
+    public static final int RULE_ANY_OTHER=13;
     public static final int T__26=26;
     public static final int T__25=25;
-    public static final int RULE_SL_COMMENT=8;
+    public static final int RULE_IP=6;
+    public static final int RULE_SL_COMMENT=11;
+    public static final int RULE_MYINT=7;
     public static final int T__18=18;
     public static final int T__15=15;
 
@@ -145,7 +148,7 @@ public class InternalServerGeneratorLanguageParser extends AbstractInternalAntlr
                 int alt1=2;
                 int LA1_0 = input.LA(1);
 
-                if ( (LA1_0==11||LA1_0==22) ) {
+                if ( (LA1_0==14||LA1_0==25) ) {
                     alt1=1;
                 }
 
@@ -261,10 +264,10 @@ public class InternalServerGeneratorLanguageParser extends AbstractInternalAntlr
             int alt2=2;
             int LA2_0 = input.LA(1);
 
-            if ( (LA2_0==11) ) {
+            if ( (LA2_0==14) ) {
                 alt2=1;
             }
-            else if ( (LA2_0==22) ) {
+            else if ( (LA2_0==25) ) {
                 alt2=2;
             }
             else {
@@ -390,7 +393,7 @@ public class InternalServerGeneratorLanguageParser extends AbstractInternalAntlr
             // ../org.xtext.example.sgl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalServerGeneratorLanguage.g:159:1: (otherlv_0= 'SERVER' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' otherlv_3= 'CONFIG' otherlv_4= '{' ( (lv_Configs_5_0= ruleConfig ) )* otherlv_6= '}' otherlv_7= '}' )
             // ../org.xtext.example.sgl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalServerGeneratorLanguage.g:159:3: otherlv_0= 'SERVER' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' otherlv_3= 'CONFIG' otherlv_4= '{' ( (lv_Configs_5_0= ruleConfig ) )* otherlv_6= '}' otherlv_7= '}'
             {
-            otherlv_0=(Token)match(input,11,FOLLOW_11_in_ruleServer332); 
+            otherlv_0=(Token)match(input,14,FOLLOW_14_in_ruleServer332); 
 
                 	newLeafNode(otherlv_0, grammarAccess.getServerAccess().getSERVERKeyword_0());
                 
@@ -420,15 +423,15 @@ public class InternalServerGeneratorLanguageParser extends AbstractInternalAntlr
 
             }
 
-            otherlv_2=(Token)match(input,12,FOLLOW_12_in_ruleServer366); 
+            otherlv_2=(Token)match(input,15,FOLLOW_15_in_ruleServer366); 
 
                 	newLeafNode(otherlv_2, grammarAccess.getServerAccess().getLeftCurlyBracketKeyword_2());
                 
-            otherlv_3=(Token)match(input,13,FOLLOW_13_in_ruleServer378); 
+            otherlv_3=(Token)match(input,16,FOLLOW_16_in_ruleServer378); 
 
                 	newLeafNode(otherlv_3, grammarAccess.getServerAccess().getCONFIGKeyword_3());
                 
-            otherlv_4=(Token)match(input,12,FOLLOW_12_in_ruleServer390); 
+            otherlv_4=(Token)match(input,15,FOLLOW_15_in_ruleServer390); 
 
                 	newLeafNode(otherlv_4, grammarAccess.getServerAccess().getLeftCurlyBracketKeyword_4());
                 
@@ -438,7 +441,7 @@ public class InternalServerGeneratorLanguageParser extends AbstractInternalAntlr
                 int alt3=2;
                 int LA3_0 = input.LA(1);
 
-                if ( (LA3_0==15||(LA3_0>=17 && LA3_0<=21)) ) {
+                if ( (LA3_0==18||(LA3_0>=20 && LA3_0<=24)) ) {
                     alt3=1;
                 }
 
@@ -481,11 +484,11 @@ public class InternalServerGeneratorLanguageParser extends AbstractInternalAntlr
                 }
             } while (true);
 
-            otherlv_6=(Token)match(input,14,FOLLOW_14_in_ruleServer424); 
+            otherlv_6=(Token)match(input,17,FOLLOW_17_in_ruleServer424); 
 
                 	newLeafNode(otherlv_6, grammarAccess.getServerAccess().getRightCurlyBracketKeyword_6());
                 
-            otherlv_7=(Token)match(input,14,FOLLOW_14_in_ruleServer436); 
+            otherlv_7=(Token)match(input,17,FOLLOW_17_in_ruleServer436); 
 
                 	newLeafNode(otherlv_7, grammarAccess.getServerAccess().getRightCurlyBracketKeyword_7());
                 
@@ -572,32 +575,32 @@ public class InternalServerGeneratorLanguageParser extends AbstractInternalAntlr
             // ../org.xtext.example.sgl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalServerGeneratorLanguage.g:240:1: (this_rootConfig_0= rulerootConfig | this_hostNameConfig_1= rulehostNameConfig | this_portConfig_2= ruleportConfig | this_logConfig_3= rulelogConfig | this_sqldbConfig_4= rulesqldbConfig | this_resourceConfig_5= ruleresourceConfig )
             int alt4=6;
             switch ( input.LA(1) ) {
-            case 15:
+            case 18:
                 {
                 alt4=1;
                 }
                 break;
-            case 17:
+            case 20:
                 {
                 alt4=2;
                 }
                 break;
-            case 18:
+            case 21:
                 {
                 alt4=3;
                 }
                 break;
-            case 19:
+            case 22:
                 {
                 alt4=4;
                 }
                 break;
-            case 20:
+            case 23:
                 {
                 alt4=5;
                 }
                 break;
-            case 21:
+            case 24:
                 {
                 alt4=6;
                 }
@@ -775,7 +778,7 @@ public class InternalServerGeneratorLanguageParser extends AbstractInternalAntlr
 
 
     // $ANTLR start "rulerootConfig"
-    // ../org.xtext.example.sgl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalServerGeneratorLanguage.g:316:1: rulerootConfig returns [EObject current=null] : (otherlv_0= 'ROOTDIR' otherlv_1= '=' ( (lv_name_2_0= RULE_ID ) ) ) ;
+    // ../org.xtext.example.sgl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalServerGeneratorLanguage.g:316:1: rulerootConfig returns [EObject current=null] : (otherlv_0= 'ROOTDIR' otherlv_1= '=' ( (lv_name_2_0= RULE_CONFIGID ) ) ) ;
     public final EObject rulerootConfig() throws RecognitionException {
         EObject current = null;
 
@@ -786,29 +789,29 @@ public class InternalServerGeneratorLanguageParser extends AbstractInternalAntlr
          enterRule(); 
             
         try {
-            // ../org.xtext.example.sgl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalServerGeneratorLanguage.g:319:28: ( (otherlv_0= 'ROOTDIR' otherlv_1= '=' ( (lv_name_2_0= RULE_ID ) ) ) )
-            // ../org.xtext.example.sgl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalServerGeneratorLanguage.g:320:1: (otherlv_0= 'ROOTDIR' otherlv_1= '=' ( (lv_name_2_0= RULE_ID ) ) )
+            // ../org.xtext.example.sgl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalServerGeneratorLanguage.g:319:28: ( (otherlv_0= 'ROOTDIR' otherlv_1= '=' ( (lv_name_2_0= RULE_CONFIGID ) ) ) )
+            // ../org.xtext.example.sgl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalServerGeneratorLanguage.g:320:1: (otherlv_0= 'ROOTDIR' otherlv_1= '=' ( (lv_name_2_0= RULE_CONFIGID ) ) )
             {
-            // ../org.xtext.example.sgl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalServerGeneratorLanguage.g:320:1: (otherlv_0= 'ROOTDIR' otherlv_1= '=' ( (lv_name_2_0= RULE_ID ) ) )
-            // ../org.xtext.example.sgl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalServerGeneratorLanguage.g:320:3: otherlv_0= 'ROOTDIR' otherlv_1= '=' ( (lv_name_2_0= RULE_ID ) )
+            // ../org.xtext.example.sgl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalServerGeneratorLanguage.g:320:1: (otherlv_0= 'ROOTDIR' otherlv_1= '=' ( (lv_name_2_0= RULE_CONFIGID ) ) )
+            // ../org.xtext.example.sgl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalServerGeneratorLanguage.g:320:3: otherlv_0= 'ROOTDIR' otherlv_1= '=' ( (lv_name_2_0= RULE_CONFIGID ) )
             {
-            otherlv_0=(Token)match(input,15,FOLLOW_15_in_rulerootConfig746); 
+            otherlv_0=(Token)match(input,18,FOLLOW_18_in_rulerootConfig746); 
 
                 	newLeafNode(otherlv_0, grammarAccess.getRootConfigAccess().getROOTDIRKeyword_0());
                 
-            otherlv_1=(Token)match(input,16,FOLLOW_16_in_rulerootConfig758); 
+            otherlv_1=(Token)match(input,19,FOLLOW_19_in_rulerootConfig758); 
 
                 	newLeafNode(otherlv_1, grammarAccess.getRootConfigAccess().getEqualsSignKeyword_1());
                 
-            // ../org.xtext.example.sgl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalServerGeneratorLanguage.g:328:1: ( (lv_name_2_0= RULE_ID ) )
-            // ../org.xtext.example.sgl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalServerGeneratorLanguage.g:329:1: (lv_name_2_0= RULE_ID )
+            // ../org.xtext.example.sgl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalServerGeneratorLanguage.g:328:1: ( (lv_name_2_0= RULE_CONFIGID ) )
+            // ../org.xtext.example.sgl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalServerGeneratorLanguage.g:329:1: (lv_name_2_0= RULE_CONFIGID )
             {
-            // ../org.xtext.example.sgl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalServerGeneratorLanguage.g:329:1: (lv_name_2_0= RULE_ID )
-            // ../org.xtext.example.sgl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalServerGeneratorLanguage.g:330:3: lv_name_2_0= RULE_ID
+            // ../org.xtext.example.sgl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalServerGeneratorLanguage.g:329:1: (lv_name_2_0= RULE_CONFIGID )
+            // ../org.xtext.example.sgl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalServerGeneratorLanguage.g:330:3: lv_name_2_0= RULE_CONFIGID
             {
-            lv_name_2_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_rulerootConfig775); 
+            lv_name_2_0=(Token)match(input,RULE_CONFIGID,FOLLOW_RULE_CONFIGID_in_rulerootConfig775); 
 
-            			newLeafNode(lv_name_2_0, grammarAccess.getRootConfigAccess().getNameIDTerminalRuleCall_2_0()); 
+            			newLeafNode(lv_name_2_0, grammarAccess.getRootConfigAccess().getNameCONFIGIDTerminalRuleCall_2_0()); 
             		
 
             	        if (current==null) {
@@ -818,7 +821,7 @@ public class InternalServerGeneratorLanguageParser extends AbstractInternalAntlr
                    			current, 
                    			"name",
                     		lv_name_2_0, 
-                    		"ID");
+                    		"CONFIGID");
             	    
 
             }
@@ -883,7 +886,7 @@ public class InternalServerGeneratorLanguageParser extends AbstractInternalAntlr
 
 
     // $ANTLR start "rulehostNameConfig"
-    // ../org.xtext.example.sgl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalServerGeneratorLanguage.g:363:1: rulehostNameConfig returns [EObject current=null] : (otherlv_0= 'HOSTNAME' otherlv_1= '=' ( (lv_name_2_0= RULE_ID ) ) ) ;
+    // ../org.xtext.example.sgl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalServerGeneratorLanguage.g:363:1: rulehostNameConfig returns [EObject current=null] : (otherlv_0= 'HOSTNAME' otherlv_1= '=' ( (lv_name_2_0= RULE_IP ) ) ) ;
     public final EObject rulehostNameConfig() throws RecognitionException {
         EObject current = null;
 
@@ -894,29 +897,29 @@ public class InternalServerGeneratorLanguageParser extends AbstractInternalAntlr
          enterRule(); 
             
         try {
-            // ../org.xtext.example.sgl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalServerGeneratorLanguage.g:366:28: ( (otherlv_0= 'HOSTNAME' otherlv_1= '=' ( (lv_name_2_0= RULE_ID ) ) ) )
-            // ../org.xtext.example.sgl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalServerGeneratorLanguage.g:367:1: (otherlv_0= 'HOSTNAME' otherlv_1= '=' ( (lv_name_2_0= RULE_ID ) ) )
+            // ../org.xtext.example.sgl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalServerGeneratorLanguage.g:366:28: ( (otherlv_0= 'HOSTNAME' otherlv_1= '=' ( (lv_name_2_0= RULE_IP ) ) ) )
+            // ../org.xtext.example.sgl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalServerGeneratorLanguage.g:367:1: (otherlv_0= 'HOSTNAME' otherlv_1= '=' ( (lv_name_2_0= RULE_IP ) ) )
             {
-            // ../org.xtext.example.sgl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalServerGeneratorLanguage.g:367:1: (otherlv_0= 'HOSTNAME' otherlv_1= '=' ( (lv_name_2_0= RULE_ID ) ) )
-            // ../org.xtext.example.sgl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalServerGeneratorLanguage.g:367:3: otherlv_0= 'HOSTNAME' otherlv_1= '=' ( (lv_name_2_0= RULE_ID ) )
+            // ../org.xtext.example.sgl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalServerGeneratorLanguage.g:367:1: (otherlv_0= 'HOSTNAME' otherlv_1= '=' ( (lv_name_2_0= RULE_IP ) ) )
+            // ../org.xtext.example.sgl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalServerGeneratorLanguage.g:367:3: otherlv_0= 'HOSTNAME' otherlv_1= '=' ( (lv_name_2_0= RULE_IP ) )
             {
-            otherlv_0=(Token)match(input,17,FOLLOW_17_in_rulehostNameConfig863); 
+            otherlv_0=(Token)match(input,20,FOLLOW_20_in_rulehostNameConfig863); 
 
                 	newLeafNode(otherlv_0, grammarAccess.getHostNameConfigAccess().getHOSTNAMEKeyword_0());
                 
-            otherlv_1=(Token)match(input,16,FOLLOW_16_in_rulehostNameConfig875); 
+            otherlv_1=(Token)match(input,19,FOLLOW_19_in_rulehostNameConfig875); 
 
                 	newLeafNode(otherlv_1, grammarAccess.getHostNameConfigAccess().getEqualsSignKeyword_1());
                 
-            // ../org.xtext.example.sgl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalServerGeneratorLanguage.g:375:1: ( (lv_name_2_0= RULE_ID ) )
-            // ../org.xtext.example.sgl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalServerGeneratorLanguage.g:376:1: (lv_name_2_0= RULE_ID )
+            // ../org.xtext.example.sgl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalServerGeneratorLanguage.g:375:1: ( (lv_name_2_0= RULE_IP ) )
+            // ../org.xtext.example.sgl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalServerGeneratorLanguage.g:376:1: (lv_name_2_0= RULE_IP )
             {
-            // ../org.xtext.example.sgl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalServerGeneratorLanguage.g:376:1: (lv_name_2_0= RULE_ID )
-            // ../org.xtext.example.sgl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalServerGeneratorLanguage.g:377:3: lv_name_2_0= RULE_ID
+            // ../org.xtext.example.sgl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalServerGeneratorLanguage.g:376:1: (lv_name_2_0= RULE_IP )
+            // ../org.xtext.example.sgl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalServerGeneratorLanguage.g:377:3: lv_name_2_0= RULE_IP
             {
-            lv_name_2_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_rulehostNameConfig892); 
+            lv_name_2_0=(Token)match(input,RULE_IP,FOLLOW_RULE_IP_in_rulehostNameConfig892); 
 
-            			newLeafNode(lv_name_2_0, grammarAccess.getHostNameConfigAccess().getNameIDTerminalRuleCall_2_0()); 
+            			newLeafNode(lv_name_2_0, grammarAccess.getHostNameConfigAccess().getNameIPTerminalRuleCall_2_0()); 
             		
 
             	        if (current==null) {
@@ -926,7 +929,7 @@ public class InternalServerGeneratorLanguageParser extends AbstractInternalAntlr
                    			current, 
                    			"name",
                     		lv_name_2_0, 
-                    		"ID");
+                    		"IP");
             	    
 
             }
@@ -991,7 +994,7 @@ public class InternalServerGeneratorLanguageParser extends AbstractInternalAntlr
 
 
     // $ANTLR start "ruleportConfig"
-    // ../org.xtext.example.sgl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalServerGeneratorLanguage.g:410:1: ruleportConfig returns [EObject current=null] : (otherlv_0= 'PORT' otherlv_1= '=' ( (lv_name_2_0= RULE_ID ) ) ) ;
+    // ../org.xtext.example.sgl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalServerGeneratorLanguage.g:410:1: ruleportConfig returns [EObject current=null] : (otherlv_0= 'PORT' otherlv_1= '=' ( (lv_name_2_0= RULE_MYINT ) ) ) ;
     public final EObject ruleportConfig() throws RecognitionException {
         EObject current = null;
 
@@ -1002,29 +1005,29 @@ public class InternalServerGeneratorLanguageParser extends AbstractInternalAntlr
          enterRule(); 
             
         try {
-            // ../org.xtext.example.sgl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalServerGeneratorLanguage.g:413:28: ( (otherlv_0= 'PORT' otherlv_1= '=' ( (lv_name_2_0= RULE_ID ) ) ) )
-            // ../org.xtext.example.sgl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalServerGeneratorLanguage.g:414:1: (otherlv_0= 'PORT' otherlv_1= '=' ( (lv_name_2_0= RULE_ID ) ) )
+            // ../org.xtext.example.sgl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalServerGeneratorLanguage.g:413:28: ( (otherlv_0= 'PORT' otherlv_1= '=' ( (lv_name_2_0= RULE_MYINT ) ) ) )
+            // ../org.xtext.example.sgl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalServerGeneratorLanguage.g:414:1: (otherlv_0= 'PORT' otherlv_1= '=' ( (lv_name_2_0= RULE_MYINT ) ) )
             {
-            // ../org.xtext.example.sgl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalServerGeneratorLanguage.g:414:1: (otherlv_0= 'PORT' otherlv_1= '=' ( (lv_name_2_0= RULE_ID ) ) )
-            // ../org.xtext.example.sgl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalServerGeneratorLanguage.g:414:3: otherlv_0= 'PORT' otherlv_1= '=' ( (lv_name_2_0= RULE_ID ) )
+            // ../org.xtext.example.sgl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalServerGeneratorLanguage.g:414:1: (otherlv_0= 'PORT' otherlv_1= '=' ( (lv_name_2_0= RULE_MYINT ) ) )
+            // ../org.xtext.example.sgl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalServerGeneratorLanguage.g:414:3: otherlv_0= 'PORT' otherlv_1= '=' ( (lv_name_2_0= RULE_MYINT ) )
             {
-            otherlv_0=(Token)match(input,18,FOLLOW_18_in_ruleportConfig980); 
+            otherlv_0=(Token)match(input,21,FOLLOW_21_in_ruleportConfig980); 
 
                 	newLeafNode(otherlv_0, grammarAccess.getPortConfigAccess().getPORTKeyword_0());
                 
-            otherlv_1=(Token)match(input,16,FOLLOW_16_in_ruleportConfig992); 
+            otherlv_1=(Token)match(input,19,FOLLOW_19_in_ruleportConfig992); 
 
                 	newLeafNode(otherlv_1, grammarAccess.getPortConfigAccess().getEqualsSignKeyword_1());
                 
-            // ../org.xtext.example.sgl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalServerGeneratorLanguage.g:422:1: ( (lv_name_2_0= RULE_ID ) )
-            // ../org.xtext.example.sgl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalServerGeneratorLanguage.g:423:1: (lv_name_2_0= RULE_ID )
+            // ../org.xtext.example.sgl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalServerGeneratorLanguage.g:422:1: ( (lv_name_2_0= RULE_MYINT ) )
+            // ../org.xtext.example.sgl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalServerGeneratorLanguage.g:423:1: (lv_name_2_0= RULE_MYINT )
             {
-            // ../org.xtext.example.sgl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalServerGeneratorLanguage.g:423:1: (lv_name_2_0= RULE_ID )
-            // ../org.xtext.example.sgl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalServerGeneratorLanguage.g:424:3: lv_name_2_0= RULE_ID
+            // ../org.xtext.example.sgl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalServerGeneratorLanguage.g:423:1: (lv_name_2_0= RULE_MYINT )
+            // ../org.xtext.example.sgl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalServerGeneratorLanguage.g:424:3: lv_name_2_0= RULE_MYINT
             {
-            lv_name_2_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleportConfig1009); 
+            lv_name_2_0=(Token)match(input,RULE_MYINT,FOLLOW_RULE_MYINT_in_ruleportConfig1009); 
 
-            			newLeafNode(lv_name_2_0, grammarAccess.getPortConfigAccess().getNameIDTerminalRuleCall_2_0()); 
+            			newLeafNode(lv_name_2_0, grammarAccess.getPortConfigAccess().getNameMYINTTerminalRuleCall_2_0()); 
             		
 
             	        if (current==null) {
@@ -1034,7 +1037,7 @@ public class InternalServerGeneratorLanguageParser extends AbstractInternalAntlr
                    			current, 
                    			"name",
                     		lv_name_2_0, 
-                    		"ID");
+                    		"MYINT");
             	    
 
             }
@@ -1099,7 +1102,7 @@ public class InternalServerGeneratorLanguageParser extends AbstractInternalAntlr
 
 
     // $ANTLR start "rulelogConfig"
-    // ../org.xtext.example.sgl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalServerGeneratorLanguage.g:457:1: rulelogConfig returns [EObject current=null] : (otherlv_0= 'LOG' otherlv_1= '=' ( (lv_name_2_0= RULE_ID ) ) ) ;
+    // ../org.xtext.example.sgl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalServerGeneratorLanguage.g:457:1: rulelogConfig returns [EObject current=null] : (otherlv_0= 'LOG' otherlv_1= '=' ( (lv_name_2_0= RULE_CONFIGID ) ) ) ;
     public final EObject rulelogConfig() throws RecognitionException {
         EObject current = null;
 
@@ -1110,29 +1113,29 @@ public class InternalServerGeneratorLanguageParser extends AbstractInternalAntlr
          enterRule(); 
             
         try {
-            // ../org.xtext.example.sgl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalServerGeneratorLanguage.g:460:28: ( (otherlv_0= 'LOG' otherlv_1= '=' ( (lv_name_2_0= RULE_ID ) ) ) )
-            // ../org.xtext.example.sgl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalServerGeneratorLanguage.g:461:1: (otherlv_0= 'LOG' otherlv_1= '=' ( (lv_name_2_0= RULE_ID ) ) )
+            // ../org.xtext.example.sgl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalServerGeneratorLanguage.g:460:28: ( (otherlv_0= 'LOG' otherlv_1= '=' ( (lv_name_2_0= RULE_CONFIGID ) ) ) )
+            // ../org.xtext.example.sgl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalServerGeneratorLanguage.g:461:1: (otherlv_0= 'LOG' otherlv_1= '=' ( (lv_name_2_0= RULE_CONFIGID ) ) )
             {
-            // ../org.xtext.example.sgl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalServerGeneratorLanguage.g:461:1: (otherlv_0= 'LOG' otherlv_1= '=' ( (lv_name_2_0= RULE_ID ) ) )
-            // ../org.xtext.example.sgl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalServerGeneratorLanguage.g:461:3: otherlv_0= 'LOG' otherlv_1= '=' ( (lv_name_2_0= RULE_ID ) )
+            // ../org.xtext.example.sgl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalServerGeneratorLanguage.g:461:1: (otherlv_0= 'LOG' otherlv_1= '=' ( (lv_name_2_0= RULE_CONFIGID ) ) )
+            // ../org.xtext.example.sgl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalServerGeneratorLanguage.g:461:3: otherlv_0= 'LOG' otherlv_1= '=' ( (lv_name_2_0= RULE_CONFIGID ) )
             {
-            otherlv_0=(Token)match(input,19,FOLLOW_19_in_rulelogConfig1097); 
+            otherlv_0=(Token)match(input,22,FOLLOW_22_in_rulelogConfig1097); 
 
                 	newLeafNode(otherlv_0, grammarAccess.getLogConfigAccess().getLOGKeyword_0());
                 
-            otherlv_1=(Token)match(input,16,FOLLOW_16_in_rulelogConfig1109); 
+            otherlv_1=(Token)match(input,19,FOLLOW_19_in_rulelogConfig1109); 
 
                 	newLeafNode(otherlv_1, grammarAccess.getLogConfigAccess().getEqualsSignKeyword_1());
                 
-            // ../org.xtext.example.sgl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalServerGeneratorLanguage.g:469:1: ( (lv_name_2_0= RULE_ID ) )
-            // ../org.xtext.example.sgl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalServerGeneratorLanguage.g:470:1: (lv_name_2_0= RULE_ID )
+            // ../org.xtext.example.sgl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalServerGeneratorLanguage.g:469:1: ( (lv_name_2_0= RULE_CONFIGID ) )
+            // ../org.xtext.example.sgl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalServerGeneratorLanguage.g:470:1: (lv_name_2_0= RULE_CONFIGID )
             {
-            // ../org.xtext.example.sgl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalServerGeneratorLanguage.g:470:1: (lv_name_2_0= RULE_ID )
-            // ../org.xtext.example.sgl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalServerGeneratorLanguage.g:471:3: lv_name_2_0= RULE_ID
+            // ../org.xtext.example.sgl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalServerGeneratorLanguage.g:470:1: (lv_name_2_0= RULE_CONFIGID )
+            // ../org.xtext.example.sgl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalServerGeneratorLanguage.g:471:3: lv_name_2_0= RULE_CONFIGID
             {
-            lv_name_2_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_rulelogConfig1126); 
+            lv_name_2_0=(Token)match(input,RULE_CONFIGID,FOLLOW_RULE_CONFIGID_in_rulelogConfig1126); 
 
-            			newLeafNode(lv_name_2_0, grammarAccess.getLogConfigAccess().getNameIDTerminalRuleCall_2_0()); 
+            			newLeafNode(lv_name_2_0, grammarAccess.getLogConfigAccess().getNameCONFIGIDTerminalRuleCall_2_0()); 
             		
 
             	        if (current==null) {
@@ -1142,7 +1145,7 @@ public class InternalServerGeneratorLanguageParser extends AbstractInternalAntlr
                    			current, 
                    			"name",
                     		lv_name_2_0, 
-                    		"ID");
+                    		"CONFIGID");
             	    
 
             }
@@ -1207,7 +1210,7 @@ public class InternalServerGeneratorLanguageParser extends AbstractInternalAntlr
 
 
     // $ANTLR start "rulesqldbConfig"
-    // ../org.xtext.example.sgl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalServerGeneratorLanguage.g:504:1: rulesqldbConfig returns [EObject current=null] : (otherlv_0= 'SQLDB' otherlv_1= '=' ( (lv_name_2_0= RULE_ID ) ) ) ;
+    // ../org.xtext.example.sgl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalServerGeneratorLanguage.g:504:1: rulesqldbConfig returns [EObject current=null] : (otherlv_0= 'SQLDB' otherlv_1= '=' ( (lv_name_2_0= RULE_CONFIGID ) ) ) ;
     public final EObject rulesqldbConfig() throws RecognitionException {
         EObject current = null;
 
@@ -1218,29 +1221,29 @@ public class InternalServerGeneratorLanguageParser extends AbstractInternalAntlr
          enterRule(); 
             
         try {
-            // ../org.xtext.example.sgl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalServerGeneratorLanguage.g:507:28: ( (otherlv_0= 'SQLDB' otherlv_1= '=' ( (lv_name_2_0= RULE_ID ) ) ) )
-            // ../org.xtext.example.sgl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalServerGeneratorLanguage.g:508:1: (otherlv_0= 'SQLDB' otherlv_1= '=' ( (lv_name_2_0= RULE_ID ) ) )
+            // ../org.xtext.example.sgl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalServerGeneratorLanguage.g:507:28: ( (otherlv_0= 'SQLDB' otherlv_1= '=' ( (lv_name_2_0= RULE_CONFIGID ) ) ) )
+            // ../org.xtext.example.sgl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalServerGeneratorLanguage.g:508:1: (otherlv_0= 'SQLDB' otherlv_1= '=' ( (lv_name_2_0= RULE_CONFIGID ) ) )
             {
-            // ../org.xtext.example.sgl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalServerGeneratorLanguage.g:508:1: (otherlv_0= 'SQLDB' otherlv_1= '=' ( (lv_name_2_0= RULE_ID ) ) )
-            // ../org.xtext.example.sgl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalServerGeneratorLanguage.g:508:3: otherlv_0= 'SQLDB' otherlv_1= '=' ( (lv_name_2_0= RULE_ID ) )
+            // ../org.xtext.example.sgl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalServerGeneratorLanguage.g:508:1: (otherlv_0= 'SQLDB' otherlv_1= '=' ( (lv_name_2_0= RULE_CONFIGID ) ) )
+            // ../org.xtext.example.sgl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalServerGeneratorLanguage.g:508:3: otherlv_0= 'SQLDB' otherlv_1= '=' ( (lv_name_2_0= RULE_CONFIGID ) )
             {
-            otherlv_0=(Token)match(input,20,FOLLOW_20_in_rulesqldbConfig1214); 
+            otherlv_0=(Token)match(input,23,FOLLOW_23_in_rulesqldbConfig1214); 
 
                 	newLeafNode(otherlv_0, grammarAccess.getSqldbConfigAccess().getSQLDBKeyword_0());
                 
-            otherlv_1=(Token)match(input,16,FOLLOW_16_in_rulesqldbConfig1226); 
+            otherlv_1=(Token)match(input,19,FOLLOW_19_in_rulesqldbConfig1226); 
 
                 	newLeafNode(otherlv_1, grammarAccess.getSqldbConfigAccess().getEqualsSignKeyword_1());
                 
-            // ../org.xtext.example.sgl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalServerGeneratorLanguage.g:516:1: ( (lv_name_2_0= RULE_ID ) )
-            // ../org.xtext.example.sgl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalServerGeneratorLanguage.g:517:1: (lv_name_2_0= RULE_ID )
+            // ../org.xtext.example.sgl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalServerGeneratorLanguage.g:516:1: ( (lv_name_2_0= RULE_CONFIGID ) )
+            // ../org.xtext.example.sgl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalServerGeneratorLanguage.g:517:1: (lv_name_2_0= RULE_CONFIGID )
             {
-            // ../org.xtext.example.sgl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalServerGeneratorLanguage.g:517:1: (lv_name_2_0= RULE_ID )
-            // ../org.xtext.example.sgl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalServerGeneratorLanguage.g:518:3: lv_name_2_0= RULE_ID
+            // ../org.xtext.example.sgl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalServerGeneratorLanguage.g:517:1: (lv_name_2_0= RULE_CONFIGID )
+            // ../org.xtext.example.sgl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalServerGeneratorLanguage.g:518:3: lv_name_2_0= RULE_CONFIGID
             {
-            lv_name_2_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_rulesqldbConfig1243); 
+            lv_name_2_0=(Token)match(input,RULE_CONFIGID,FOLLOW_RULE_CONFIGID_in_rulesqldbConfig1243); 
 
-            			newLeafNode(lv_name_2_0, grammarAccess.getSqldbConfigAccess().getNameIDTerminalRuleCall_2_0()); 
+            			newLeafNode(lv_name_2_0, grammarAccess.getSqldbConfigAccess().getNameCONFIGIDTerminalRuleCall_2_0()); 
             		
 
             	        if (current==null) {
@@ -1250,7 +1253,7 @@ public class InternalServerGeneratorLanguageParser extends AbstractInternalAntlr
                    			current, 
                    			"name",
                     		lv_name_2_0, 
-                    		"ID");
+                    		"CONFIGID");
             	    
 
             }
@@ -1315,7 +1318,7 @@ public class InternalServerGeneratorLanguageParser extends AbstractInternalAntlr
 
 
     // $ANTLR start "ruleresourceConfig"
-    // ../org.xtext.example.sgl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalServerGeneratorLanguage.g:551:1: ruleresourceConfig returns [EObject current=null] : (otherlv_0= 'RESOURCE' otherlv_1= '=' ( (lv_name_2_0= RULE_ID ) ) ) ;
+    // ../org.xtext.example.sgl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalServerGeneratorLanguage.g:551:1: ruleresourceConfig returns [EObject current=null] : (otherlv_0= 'RESOURCE' otherlv_1= '=' ( (lv_name_2_0= RULE_CONFIGID ) ) ) ;
     public final EObject ruleresourceConfig() throws RecognitionException {
         EObject current = null;
 
@@ -1326,29 +1329,29 @@ public class InternalServerGeneratorLanguageParser extends AbstractInternalAntlr
          enterRule(); 
             
         try {
-            // ../org.xtext.example.sgl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalServerGeneratorLanguage.g:554:28: ( (otherlv_0= 'RESOURCE' otherlv_1= '=' ( (lv_name_2_0= RULE_ID ) ) ) )
-            // ../org.xtext.example.sgl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalServerGeneratorLanguage.g:555:1: (otherlv_0= 'RESOURCE' otherlv_1= '=' ( (lv_name_2_0= RULE_ID ) ) )
+            // ../org.xtext.example.sgl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalServerGeneratorLanguage.g:554:28: ( (otherlv_0= 'RESOURCE' otherlv_1= '=' ( (lv_name_2_0= RULE_CONFIGID ) ) ) )
+            // ../org.xtext.example.sgl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalServerGeneratorLanguage.g:555:1: (otherlv_0= 'RESOURCE' otherlv_1= '=' ( (lv_name_2_0= RULE_CONFIGID ) ) )
             {
-            // ../org.xtext.example.sgl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalServerGeneratorLanguage.g:555:1: (otherlv_0= 'RESOURCE' otherlv_1= '=' ( (lv_name_2_0= RULE_ID ) ) )
-            // ../org.xtext.example.sgl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalServerGeneratorLanguage.g:555:3: otherlv_0= 'RESOURCE' otherlv_1= '=' ( (lv_name_2_0= RULE_ID ) )
+            // ../org.xtext.example.sgl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalServerGeneratorLanguage.g:555:1: (otherlv_0= 'RESOURCE' otherlv_1= '=' ( (lv_name_2_0= RULE_CONFIGID ) ) )
+            // ../org.xtext.example.sgl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalServerGeneratorLanguage.g:555:3: otherlv_0= 'RESOURCE' otherlv_1= '=' ( (lv_name_2_0= RULE_CONFIGID ) )
             {
-            otherlv_0=(Token)match(input,21,FOLLOW_21_in_ruleresourceConfig1331); 
+            otherlv_0=(Token)match(input,24,FOLLOW_24_in_ruleresourceConfig1331); 
 
                 	newLeafNode(otherlv_0, grammarAccess.getResourceConfigAccess().getRESOURCEKeyword_0());
                 
-            otherlv_1=(Token)match(input,16,FOLLOW_16_in_ruleresourceConfig1343); 
+            otherlv_1=(Token)match(input,19,FOLLOW_19_in_ruleresourceConfig1343); 
 
                 	newLeafNode(otherlv_1, grammarAccess.getResourceConfigAccess().getEqualsSignKeyword_1());
                 
-            // ../org.xtext.example.sgl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalServerGeneratorLanguage.g:563:1: ( (lv_name_2_0= RULE_ID ) )
-            // ../org.xtext.example.sgl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalServerGeneratorLanguage.g:564:1: (lv_name_2_0= RULE_ID )
+            // ../org.xtext.example.sgl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalServerGeneratorLanguage.g:563:1: ( (lv_name_2_0= RULE_CONFIGID ) )
+            // ../org.xtext.example.sgl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalServerGeneratorLanguage.g:564:1: (lv_name_2_0= RULE_CONFIGID )
             {
-            // ../org.xtext.example.sgl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalServerGeneratorLanguage.g:564:1: (lv_name_2_0= RULE_ID )
-            // ../org.xtext.example.sgl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalServerGeneratorLanguage.g:565:3: lv_name_2_0= RULE_ID
+            // ../org.xtext.example.sgl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalServerGeneratorLanguage.g:564:1: (lv_name_2_0= RULE_CONFIGID )
+            // ../org.xtext.example.sgl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalServerGeneratorLanguage.g:565:3: lv_name_2_0= RULE_CONFIGID
             {
-            lv_name_2_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleresourceConfig1360); 
+            lv_name_2_0=(Token)match(input,RULE_CONFIGID,FOLLOW_RULE_CONFIGID_in_ruleresourceConfig1360); 
 
-            			newLeafNode(lv_name_2_0, grammarAccess.getResourceConfigAccess().getNameIDTerminalRuleCall_2_0()); 
+            			newLeafNode(lv_name_2_0, grammarAccess.getResourceConfigAccess().getNameCONFIGIDTerminalRuleCall_2_0()); 
             		
 
             	        if (current==null) {
@@ -1358,7 +1361,7 @@ public class InternalServerGeneratorLanguageParser extends AbstractInternalAntlr
                    			current, 
                    			"name",
                     		lv_name_2_0, 
-                    		"ID");
+                    		"CONFIGID");
             	    
 
             }
@@ -1451,7 +1454,7 @@ public class InternalServerGeneratorLanguageParser extends AbstractInternalAntlr
             // ../org.xtext.example.sgl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalServerGeneratorLanguage.g:602:1: (otherlv_0= 'DOMAINMODEL' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' otherlv_3= 'ENTITYS' otherlv_4= '{' ( (lv_Entitys_5_0= ruleEntity ) )* otherlv_6= '}' otherlv_7= 'ENTITY_RELATIONSHIP' otherlv_8= '{' ( (lv_Relationships_9_0= ruleRelationship ) )* otherlv_10= '}' otherlv_11= '}' )
             // ../org.xtext.example.sgl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalServerGeneratorLanguage.g:602:3: otherlv_0= 'DOMAINMODEL' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' otherlv_3= 'ENTITYS' otherlv_4= '{' ( (lv_Entitys_5_0= ruleEntity ) )* otherlv_6= '}' otherlv_7= 'ENTITY_RELATIONSHIP' otherlv_8= '{' ( (lv_Relationships_9_0= ruleRelationship ) )* otherlv_10= '}' otherlv_11= '}'
             {
-            otherlv_0=(Token)match(input,22,FOLLOW_22_in_ruleDomainModel1448); 
+            otherlv_0=(Token)match(input,25,FOLLOW_25_in_ruleDomainModel1448); 
 
                 	newLeafNode(otherlv_0, grammarAccess.getDomainModelAccess().getDOMAINMODELKeyword_0());
                 
@@ -1481,15 +1484,15 @@ public class InternalServerGeneratorLanguageParser extends AbstractInternalAntlr
 
             }
 
-            otherlv_2=(Token)match(input,12,FOLLOW_12_in_ruleDomainModel1482); 
+            otherlv_2=(Token)match(input,15,FOLLOW_15_in_ruleDomainModel1482); 
 
                 	newLeafNode(otherlv_2, grammarAccess.getDomainModelAccess().getLeftCurlyBracketKeyword_2());
                 
-            otherlv_3=(Token)match(input,23,FOLLOW_23_in_ruleDomainModel1494); 
+            otherlv_3=(Token)match(input,26,FOLLOW_26_in_ruleDomainModel1494); 
 
                 	newLeafNode(otherlv_3, grammarAccess.getDomainModelAccess().getENTITYSKeyword_3());
                 
-            otherlv_4=(Token)match(input,12,FOLLOW_12_in_ruleDomainModel1506); 
+            otherlv_4=(Token)match(input,15,FOLLOW_15_in_ruleDomainModel1506); 
 
                 	newLeafNode(otherlv_4, grammarAccess.getDomainModelAccess().getLeftCurlyBracketKeyword_4());
                 
@@ -1542,15 +1545,15 @@ public class InternalServerGeneratorLanguageParser extends AbstractInternalAntlr
                 }
             } while (true);
 
-            otherlv_6=(Token)match(input,14,FOLLOW_14_in_ruleDomainModel1540); 
+            otherlv_6=(Token)match(input,17,FOLLOW_17_in_ruleDomainModel1540); 
 
                 	newLeafNode(otherlv_6, grammarAccess.getDomainModelAccess().getRightCurlyBracketKeyword_6());
                 
-            otherlv_7=(Token)match(input,24,FOLLOW_24_in_ruleDomainModel1552); 
+            otherlv_7=(Token)match(input,27,FOLLOW_27_in_ruleDomainModel1552); 
 
                 	newLeafNode(otherlv_7, grammarAccess.getDomainModelAccess().getENTITY_RELATIONSHIPKeyword_7());
                 
-            otherlv_8=(Token)match(input,12,FOLLOW_12_in_ruleDomainModel1564); 
+            otherlv_8=(Token)match(input,15,FOLLOW_15_in_ruleDomainModel1564); 
 
                 	newLeafNode(otherlv_8, grammarAccess.getDomainModelAccess().getLeftCurlyBracketKeyword_8());
                 
@@ -1603,11 +1606,11 @@ public class InternalServerGeneratorLanguageParser extends AbstractInternalAntlr
                 }
             } while (true);
 
-            otherlv_10=(Token)match(input,14,FOLLOW_14_in_ruleDomainModel1598); 
+            otherlv_10=(Token)match(input,17,FOLLOW_17_in_ruleDomainModel1598); 
 
                 	newLeafNode(otherlv_10, grammarAccess.getDomainModelAccess().getRightCurlyBracketKeyword_10());
                 
-            otherlv_11=(Token)match(input,14,FOLLOW_14_in_ruleDomainModel1610); 
+            otherlv_11=(Token)match(input,17,FOLLOW_17_in_ruleDomainModel1610); 
 
                 	newLeafNode(otherlv_11, grammarAccess.getDomainModelAccess().getRightCurlyBracketKeyword_11());
                 
@@ -1713,7 +1716,7 @@ public class InternalServerGeneratorLanguageParser extends AbstractInternalAntlr
 
             }
 
-            otherlv_1=(Token)match(input,12,FOLLOW_12_in_ruleEntity1715); 
+            otherlv_1=(Token)match(input,15,FOLLOW_15_in_ruleEntity1715); 
 
                 	newLeafNode(otherlv_1, grammarAccess.getEntityAccess().getLeftCurlyBracketKeyword_1());
                 
@@ -1723,7 +1726,7 @@ public class InternalServerGeneratorLanguageParser extends AbstractInternalAntlr
                 int alt7=2;
                 int LA7_0 = input.LA(1);
 
-                if ( ((LA7_0>=25 && LA7_0<=27)) ) {
+                if ( ((LA7_0>=28 && LA7_0<=30)) ) {
                     alt7=1;
                 }
 
@@ -1766,7 +1769,7 @@ public class InternalServerGeneratorLanguageParser extends AbstractInternalAntlr
                 }
             } while (true);
 
-            otherlv_3=(Token)match(input,14,FOLLOW_14_in_ruleEntity1749); 
+            otherlv_3=(Token)match(input,17,FOLLOW_17_in_ruleEntity1749); 
 
                 	newLeafNode(otherlv_3, grammarAccess.getEntityAccess().getRightCurlyBracketKeyword_3());
                 
@@ -1847,17 +1850,17 @@ public class InternalServerGeneratorLanguageParser extends AbstractInternalAntlr
             // ../org.xtext.example.sgl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalServerGeneratorLanguage.g:778:1: (this_StringAttribute_0= ruleStringAttribute | this_NumberAttribute_1= ruleNumberAttribute | this_ImageAttribute_2= ruleImageAttribute )
             int alt8=3;
             switch ( input.LA(1) ) {
-            case 25:
+            case 28:
                 {
                 alt8=1;
                 }
                 break;
-            case 26:
+            case 29:
                 {
                 alt8=2;
                 }
                 break;
-            case 27:
+            case 30:
                 {
                 alt8=3;
                 }
@@ -1997,7 +2000,7 @@ public class InternalServerGeneratorLanguageParser extends AbstractInternalAntlr
             // ../org.xtext.example.sgl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalServerGeneratorLanguage.g:828:1: (otherlv_0= 'STRING' ( (lv_name_1_0= RULE_ID ) ) )
             // ../org.xtext.example.sgl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalServerGeneratorLanguage.g:828:3: otherlv_0= 'STRING' ( (lv_name_1_0= RULE_ID ) )
             {
-            otherlv_0=(Token)match(input,25,FOLLOW_25_in_ruleStringAttribute1978); 
+            otherlv_0=(Token)match(input,28,FOLLOW_28_in_ruleStringAttribute1978); 
 
                 	newLeafNode(otherlv_0, grammarAccess.getStringAttributeAccess().getSTRINGKeyword_0());
                 
@@ -2100,7 +2103,7 @@ public class InternalServerGeneratorLanguageParser extends AbstractInternalAntlr
             // ../org.xtext.example.sgl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalServerGeneratorLanguage.g:871:1: (otherlv_0= 'NUMBER' ( (lv_name_1_0= RULE_ID ) ) )
             // ../org.xtext.example.sgl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalServerGeneratorLanguage.g:871:3: otherlv_0= 'NUMBER' ( (lv_name_1_0= RULE_ID ) )
             {
-            otherlv_0=(Token)match(input,26,FOLLOW_26_in_ruleNumberAttribute2083); 
+            otherlv_0=(Token)match(input,29,FOLLOW_29_in_ruleNumberAttribute2083); 
 
                 	newLeafNode(otherlv_0, grammarAccess.getNumberAttributeAccess().getNUMBERKeyword_0());
                 
@@ -2203,7 +2206,7 @@ public class InternalServerGeneratorLanguageParser extends AbstractInternalAntlr
             // ../org.xtext.example.sgl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalServerGeneratorLanguage.g:914:1: (otherlv_0= 'IMAGE' ( (lv_name_1_0= RULE_ID ) ) )
             // ../org.xtext.example.sgl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalServerGeneratorLanguage.g:914:3: otherlv_0= 'IMAGE' ( (lv_name_1_0= RULE_ID ) )
             {
-            otherlv_0=(Token)match(input,27,FOLLOW_27_in_ruleImageAttribute2188); 
+            otherlv_0=(Token)match(input,30,FOLLOW_30_in_ruleImageAttribute2188); 
 
                 	newLeafNode(otherlv_0, grammarAccess.getImageAttributeAccess().getIMAGEKeyword_0());
                 
@@ -2320,7 +2323,7 @@ public class InternalServerGeneratorLanguageParser extends AbstractInternalAntlr
                 int alt9=2;
                 int LA9_0 = input.LA(1);
 
-                if ( (LA9_0==28) ) {
+                if ( (LA9_0==31) ) {
                     alt9=1;
                 }
 
@@ -2329,7 +2332,7 @@ public class InternalServerGeneratorLanguageParser extends AbstractInternalAntlr
             	case 1 :
             	    // ../org.xtext.example.sgl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalServerGeneratorLanguage.g:965:2: kw= '.' this_ID_2= RULE_ID
             	    {
-            	    kw=(Token)match(input,28,FOLLOW_28_in_ruleQualifiedName2317); 
+            	    kw=(Token)match(input,31,FOLLOW_31_in_ruleQualifiedName2317); 
 
             	            current.merge(kw);
             	            newLeafNode(kw, grammarAccess.getQualifiedNameAccess().getFullStopKeyword_1_0()); 
@@ -2450,7 +2453,7 @@ public class InternalServerGeneratorLanguageParser extends AbstractInternalAntlr
 
             }
 
-            otherlv_1=(Token)match(input,29,FOLLOW_29_in_ruleRelationship2449); 
+            otherlv_1=(Token)match(input,32,FOLLOW_32_in_ruleRelationship2449); 
 
                 	newLeafNode(otherlv_1, grammarAccess.getRelationshipAccess().getHyphenMinusGreaterThanSignKeyword_1());
                 
@@ -2508,21 +2511,21 @@ public class InternalServerGeneratorLanguageParser extends AbstractInternalAntlr
 
     public static final BitSet FOLLOW_ruleModel_in_entryRuleModel75 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleModel85 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleType_in_ruleModel130 = new BitSet(new long[]{0x0000000000400802L});
+    public static final BitSet FOLLOW_ruleType_in_ruleModel130 = new BitSet(new long[]{0x0000000002004002L});
     public static final BitSet FOLLOW_ruleType_in_entryRuleType166 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleType176 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleServer_in_ruleType223 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleDomainModel_in_ruleType250 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleServer_in_entryRuleServer285 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleServer295 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_11_in_ruleServer332 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleServer349 = new BitSet(new long[]{0x0000000000001000L});
-    public static final BitSet FOLLOW_12_in_ruleServer366 = new BitSet(new long[]{0x0000000000002000L});
-    public static final BitSet FOLLOW_13_in_ruleServer378 = new BitSet(new long[]{0x0000000000001000L});
-    public static final BitSet FOLLOW_12_in_ruleServer390 = new BitSet(new long[]{0x00000000003EC000L});
-    public static final BitSet FOLLOW_ruleConfig_in_ruleServer411 = new BitSet(new long[]{0x00000000003EC000L});
-    public static final BitSet FOLLOW_14_in_ruleServer424 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_14_in_ruleServer436 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_14_in_ruleServer332 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleServer349 = new BitSet(new long[]{0x0000000000008000L});
+    public static final BitSet FOLLOW_15_in_ruleServer366 = new BitSet(new long[]{0x0000000000010000L});
+    public static final BitSet FOLLOW_16_in_ruleServer378 = new BitSet(new long[]{0x0000000000008000L});
+    public static final BitSet FOLLOW_15_in_ruleServer390 = new BitSet(new long[]{0x0000000001F60000L});
+    public static final BitSet FOLLOW_ruleConfig_in_ruleServer411 = new BitSet(new long[]{0x0000000001F60000L});
+    public static final BitSet FOLLOW_17_in_ruleServer424 = new BitSet(new long[]{0x0000000000020000L});
+    public static final BitSet FOLLOW_17_in_ruleServer436 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleConfig_in_entryRuleConfig472 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleConfig482 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rulerootConfig_in_ruleConfig529 = new BitSet(new long[]{0x0000000000000002L});
@@ -2533,54 +2536,54 @@ public class InternalServerGeneratorLanguageParser extends AbstractInternalAntlr
     public static final BitSet FOLLOW_ruleresourceConfig_in_ruleConfig664 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rulerootConfig_in_entryRulerootConfig699 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRulerootConfig709 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_15_in_rulerootConfig746 = new BitSet(new long[]{0x0000000000010000L});
-    public static final BitSet FOLLOW_16_in_rulerootConfig758 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_rulerootConfig775 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_18_in_rulerootConfig746 = new BitSet(new long[]{0x0000000000080000L});
+    public static final BitSet FOLLOW_19_in_rulerootConfig758 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_RULE_CONFIGID_in_rulerootConfig775 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rulehostNameConfig_in_entryRulehostNameConfig816 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRulehostNameConfig826 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_17_in_rulehostNameConfig863 = new BitSet(new long[]{0x0000000000010000L});
-    public static final BitSet FOLLOW_16_in_rulehostNameConfig875 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_rulehostNameConfig892 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_20_in_rulehostNameConfig863 = new BitSet(new long[]{0x0000000000080000L});
+    public static final BitSet FOLLOW_19_in_rulehostNameConfig875 = new BitSet(new long[]{0x0000000000000040L});
+    public static final BitSet FOLLOW_RULE_IP_in_rulehostNameConfig892 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleportConfig_in_entryRuleportConfig933 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleportConfig943 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_18_in_ruleportConfig980 = new BitSet(new long[]{0x0000000000010000L});
-    public static final BitSet FOLLOW_16_in_ruleportConfig992 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleportConfig1009 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_21_in_ruleportConfig980 = new BitSet(new long[]{0x0000000000080000L});
+    public static final BitSet FOLLOW_19_in_ruleportConfig992 = new BitSet(new long[]{0x0000000000000080L});
+    public static final BitSet FOLLOW_RULE_MYINT_in_ruleportConfig1009 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rulelogConfig_in_entryRulelogConfig1050 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRulelogConfig1060 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_19_in_rulelogConfig1097 = new BitSet(new long[]{0x0000000000010000L});
-    public static final BitSet FOLLOW_16_in_rulelogConfig1109 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_rulelogConfig1126 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_22_in_rulelogConfig1097 = new BitSet(new long[]{0x0000000000080000L});
+    public static final BitSet FOLLOW_19_in_rulelogConfig1109 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_RULE_CONFIGID_in_rulelogConfig1126 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rulesqldbConfig_in_entryRulesqldbConfig1167 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRulesqldbConfig1177 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_20_in_rulesqldbConfig1214 = new BitSet(new long[]{0x0000000000010000L});
-    public static final BitSet FOLLOW_16_in_rulesqldbConfig1226 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_rulesqldbConfig1243 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_23_in_rulesqldbConfig1214 = new BitSet(new long[]{0x0000000000080000L});
+    public static final BitSet FOLLOW_19_in_rulesqldbConfig1226 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_RULE_CONFIGID_in_rulesqldbConfig1243 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleresourceConfig_in_entryRuleresourceConfig1284 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleresourceConfig1294 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_21_in_ruleresourceConfig1331 = new BitSet(new long[]{0x0000000000010000L});
-    public static final BitSet FOLLOW_16_in_ruleresourceConfig1343 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleresourceConfig1360 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_24_in_ruleresourceConfig1331 = new BitSet(new long[]{0x0000000000080000L});
+    public static final BitSet FOLLOW_19_in_ruleresourceConfig1343 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_RULE_CONFIGID_in_ruleresourceConfig1360 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleDomainModel_in_entryRuleDomainModel1401 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleDomainModel1411 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_22_in_ruleDomainModel1448 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleDomainModel1465 = new BitSet(new long[]{0x0000000000001000L});
-    public static final BitSet FOLLOW_12_in_ruleDomainModel1482 = new BitSet(new long[]{0x0000000000800000L});
-    public static final BitSet FOLLOW_23_in_ruleDomainModel1494 = new BitSet(new long[]{0x0000000000001000L});
-    public static final BitSet FOLLOW_12_in_ruleDomainModel1506 = new BitSet(new long[]{0x0000000000004010L});
-    public static final BitSet FOLLOW_ruleEntity_in_ruleDomainModel1527 = new BitSet(new long[]{0x0000000000004010L});
-    public static final BitSet FOLLOW_14_in_ruleDomainModel1540 = new BitSet(new long[]{0x0000000001000000L});
-    public static final BitSet FOLLOW_24_in_ruleDomainModel1552 = new BitSet(new long[]{0x0000000000001000L});
-    public static final BitSet FOLLOW_12_in_ruleDomainModel1564 = new BitSet(new long[]{0x0000000000004010L});
-    public static final BitSet FOLLOW_ruleRelationship_in_ruleDomainModel1585 = new BitSet(new long[]{0x0000000000004010L});
-    public static final BitSet FOLLOW_14_in_ruleDomainModel1598 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_14_in_ruleDomainModel1610 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_25_in_ruleDomainModel1448 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleDomainModel1465 = new BitSet(new long[]{0x0000000000008000L});
+    public static final BitSet FOLLOW_15_in_ruleDomainModel1482 = new BitSet(new long[]{0x0000000004000000L});
+    public static final BitSet FOLLOW_26_in_ruleDomainModel1494 = new BitSet(new long[]{0x0000000000008000L});
+    public static final BitSet FOLLOW_15_in_ruleDomainModel1506 = new BitSet(new long[]{0x0000000000020010L});
+    public static final BitSet FOLLOW_ruleEntity_in_ruleDomainModel1527 = new BitSet(new long[]{0x0000000000020010L});
+    public static final BitSet FOLLOW_17_in_ruleDomainModel1540 = new BitSet(new long[]{0x0000000008000000L});
+    public static final BitSet FOLLOW_27_in_ruleDomainModel1552 = new BitSet(new long[]{0x0000000000008000L});
+    public static final BitSet FOLLOW_15_in_ruleDomainModel1564 = new BitSet(new long[]{0x0000000000020010L});
+    public static final BitSet FOLLOW_ruleRelationship_in_ruleDomainModel1585 = new BitSet(new long[]{0x0000000000020010L});
+    public static final BitSet FOLLOW_17_in_ruleDomainModel1598 = new BitSet(new long[]{0x0000000000020000L});
+    public static final BitSet FOLLOW_17_in_ruleDomainModel1610 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleEntity_in_entryRuleEntity1646 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleEntity1656 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleEntity1698 = new BitSet(new long[]{0x0000000000001000L});
-    public static final BitSet FOLLOW_12_in_ruleEntity1715 = new BitSet(new long[]{0x000000000E004000L});
-    public static final BitSet FOLLOW_ruleAttribute_in_ruleEntity1736 = new BitSet(new long[]{0x000000000E004000L});
-    public static final BitSet FOLLOW_14_in_ruleEntity1749 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleEntity1698 = new BitSet(new long[]{0x0000000000008000L});
+    public static final BitSet FOLLOW_15_in_ruleEntity1715 = new BitSet(new long[]{0x0000000070020000L});
+    public static final BitSet FOLLOW_ruleAttribute_in_ruleEntity1736 = new BitSet(new long[]{0x0000000070020000L});
+    public static final BitSet FOLLOW_17_in_ruleEntity1749 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleAttribute_in_entryRuleAttribute1785 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleAttribute1795 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleStringAttribute_in_ruleAttribute1842 = new BitSet(new long[]{0x0000000000000002L});
@@ -2588,25 +2591,25 @@ public class InternalServerGeneratorLanguageParser extends AbstractInternalAntlr
     public static final BitSet FOLLOW_ruleImageAttribute_in_ruleAttribute1896 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleStringAttribute_in_entryRuleStringAttribute1931 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleStringAttribute1941 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_25_in_ruleStringAttribute1978 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_28_in_ruleStringAttribute1978 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_RULE_ID_in_ruleStringAttribute1995 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleNumberAttribute_in_entryRuleNumberAttribute2036 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleNumberAttribute2046 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_26_in_ruleNumberAttribute2083 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_29_in_ruleNumberAttribute2083 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_RULE_ID_in_ruleNumberAttribute2100 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleImageAttribute_in_entryRuleImageAttribute2141 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleImageAttribute2151 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_27_in_ruleImageAttribute2188 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_30_in_ruleImageAttribute2188 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_RULE_ID_in_ruleImageAttribute2205 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleQualifiedName_in_entryRuleQualifiedName2247 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleQualifiedName2258 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleQualifiedName2298 = new BitSet(new long[]{0x0000000010000002L});
-    public static final BitSet FOLLOW_28_in_ruleQualifiedName2317 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleQualifiedName2332 = new BitSet(new long[]{0x0000000010000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleQualifiedName2298 = new BitSet(new long[]{0x0000000080000002L});
+    public static final BitSet FOLLOW_31_in_ruleQualifiedName2317 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleQualifiedName2332 = new BitSet(new long[]{0x0000000080000002L});
     public static final BitSet FOLLOW_ruleRelationship_in_entryRuleRelationship2379 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleRelationship2389 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleQualifiedName_in_ruleRelationship2437 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_29_in_ruleRelationship2449 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_ruleQualifiedName_in_ruleRelationship2437 = new BitSet(new long[]{0x0000000100000000L});
+    public static final BitSet FOLLOW_32_in_ruleRelationship2449 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_ruleQualifiedName_in_ruleRelationship2472 = new BitSet(new long[]{0x0000000000000002L});
 
 }

@@ -242,7 +242,7 @@ public class ServerGeneratorLanguageSemanticSequencer extends AbstractDelegating
 	
 	/**
 	 * Constraint:
-	 *     name=ID
+	 *     name=IP
 	 */
 	protected void sequence_hostNameConfig(EObject context, hostNameConfig semanticObject) {
 		if(errorAcceptor != null) {
@@ -251,14 +251,14 @@ public class ServerGeneratorLanguageSemanticSequencer extends AbstractDelegating
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getHostNameConfigAccess().getNameIDTerminalRuleCall_2_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getHostNameConfigAccess().getNameIPTerminalRuleCall_2_0(), semanticObject.getName());
 		feeder.finish();
 	}
 	
 	
 	/**
 	 * Constraint:
-	 *     name=ID
+	 *     name=CONFIGID
 	 */
 	protected void sequence_logConfig(EObject context, logConfig semanticObject) {
 		if(errorAcceptor != null) {
@@ -267,14 +267,14 @@ public class ServerGeneratorLanguageSemanticSequencer extends AbstractDelegating
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getLogConfigAccess().getNameIDTerminalRuleCall_2_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getLogConfigAccess().getNameCONFIGIDTerminalRuleCall_2_0(), semanticObject.getName());
 		feeder.finish();
 	}
 	
 	
 	/**
 	 * Constraint:
-	 *     name=ID
+	 *     name=MYINT
 	 */
 	protected void sequence_portConfig(EObject context, portConfig semanticObject) {
 		if(errorAcceptor != null) {
@@ -283,14 +283,14 @@ public class ServerGeneratorLanguageSemanticSequencer extends AbstractDelegating
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getPortConfigAccess().getNameIDTerminalRuleCall_2_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getPortConfigAccess().getNameMYINTTerminalRuleCall_2_0(), semanticObject.getName());
 		feeder.finish();
 	}
 	
 	
 	/**
 	 * Constraint:
-	 *     name=ID
+	 *     name=CONFIGID
 	 */
 	protected void sequence_resourceConfig(EObject context, resourceConfig semanticObject) {
 		if(errorAcceptor != null) {
@@ -299,14 +299,14 @@ public class ServerGeneratorLanguageSemanticSequencer extends AbstractDelegating
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getResourceConfigAccess().getNameIDTerminalRuleCall_2_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getResourceConfigAccess().getNameCONFIGIDTerminalRuleCall_2_0(), semanticObject.getName());
 		feeder.finish();
 	}
 	
 	
 	/**
 	 * Constraint:
-	 *     name=ID
+	 *     name=CONFIGID
 	 */
 	protected void sequence_rootConfig(EObject context, rootConfig semanticObject) {
 		if(errorAcceptor != null) {
@@ -315,14 +315,14 @@ public class ServerGeneratorLanguageSemanticSequencer extends AbstractDelegating
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getRootConfigAccess().getNameIDTerminalRuleCall_2_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getRootConfigAccess().getNameCONFIGIDTerminalRuleCall_2_0(), semanticObject.getName());
 		feeder.finish();
 	}
 	
 	
 	/**
 	 * Constraint:
-	 *     name=ID
+	 *     name=CONFIGID
 	 */
 	protected void sequence_sqldbConfig(EObject context, sqldbConfig semanticObject) {
 		if(errorAcceptor != null) {
@@ -331,7 +331,7 @@ public class ServerGeneratorLanguageSemanticSequencer extends AbstractDelegating
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getSqldbConfigAccess().getNameIDTerminalRuleCall_2_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getSqldbConfigAccess().getNameCONFIGIDTerminalRuleCall_2_0(), semanticObject.getName());
 		feeder.finish();
 	}
 }

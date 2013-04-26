@@ -12,17 +12,11 @@ import org.xtext.example.mydsl.serverGeneratorLanguage.DomainModel
 
 /**
  * Generates code from your model files on save.
- * 
  * see http://www.eclipse.org/Xtext/documentation.html#TutorialCodeGeneration
  */
 class ServerGeneratorLanguageGenerator implements IGenerator {
 	
 	override void doGenerate(Resource resource, IFileSystemAccess fsa) {
-//		fsa.generateFile('greetings.txt', 'People to greet: ' + 
-//			resource.allContents
-//				.filter(typeof(Greeting))
-//				.map[name]
-//				.join(', '))
 
 		for(s: resource.allContents.toIterable.filter(typeof(Server))) {
 		    fsa.generateFile("sgl.properties",
@@ -76,7 +70,6 @@ class ServerGeneratorLanguageGenerator implements IGenerator {
 		    	e.compileSGLEntityDao)
 			}
 		
-		
 		fsa.generateFile("src"+"/"+"com"+"/"+"pallyup"+"/"+"sgl"+"/"+"core"+"/"+"data"+"/"+ //package "com.pallyup.sgl.core.data"
 		    	"SGLSqlProvider.java", //class name
 		    	compileSGLSqlProvider)
@@ -92,22 +85,25 @@ class ServerGeneratorLanguageGenerator implements IGenerator {
 		fsa.generateFile("src"+"/"+"com"+"/"+"pallyup"+"/"+"sgl"+"/"+"server"+"/"+"core"+"/"+ //package "com.pallyup.sgl.server.core"
 		    	"Result.java", //class name
 		    	compileResult)
-		
-		
+			
 	}
 	
 	def compileServer(Server s) ''' 
     #jetty or jse
     sgl.www.server=jetty
     «FOR c:s.configs»
-    	«IF c.eClass.name.contentEquals('rootConfig')»sgl.www.rootdir=«c.name»«ENDIF»
-    	«IF c.eClass.name.contentEquals("hostNameConfig")»sgl.www.hostname=«c.name»«ENDIF»
-    	«IF c.eClass.name.contentEquals('portConfig')»sgl.www.port=«c.name»«ENDIF»
-    	«IF c.eClass.name.contentEquals('logConfig')»sgl.www.log=«c.name»«ENDIF»
-    	«IF c.eClass.name.contentEquals('sqldbConfig')»sgl.www.sqlitedb=«c.name»«ENDIF»
-    	«IF c.eClass.name.contentEquals('resourceConfig')»sgl.www.<table_name>s_images=«c.name»«ENDIF»
+    	«IF c.eClass.name.contentEquals('rootConfig')»sgl.www.rootdir=«c.name.removeQuote()»«ENDIF»
+    	«IF c.eClass.name.contentEquals("hostNameConfig")»sgl.www.hostname=«c.name.removeQuote()»«ENDIF»
+    	«IF c.eClass.name.contentEquals('portConfig')»sgl.www.port=«c.name.removeQuote()»«ENDIF»
+    	«IF c.eClass.name.contentEquals('logConfig')»sgl.www.log=«c.name.removeQuote()»«ENDIF»
+    	«IF c.eClass.name.contentEquals('sqldbConfig')»sgl.www.sqlitedb=«c.name.removeQuote()»«ENDIF»
+    	«IF c.eClass.name.contentEquals('resourceConfig')»sgl.www.<table_name>s_images=«c.name.removeQuote()»«ENDIF»
     «ENDFOR»
 	'''
+	
+	def removeQuote(String inp){
+		inp.subSequence(1, inp.length-1)
+	}
 	
 	def toJavaType(String inp){
 		switch (inp) {
@@ -1142,6 +1138,4 @@ class ServerGeneratorLanguageGenerator implements IGenerator {
 	}
 
 	'''
-
-
 }

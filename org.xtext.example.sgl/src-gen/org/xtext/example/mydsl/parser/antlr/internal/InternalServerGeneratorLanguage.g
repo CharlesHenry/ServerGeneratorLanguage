@@ -327,9 +327,9 @@ rulerootConfig returns [EObject current=null]
     }
 (
 (
-		lv_name_2_0=RULE_ID
+		lv_name_2_0=RULE_CONFIGID
 		{
-			newLeafNode(lv_name_2_0, grammarAccess.getRootConfigAccess().getNameIDTerminalRuleCall_2_0()); 
+			newLeafNode(lv_name_2_0, grammarAccess.getRootConfigAccess().getNameCONFIGIDTerminalRuleCall_2_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -339,7 +339,7 @@ rulerootConfig returns [EObject current=null]
        			$current, 
        			"name",
         		lv_name_2_0, 
-        		"ID");
+        		"CONFIGID");
 	    }
 
 )
@@ -374,9 +374,9 @@ rulehostNameConfig returns [EObject current=null]
     }
 (
 (
-		lv_name_2_0=RULE_ID
+		lv_name_2_0=RULE_IP
 		{
-			newLeafNode(lv_name_2_0, grammarAccess.getHostNameConfigAccess().getNameIDTerminalRuleCall_2_0()); 
+			newLeafNode(lv_name_2_0, grammarAccess.getHostNameConfigAccess().getNameIPTerminalRuleCall_2_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -386,7 +386,7 @@ rulehostNameConfig returns [EObject current=null]
        			$current, 
        			"name",
         		lv_name_2_0, 
-        		"ID");
+        		"IP");
 	    }
 
 )
@@ -421,9 +421,9 @@ ruleportConfig returns [EObject current=null]
     }
 (
 (
-		lv_name_2_0=RULE_ID
+		lv_name_2_0=RULE_MYINT
 		{
-			newLeafNode(lv_name_2_0, grammarAccess.getPortConfigAccess().getNameIDTerminalRuleCall_2_0()); 
+			newLeafNode(lv_name_2_0, grammarAccess.getPortConfigAccess().getNameMYINTTerminalRuleCall_2_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -433,7 +433,7 @@ ruleportConfig returns [EObject current=null]
        			$current, 
        			"name",
         		lv_name_2_0, 
-        		"ID");
+        		"MYINT");
 	    }
 
 )
@@ -468,9 +468,9 @@ rulelogConfig returns [EObject current=null]
     }
 (
 (
-		lv_name_2_0=RULE_ID
+		lv_name_2_0=RULE_CONFIGID
 		{
-			newLeafNode(lv_name_2_0, grammarAccess.getLogConfigAccess().getNameIDTerminalRuleCall_2_0()); 
+			newLeafNode(lv_name_2_0, grammarAccess.getLogConfigAccess().getNameCONFIGIDTerminalRuleCall_2_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -480,7 +480,7 @@ rulelogConfig returns [EObject current=null]
        			$current, 
        			"name",
         		lv_name_2_0, 
-        		"ID");
+        		"CONFIGID");
 	    }
 
 )
@@ -515,9 +515,9 @@ rulesqldbConfig returns [EObject current=null]
     }
 (
 (
-		lv_name_2_0=RULE_ID
+		lv_name_2_0=RULE_CONFIGID
 		{
-			newLeafNode(lv_name_2_0, grammarAccess.getSqldbConfigAccess().getNameIDTerminalRuleCall_2_0()); 
+			newLeafNode(lv_name_2_0, grammarAccess.getSqldbConfigAccess().getNameCONFIGIDTerminalRuleCall_2_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -527,7 +527,7 @@ rulesqldbConfig returns [EObject current=null]
        			$current, 
        			"name",
         		lv_name_2_0, 
-        		"ID");
+        		"CONFIGID");
 	    }
 
 )
@@ -562,9 +562,9 @@ ruleresourceConfig returns [EObject current=null]
     }
 (
 (
-		lv_name_2_0=RULE_ID
+		lv_name_2_0=RULE_CONFIGID
 		{
-			newLeafNode(lv_name_2_0, grammarAccess.getResourceConfigAccess().getNameIDTerminalRuleCall_2_0()); 
+			newLeafNode(lv_name_2_0, grammarAccess.getResourceConfigAccess().getNameCONFIGIDTerminalRuleCall_2_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -574,7 +574,7 @@ ruleresourceConfig returns [EObject current=null]
        			$current, 
        			"name",
         		lv_name_2_0, 
-        		"ID");
+        		"CONFIGID");
 	    }
 
 )
@@ -1035,6 +1035,12 @@ ruleRelationship returns [EObject current=null]
 
 
 
+
+RULE_MYINT : '"' RULE_INT '"';
+
+RULE_IP : '"' RULE_INT '.' RULE_INT '.' RULE_INT '.' RULE_INT '"';
+
+RULE_CONFIGID : '"' ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9'|'/'|'.'|':'|'-')* '"';
 
 RULE_ID : '^'? ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
 

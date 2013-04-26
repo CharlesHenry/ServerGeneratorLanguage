@@ -152,14 +152,14 @@ public class ServerGeneratorLanguageGrammarAccess extends AbstractGrammarElement
 		private final Keyword cROOTDIRKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Keyword cEqualsSignKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
+		private final RuleCall cNameCONFIGIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
 		
 		//rootConfig:
 		//
-		//	"ROOTDIR" "=" name=ID;
+		//	"ROOTDIR" "=" name=CONFIGID;
 		public ParserRule getRule() { return rule; }
 
-		//"ROOTDIR" "=" name=ID
+		//"ROOTDIR" "=" name=CONFIGID
 		public Group getGroup() { return cGroup; }
 
 		//"ROOTDIR"
@@ -168,11 +168,11 @@ public class ServerGeneratorLanguageGrammarAccess extends AbstractGrammarElement
 		//"="
 		public Keyword getEqualsSignKeyword_1() { return cEqualsSignKeyword_1; }
 
-		//name=ID
+		//name=CONFIGID
 		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
 
-		//ID
-		public RuleCall getNameIDTerminalRuleCall_2_0() { return cNameIDTerminalRuleCall_2_0; }
+		//CONFIGID
+		public RuleCall getNameCONFIGIDTerminalRuleCall_2_0() { return cNameCONFIGIDTerminalRuleCall_2_0; }
 	}
 
 	public class HostNameConfigElements extends AbstractParserRuleElementFinder {
@@ -181,14 +181,14 @@ public class ServerGeneratorLanguageGrammarAccess extends AbstractGrammarElement
 		private final Keyword cHOSTNAMEKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Keyword cEqualsSignKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
+		private final RuleCall cNameIPTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
 		
 		//hostNameConfig:
 		//
-		//	"HOSTNAME" "=" name=ID;
+		//	"HOSTNAME" "=" name=IP;
 		public ParserRule getRule() { return rule; }
 
-		//"HOSTNAME" "=" name=ID
+		//"HOSTNAME" "=" name=IP
 		public Group getGroup() { return cGroup; }
 
 		//"HOSTNAME"
@@ -197,11 +197,11 @@ public class ServerGeneratorLanguageGrammarAccess extends AbstractGrammarElement
 		//"="
 		public Keyword getEqualsSignKeyword_1() { return cEqualsSignKeyword_1; }
 
-		//name=ID
+		//name=IP
 		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
 
-		//ID
-		public RuleCall getNameIDTerminalRuleCall_2_0() { return cNameIDTerminalRuleCall_2_0; }
+		//IP
+		public RuleCall getNameIPTerminalRuleCall_2_0() { return cNameIPTerminalRuleCall_2_0; }
 	}
 
 	public class PortConfigElements extends AbstractParserRuleElementFinder {
@@ -210,14 +210,14 @@ public class ServerGeneratorLanguageGrammarAccess extends AbstractGrammarElement
 		private final Keyword cPORTKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Keyword cEqualsSignKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
+		private final RuleCall cNameMYINTTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
 		
 		//portConfig:
 		//
-		//	"PORT" "=" name=ID;
+		//	"PORT" "=" name=MYINT;
 		public ParserRule getRule() { return rule; }
 
-		//"PORT" "=" name=ID
+		//"PORT" "=" name=MYINT
 		public Group getGroup() { return cGroup; }
 
 		//"PORT"
@@ -226,11 +226,11 @@ public class ServerGeneratorLanguageGrammarAccess extends AbstractGrammarElement
 		//"="
 		public Keyword getEqualsSignKeyword_1() { return cEqualsSignKeyword_1; }
 
-		//name=ID
+		//name=MYINT
 		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
 
-		//ID
-		public RuleCall getNameIDTerminalRuleCall_2_0() { return cNameIDTerminalRuleCall_2_0; }
+		//MYINT
+		public RuleCall getNameMYINTTerminalRuleCall_2_0() { return cNameMYINTTerminalRuleCall_2_0; }
 	}
 
 	public class LogConfigElements extends AbstractParserRuleElementFinder {
@@ -239,14 +239,14 @@ public class ServerGeneratorLanguageGrammarAccess extends AbstractGrammarElement
 		private final Keyword cLOGKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Keyword cEqualsSignKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
+		private final RuleCall cNameCONFIGIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
 		
 		//logConfig:
 		//
-		//	"LOG" "=" name=ID;
+		//	"LOG" "=" name=CONFIGID;
 		public ParserRule getRule() { return rule; }
 
-		//"LOG" "=" name=ID
+		//"LOG" "=" name=CONFIGID
 		public Group getGroup() { return cGroup; }
 
 		//"LOG"
@@ -255,11 +255,11 @@ public class ServerGeneratorLanguageGrammarAccess extends AbstractGrammarElement
 		//"="
 		public Keyword getEqualsSignKeyword_1() { return cEqualsSignKeyword_1; }
 
-		//name=ID
+		//name=CONFIGID
 		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
 
-		//ID
-		public RuleCall getNameIDTerminalRuleCall_2_0() { return cNameIDTerminalRuleCall_2_0; }
+		//CONFIGID
+		public RuleCall getNameCONFIGIDTerminalRuleCall_2_0() { return cNameCONFIGIDTerminalRuleCall_2_0; }
 	}
 
 	public class SqldbConfigElements extends AbstractParserRuleElementFinder {
@@ -268,14 +268,14 @@ public class ServerGeneratorLanguageGrammarAccess extends AbstractGrammarElement
 		private final Keyword cSQLDBKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Keyword cEqualsSignKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
+		private final RuleCall cNameCONFIGIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
 		
 		//sqldbConfig:
 		//
-		//	"SQLDB" "=" name=ID;
+		//	"SQLDB" "=" name=CONFIGID;
 		public ParserRule getRule() { return rule; }
 
-		//"SQLDB" "=" name=ID
+		//"SQLDB" "=" name=CONFIGID
 		public Group getGroup() { return cGroup; }
 
 		//"SQLDB"
@@ -284,11 +284,11 @@ public class ServerGeneratorLanguageGrammarAccess extends AbstractGrammarElement
 		//"="
 		public Keyword getEqualsSignKeyword_1() { return cEqualsSignKeyword_1; }
 
-		//name=ID
+		//name=CONFIGID
 		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
 
-		//ID
-		public RuleCall getNameIDTerminalRuleCall_2_0() { return cNameIDTerminalRuleCall_2_0; }
+		//CONFIGID
+		public RuleCall getNameCONFIGIDTerminalRuleCall_2_0() { return cNameCONFIGIDTerminalRuleCall_2_0; }
 	}
 
 	public class ResourceConfigElements extends AbstractParserRuleElementFinder {
@@ -297,14 +297,14 @@ public class ServerGeneratorLanguageGrammarAccess extends AbstractGrammarElement
 		private final Keyword cRESOURCEKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Keyword cEqualsSignKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
+		private final RuleCall cNameCONFIGIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
 		
 		//resourceConfig:
 		//
-		//	"RESOURCE" "=" name=ID;
+		//	"RESOURCE" "=" name=CONFIGID;
 		public ParserRule getRule() { return rule; }
 
-		//"RESOURCE" "=" name=ID
+		//"RESOURCE" "=" name=CONFIGID
 		public Group getGroup() { return cGroup; }
 
 		//"RESOURCE"
@@ -313,11 +313,11 @@ public class ServerGeneratorLanguageGrammarAccess extends AbstractGrammarElement
 		//"="
 		public Keyword getEqualsSignKeyword_1() { return cEqualsSignKeyword_1; }
 
-		//name=ID
+		//name=CONFIGID
 		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
 
-		//ID
-		public RuleCall getNameIDTerminalRuleCall_2_0() { return cNameIDTerminalRuleCall_2_0; }
+		//CONFIGID
+		public RuleCall getNameCONFIGIDTerminalRuleCall_2_0() { return cNameCONFIGIDTerminalRuleCall_2_0; }
 	}
 
 	public class DomainModelElements extends AbstractParserRuleElementFinder {
@@ -606,6 +606,9 @@ public class ServerGeneratorLanguageGrammarAccess extends AbstractGrammarElement
 	
 	
 	private ModelElements pModel;
+	private TerminalRule tMYINT;
+	private TerminalRule tIP;
+	private TerminalRule tCONFIGID;
 	private TypeElements pType;
 	private ServerElements pServer;
 	private ConfigElements pConfig;
@@ -673,6 +676,27 @@ public class ServerGeneratorLanguageGrammarAccess extends AbstractGrammarElement
 		return getModelAccess().getRule();
 	}
 
+	//terminal MYINT:
+	//
+	//	"\"" INT "\"";
+	public TerminalRule getMYINTRule() {
+		return (tMYINT != null) ? tMYINT : (tMYINT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "MYINT"));
+	} 
+
+	//terminal IP:
+	//
+	//	"\"" (INT "." INT "." INT "." INT) "\"";
+	public TerminalRule getIPRule() {
+		return (tIP != null) ? tIP : (tIP = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "IP"));
+	} 
+
+	//terminal CONFIGID:
+	//
+	//	"\"" ("a".."z" | "A".."Z" | "_") ("a".."z" | "A".."Z" | "_" | "0".."9" | "/" | "." | ":" | "-")* "\"";
+	public TerminalRule getCONFIGIDRule() {
+		return (tCONFIGID != null) ? tCONFIGID : (tCONFIGID = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "CONFIGID"));
+	} 
+
 	//Type:
 	//
 	//	Server | DomainModel;
@@ -708,7 +732,7 @@ public class ServerGeneratorLanguageGrammarAccess extends AbstractGrammarElement
 
 	//rootConfig:
 	//
-	//	"ROOTDIR" "=" name=ID;
+	//	"ROOTDIR" "=" name=CONFIGID;
 	public RootConfigElements getRootConfigAccess() {
 		return (pRootConfig != null) ? pRootConfig : (pRootConfig = new RootConfigElements());
 	}
@@ -719,7 +743,7 @@ public class ServerGeneratorLanguageGrammarAccess extends AbstractGrammarElement
 
 	//hostNameConfig:
 	//
-	//	"HOSTNAME" "=" name=ID;
+	//	"HOSTNAME" "=" name=IP;
 	public HostNameConfigElements getHostNameConfigAccess() {
 		return (pHostNameConfig != null) ? pHostNameConfig : (pHostNameConfig = new HostNameConfigElements());
 	}
@@ -730,7 +754,7 @@ public class ServerGeneratorLanguageGrammarAccess extends AbstractGrammarElement
 
 	//portConfig:
 	//
-	//	"PORT" "=" name=ID;
+	//	"PORT" "=" name=MYINT;
 	public PortConfigElements getPortConfigAccess() {
 		return (pPortConfig != null) ? pPortConfig : (pPortConfig = new PortConfigElements());
 	}
@@ -741,7 +765,7 @@ public class ServerGeneratorLanguageGrammarAccess extends AbstractGrammarElement
 
 	//logConfig:
 	//
-	//	"LOG" "=" name=ID;
+	//	"LOG" "=" name=CONFIGID;
 	public LogConfigElements getLogConfigAccess() {
 		return (pLogConfig != null) ? pLogConfig : (pLogConfig = new LogConfigElements());
 	}
@@ -752,7 +776,7 @@ public class ServerGeneratorLanguageGrammarAccess extends AbstractGrammarElement
 
 	//sqldbConfig:
 	//
-	//	"SQLDB" "=" name=ID;
+	//	"SQLDB" "=" name=CONFIGID;
 	public SqldbConfigElements getSqldbConfigAccess() {
 		return (pSqldbConfig != null) ? pSqldbConfig : (pSqldbConfig = new SqldbConfigElements());
 	}
@@ -763,7 +787,7 @@ public class ServerGeneratorLanguageGrammarAccess extends AbstractGrammarElement
 
 	//resourceConfig:
 	//
-	//	"RESOURCE" "=" name=ID;
+	//	"RESOURCE" "=" name=CONFIGID;
 	public ResourceConfigElements getResourceConfigAccess() {
 		return (pResourceConfig != null) ? pResourceConfig : (pResourceConfig = new ResourceConfigElements());
 	}

@@ -23,7 +23,6 @@ import org.xtext.example.mydsl.serverGeneratorLanguage.Server;
 
 /**
  * Generates code from your model files on save.
- * 
  * see http://www.eclipse.org/Xtext/documentation.html#TutorialCodeGeneration
  */
 @SuppressWarnings("all")
@@ -305,7 +304,8 @@ public class ServerGeneratorLanguageGenerator implements IGenerator {
           if (_contentEquals) {
             _builder.append("sgl.www.rootdir=");
             String _name_1 = c.getName();
-            _builder.append(_name_1, "");
+            CharSequence _removeQuote = this.removeQuote(_name_1);
+            _builder.append(_removeQuote, "");
           }
         }
         _builder.newLineIfNotEmpty();
@@ -316,7 +316,8 @@ public class ServerGeneratorLanguageGenerator implements IGenerator {
           if (_contentEquals_1) {
             _builder.append("sgl.www.hostname=");
             String _name_3 = c.getName();
-            _builder.append(_name_3, "");
+            CharSequence _removeQuote_1 = this.removeQuote(_name_3);
+            _builder.append(_removeQuote_1, "");
           }
         }
         _builder.newLineIfNotEmpty();
@@ -327,7 +328,8 @@ public class ServerGeneratorLanguageGenerator implements IGenerator {
           if (_contentEquals_2) {
             _builder.append("sgl.www.port=");
             String _name_5 = c.getName();
-            _builder.append(_name_5, "");
+            CharSequence _removeQuote_2 = this.removeQuote(_name_5);
+            _builder.append(_removeQuote_2, "");
           }
         }
         _builder.newLineIfNotEmpty();
@@ -338,7 +340,8 @@ public class ServerGeneratorLanguageGenerator implements IGenerator {
           if (_contentEquals_3) {
             _builder.append("sgl.www.log=");
             String _name_7 = c.getName();
-            _builder.append(_name_7, "");
+            CharSequence _removeQuote_3 = this.removeQuote(_name_7);
+            _builder.append(_removeQuote_3, "");
           }
         }
         _builder.newLineIfNotEmpty();
@@ -349,7 +352,8 @@ public class ServerGeneratorLanguageGenerator implements IGenerator {
           if (_contentEquals_4) {
             _builder.append("sgl.www.sqlitedb=");
             String _name_9 = c.getName();
-            _builder.append(_name_9, "");
+            CharSequence _removeQuote_4 = this.removeQuote(_name_9);
+            _builder.append(_removeQuote_4, "");
           }
         }
         _builder.newLineIfNotEmpty();
@@ -360,13 +364,21 @@ public class ServerGeneratorLanguageGenerator implements IGenerator {
           if (_contentEquals_5) {
             _builder.append("sgl.www.<table_name>s_images=");
             String _name_11 = c.getName();
-            _builder.append(_name_11, "");
+            CharSequence _removeQuote_5 = this.removeQuote(_name_11);
+            _builder.append(_removeQuote_5, "");
           }
         }
         _builder.newLineIfNotEmpty();
       }
     }
     return _builder;
+  }
+  
+  public CharSequence removeQuote(final String inp) {
+    int _length = inp.length();
+    int _minus = (_length - 1);
+    CharSequence _subSequence = inp.subSequence(1, _minus);
+    return _subSequence;
   }
   
   public String toJavaType(final String inp) {

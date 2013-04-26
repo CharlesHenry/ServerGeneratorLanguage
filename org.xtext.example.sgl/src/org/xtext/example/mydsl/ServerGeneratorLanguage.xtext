@@ -1,9 +1,13 @@
 grammar org.xtext.example.mydsl.ServerGeneratorLanguage with org.eclipse.xtext.common.Terminals
-
+import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 generate serverGeneratorLanguage "http://www.xtext.org/example/mydsl/ServerGeneratorLanguage"
 
 Model:
   (types+=Type)*;
+
+terminal MYINT returns ecore::EString: ('"') (INT) ('"');
+terminal IP returns ecore::EString: ('"') (INT '.' INT '.' INT '.' INT) ('"');
+terminal CONFIGID returns ecore::EString: ('"') ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9'|'/'|'.'|':'|'-')* ('"');
 
 Type:
   Server | DomainModel;
@@ -19,22 +23,22 @@ Config:
 	rootConfig | hostNameConfig | portConfig | logConfig | sqldbConfig | resourceConfig;
 
 rootConfig:
-	"ROOTDIR" "=" name=ID;
+	"ROOTDIR" "=" name=CONFIGID;
 	
 hostNameConfig:
-	"HOSTNAME" "=" name=ID;
+	"HOSTNAME" "=" name=IP;
 	
 portConfig:
-	"PORT" "=" name=ID;
+	"PORT" "=" name=MYINT;
 	
 logConfig:
-	"LOG" "=" name=ID;
+	"LOG" "=" name=CONFIGID;
 	
 sqldbConfig:
-	"SQLDB" "=" name=ID;
+	"SQLDB" "=" name=CONFIGID;
 	
 resourceConfig:
-	"RESOURCE" "=" name=ID;
+	"RESOURCE" "=" name=CONFIGID;
 
 DomainModel:
 	"DOMAINMODEL" name=ID "{"
