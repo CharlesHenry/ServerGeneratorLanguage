@@ -362,7 +362,7 @@ public class ServerGeneratorLanguageGenerator implements IGenerator {
           String _name_10 = _eClass_5.getName();
           boolean _contentEquals_5 = _name_10.contentEquals("resourceConfig");
           if (_contentEquals_5) {
-            _builder.append("sgl.www.<table_name>s_images=");
+            _builder.append("sgl.www.<table_name>_images=");
             String _name_11 = c.getName();
             CharSequence _removeQuote_5 = this.removeQuote(_name_11);
             _builder.append(_removeQuote_5, "");

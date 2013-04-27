@@ -69,7 +69,6 @@ class ServerGeneratorLanguageGenerator implements IGenerator {
 		    	e.name.toFirstUpper+"Dao"+".java", //class name
 		    	e.compileSGLEntityDao)
 			}
-		
 		fsa.generateFile("src"+"/"+"com"+"/"+"pallyup"+"/"+"sgl"+"/"+"core"+"/"+"data"+"/"+ //package "com.pallyup.sgl.core.data"
 		    	"SGLSqlProvider.java", //class name
 		    	compileSGLSqlProvider)
@@ -85,7 +84,6 @@ class ServerGeneratorLanguageGenerator implements IGenerator {
 		fsa.generateFile("src"+"/"+"com"+"/"+"pallyup"+"/"+"sgl"+"/"+"server"+"/"+"core"+"/"+ //package "com.pallyup.sgl.server.core"
 		    	"Result.java", //class name
 		    	compileResult)
-			
 	}
 	
 	def compileServer(Server s) ''' 
@@ -97,7 +95,7 @@ class ServerGeneratorLanguageGenerator implements IGenerator {
     	«IF c.eClass.name.contentEquals('portConfig')»sgl.www.port=«c.name.removeQuote()»«ENDIF»
     	«IF c.eClass.name.contentEquals('logConfig')»sgl.www.log=«c.name.removeQuote()»«ENDIF»
     	«IF c.eClass.name.contentEquals('sqldbConfig')»sgl.www.sqlitedb=«c.name.removeQuote()»«ENDIF»
-    	«IF c.eClass.name.contentEquals('resourceConfig')»sgl.www.<table_name>s_images=«c.name.removeQuote()»«ENDIF»
+    	«IF c.eClass.name.contentEquals('resourceConfig')»sgl.www.<table_name>_images=«c.name.removeQuote()»«ENDIF»
     «ENDFOR»
 	'''
 	
